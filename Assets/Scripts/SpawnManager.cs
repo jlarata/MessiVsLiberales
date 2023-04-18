@@ -9,9 +9,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemy01;
     //public GameObject powerup;
     [SerializeField]
-    private float spawnRangeY = 3;
+    private float spawnRangeY = 5f;
     [SerializeField]
-    private float spawnRangeX = 7;
+    private float spawnRangeX = 7f;
 
     [SerializeField]
     float spawnPosX;
@@ -22,7 +22,17 @@ public class SpawnManager : MonoBehaviour
     private Vector3 verticalRandomPos;
 
     [SerializeField]
+    private Vector3 horizontalRandomPos;
+
+    [SerializeField]
     private int leftOrRight;
+
+    [SerializeField]
+    private int upOrDown;
+
+    [SerializeField]
+    int totalEnemiesCount;
+    
     //public int enemy01Count;
     //public int round = 0;
     //public bool stap = false;
@@ -30,10 +40,13 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnRangeY = 4f;
+        spawnRangeX = 7f;
+
         
-        SpawnEnemy01();
+        StartCoroutine(SpawnEnemies());
         
-//        GenerateSpawnPosition();
+        
     }
 
     // Update is called once per frame
@@ -50,7 +63,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-//generates random vertical spawns either left or right of screen
+//generates vertical random position either left or right of screen. to be used by spawner
 
     private Vector3 GenerateVerticalSpawnPosition()
     {
@@ -72,21 +85,64 @@ public class SpawnManager : MonoBehaviour
         return verticalRandomPos;
     }
 
-// FALTA hacer el horizontal
+
+//generates horizontal random position either top or botton of screen. to be used by spawner
+
+private Vector3 GenerateHorizontalSpawnPosition()
+    {
+        upOrDown = Random.Range(1, 3);
+        switch(upOrDown)
+        {
+            case 1:
+            spawnPosX = Random.Range(-spawnPosX, spawnPosX);
+            spawnPosY = -spawnRangeY;
+            horizontalRandomPos =  new Vector3(spawnPosX, spawnPosY, -2.02f);
+            break;
+
+            case 2:
+            spawnPosX = Random.Range(-spawnPosX, spawnPosX);
+            spawnPosY = spawnRangeY;
+            horizontalRandomPos =  new Vector3(spawnPosX, spawnPosY, -2.02f);
+            break;
+        }
+
+        return horizontalRandomPos;
+    }
+//FALTA
 // Y meter un método con delay que repita el spawn.
 
-//cambiar los if del método de generacion vertical con un switch - case? ya deberia ser más facil porque resolví el problema que era otro (volvía a meter los tipos en el método que ya estaban definidos antes)
 
 
-    void SpawnEnemy01()
+    IEnumerator SpawnEnemies()
+    {
+        //initializer equals totalEnemiesCount, the for loop stops when totalEnemies reaches 20.
+        for(int i = totalEnemiesCount; totalEnemiesCount < 20; i++)
+        {
+            SpawnEnemy01();
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+     void SpawnEnemy01()
+     //im saving this old methods because they could be useful if i want multiple enemies to spam at once.
 //    void SpawnEnemy01(int enemies01ToSpawn)
     {
 //        for (int i = 0; i < enemies01ToSpawn; i++)
 //        
+            //every loop will generate two vector3 and two enemies, one vertical and one horizontal.
             GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+
             Instantiate(enemy01, verticalRandomPos, enemy01.transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemy01, horizontalRandomPos, enemy01.transform.rotation);
+            totalEnemiesCount++;
 //        }
     }
+
+
+
+
 
     //void SpawnPowerup()
     //{
