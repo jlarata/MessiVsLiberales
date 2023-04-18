@@ -55,18 +55,18 @@ public class SpawnManager : MonoBehaviour
     private Vector3 GenerateVerticalSpawnPosition()
     {
         leftOrRight = Random.Range(1, 3);
-
-        if (leftOrRight == 1)
+        switch(leftOrRight)
         {
+            case 1:
             spawnPosX = -spawnRangeX;
             spawnPosY = Random.Range(-spawnRangeY, spawnRangeY);
             verticalRandomPos = new Vector3(spawnPosX, spawnPosY, -2.02f);
-        } 
-        if (leftOrRight == 2)
-        {
+            break;
+            case 2:
             spawnPosX = spawnRangeX;
             spawnPosY = Random.Range(-spawnRangeY, spawnRangeY);
             verticalRandomPos = new Vector3(spawnPosX, spawnPosY, -2.02f);
+            break;
         }
 
         return verticalRandomPos;
