@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
     private Vector3 bgStartPos;
     
+
+    //had to add "G"background to prevent errors with the "background" element of the UI sliders
     [SerializeField]
-    private GameObject background;
+    private GameObject gbackground;
     
     private float repeatWidth;
     private float repeatHeight;
@@ -23,10 +27,10 @@ public class GameController : MonoBehaviour
     {
         speed = 1f;
 
-        background = GameObject.Find("Background");
-        bgStartPos = background.transform.position;
-        repeatWidth = background.GetComponent<Renderer>().bounds.size.x / 3;
-        repeatHeight = background.GetComponent<Renderer>().bounds.size.y / 3;
+        gbackground = GameObject.Find("GBackground");
+        bgStartPos = gbackground.transform.position;
+        repeatWidth = gbackground.GetComponent<Renderer>().bounds.size.x / 3;
+        repeatHeight = gbackground.GetComponent<Renderer>().bounds.size.y / 3;
     }
 
     // Update is called once per frame
@@ -34,22 +38,22 @@ public class GameController : MonoBehaviour
     {
         
         //infinite background
-        if ((background.transform.position.x < bgStartPos.x - repeatWidth) | (background.transform.position.x > bgStartPos.x + repeatWidth))
+        if ((gbackground.transform.position.x < bgStartPos.x - repeatWidth) | (gbackground.transform.position.x > bgStartPos.x + repeatWidth))
         {
-            background.transform.Translate(-background.transform.position.x, 0, 0);
+            gbackground.transform.Translate(-gbackground.transform.position.x, 0, 0);
             //background.transform.position = bgStartPos;
         }
-        if ((background.transform.position.y < bgStartPos.y - repeatHeight) | (background.transform.position.y > bgStartPos.y + repeatHeight))
+        if ((gbackground.transform.position.y < bgStartPos.y - repeatHeight) | (gbackground.transform.position.y > bgStartPos.y + repeatHeight))
         {
-            background.transform.Translate(0, 0, -background.transform.position.y);
+            gbackground.transform.Translate(0, 0, -gbackground.transform.position.y);
         }
 
         //movement controller
         horizontalInput = Input.GetAxis("Horizontal");
-        background.transform.Translate(Vector3.right * -horizontalInput * Time.deltaTime * speed);
+        gbackground.transform.Translate(Vector3.right * -horizontalInput * Time.deltaTime * speed);
 
         verticalInput = Input.GetAxis("Vertical");
-        background.transform.Translate(Vector3.forward * -verticalInput * Time.deltaTime * speed);
+        gbackground.transform.Translate(Vector3.forward * -verticalInput * Time.deltaTime * speed);
 
 
 
