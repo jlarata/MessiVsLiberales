@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1f;
+        speed = 1.0f;
 
         gbackground = GameObject.Find("GBackground");
         bgStartPos = gbackground.transform.position;

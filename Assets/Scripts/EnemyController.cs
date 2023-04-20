@@ -10,8 +10,13 @@ public class EnemyController : MonoBehaviour
     //private CircleCollider2D enemyCC2D;
     [SerializeField]
     private Rigidbody2D enemyRb2D;
+
+    public float enemyDamage;
+
     [SerializeField]
     private GameObject messi;
+    
+    public float messiVelocity;
 
     private float horizontalInput;
     private float verticalInput;
@@ -20,12 +25,13 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        speed = 0.2f;
+        enemyDamage = 0.15f;
+        speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         enemyRb2D = GetComponent<Rigidbody2D>();
         
-        messi = GameObject.Find("Messi");    
+        messi = GameObject.Find("Messi");  
+        messiVelocity = 2.0f;  
         
     }
 
@@ -37,15 +43,14 @@ public class EnemyController : MonoBehaviour
         //enemyRb2D.AddForce(lookDirection * speed);
 
 
-        //new method, using transform position with a Vector3.Lerp (so enemies dont push too much eachother)
-        transform.position = Vector3.Lerp(transform.position, messi.transform.position, Time.deltaTime * speed);
-
+        //new method, using transform position with a Vector3.MoveTowards (so enemies dont push too much eachother)
+        transform.position = Vector3.MoveTowards(transform.position, messi.transform.position, Time.deltaTime * speed);
 
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(-horizontalInput * Time.deltaTime * speed * 1.5f, 0, 0);
+        transform.Translate(-horizontalInput * Time.deltaTime * speed * messiVelocity, 0, 0);
 
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(0, -verticalInput * Time.deltaTime * speed * 1.5f, 0);
+        transform.Translate(0, -verticalInput * Time.deltaTime * speed * messiVelocity, 0);
 
 
     }
