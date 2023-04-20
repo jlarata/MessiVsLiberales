@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4678304031824846197}
   - component: {fileID: 4678304031824846196}
-  - component: {fileID: -5282365486327165646}
   - component: {fileID: -160115600780165631}
   - component: {fileID: 7905215944460765866}
   - component: {fileID: 1029931764635389015}
+  - component: {fileID: 383235479754106528}
   m_Layer: 7
   m_Name: Enemy01
   m_TagString: Untagged
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5282365486327165646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4678304031824846195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e37349b759cf53549f72959b812b69a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  enemyRb2D: {fileID: 0}
-  messi: {fileID: 0}
-  messiVelocity: 0
 --- !u!50 &-160115600780165631
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +148,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messi: {fileID: 0}
+  messiController: {fileID: 0}
+--- !u!114 &383235479754106528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678304031824846195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604d7482725da2451b83f2a155665056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  enemyRb2D: {fileID: 0}
+  enemyDamage: 0
+  messi: {fileID: 0}
+  messiVelocity: 0

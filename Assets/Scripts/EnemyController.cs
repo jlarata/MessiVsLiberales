@@ -9,17 +9,17 @@ public class EnemyController : MonoBehaviour
     //[SerializeField]
     //private CircleCollider2D enemyCC2D;
     [SerializeField]
-    private Rigidbody2D enemyRb2D;
+    protected Rigidbody2D enemyRb2D;
 
     public float enemyDamage;
 
     [SerializeField]
-    private GameObject messi;
+    protected GameObject messi;
     
     public float messiVelocity;
 
-    private float horizontalInput;
-    private float verticalInput;
+    protected float horizontalInput;
+    protected float verticalInput;
 
 
     // Start is called before the first frame update
