@@ -54,4 +54,9 @@ public class EnemyController : MonoBehaviour
 
 
     }
+
+    public void Autodestroy()
+    {
+        Destroy(gameObject);
+    }
 }

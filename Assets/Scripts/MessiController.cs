@@ -11,12 +11,21 @@ public class MessiController : MonoBehaviour
     public Slider hpSlider;
     public float maxHp;
 
+    [SerializeField]
+    protected GameObject virtualRotation;
+
+    
+
+    public GameObject slash;
+
     // Start is called before the first frame update
     void Start()
     {
         hp = 10.0f;
         hpSlider.maxValue = hp;
         hpSlider.value = 10.0f;
+        virtualRotation = transform.Find("VRotation").gameObject;
+        //virtualRotationScript = virtualRotation.GetComponent<VirtualRotation>();
         
 
     }
@@ -25,11 +34,18 @@ public class MessiController : MonoBehaviour
     void Update()
     {
 
-
-        //test function, with no use in the game.
+        //test function. fire first weapon Slash.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PerderHp(0.5f);
+            switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
+            {
+            case 9:
+            Instantiate(slash, transform.position + new Vector3(-0.5f,0.5f,0), transform.rotation);
+            break;
+            case 3: 
+            Instantiate(slash, transform.position + new Vector3(0.5f,0.5f,0), transform.rotation);
+            break;
+            }
         }
     }
     
@@ -47,6 +63,7 @@ public class MessiController : MonoBehaviour
             Debug.Log("le game overino");
         }
     }
+
 
 
 }

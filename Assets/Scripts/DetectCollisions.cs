@@ -32,6 +32,14 @@ public class DetectCollisions : MonoBehaviour
         {
             messiController.PerderHp(thisEnemyDamage);
         }
+
+        if (other.gameObject.tag == "Enemy")
+        {
+          //no está generándose colision entre weapons y enemies. revisar
+            Debug.Log("colision detectada con "+other.name);
+            other.gameObject.GetComponent<Enem01BasicLiberal>().Autodestroy();
+            
+        }
         
     }
     
