@@ -39,8 +39,9 @@
      <Compile Include="Assets/Scripts/SpawnManager.cs" />
      <Compile Include="Assets/Scripts/MessiController.cs" />
      <Compile Include="Assets/Scripts/MainManager.cs" />
-     <Compile Include="Assets/Scripts/GameController.cs" />
      <Compile Include="Assets/Scripts/EnemyController.cs" />
+     <Compile Include="Assets/Scripts/GameController.cs" />
+     <Compile Include="Assets/Scripts/DetectCollisions.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -811,6 +812,15 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Linux-x86_64">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.SysrootPackage.Editor">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
