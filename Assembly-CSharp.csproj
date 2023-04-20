@@ -37,14 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/SpawnManager.cs" />
+     <Compile Include="Assets/Scripts/DetectCollisions.cs" />
      <Compile Include="Assets/Scripts/MessiController.cs" />
      <Compile Include="Assets/Scripts/MainManager.cs" />
      <Compile Include="Assets/Scripts/EnemyController.cs" />
      <Compile Include="Assets/Scripts/GameController.cs" />
-<<<<<<< HEAD
-=======
-     <Compile Include="Assets/Scripts/DetectCollisions.cs" />
->>>>>>> Develop_Enemies
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -723,6 +720,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -750,8 +750,8 @@
     <Reference Include="Unity.2D.Path.Editor">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+    <Reference Include="Unity.Toolchain.Linux-x86_64">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
@@ -765,14 +765,17 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
@@ -815,12 +818,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Sysroot.Linux_x86_64">
-        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Toolchain.Linux-x86_64">
-        <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
         <HintPath>/media/j/6C044F92044F5E68/Files/Unity/Projects/MessiVsLiberales/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>

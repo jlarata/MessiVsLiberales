@@ -32,6 +32,8 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField]
     int totalEnemiesCount;
+
+    private bool isSpawning;
     
     //public int enemy01Count;
     //public int round = 0;
@@ -42,9 +44,8 @@ public class SpawnManager : MonoBehaviour
     {
         spawnRangeY = 4f;
         spawnRangeX = 7f;
-
         
-        StartCoroutine(SpawnEnemies());
+        
         
         
     }
@@ -52,6 +53,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (totalEnemiesCount < 80 && isSpawning == false)
+        {
+            StartCoroutine(SpawnEnemies());
+        }
 //        {
 //            SpawnHolandaWave(ronda);
 //            ronda +=1;
@@ -108,19 +113,20 @@ private Vector3 GenerateHorizontalSpawnPosition()
 
         return horizontalRandomPos;
     }
-//FALTA
-// Y meter un método con delay que repita el spawn.
-
 
 
     IEnumerator SpawnEnemies()
     {
+        //old method for counting total enemies in screen before spawning more.
         //initializer equals totalEnemiesCount, the for loop stops when totalEnemies reaches 20.
-        for(int i = totalEnemiesCount; totalEnemiesCount < 20; i++)
-        {
-            SpawnEnemy01();
+        //for(int i = totalEnemiesCount; totalEnemiesCount < 20; i++)
+        //{
+            isSpawning = true;
             yield return new WaitForSeconds(1);
-        }
+            SpawnEnemy01();
+            isSpawning = false;
+            
+        //}
     }
 
      void SpawnEnemy01()
