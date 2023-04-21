@@ -7,6 +7,7 @@ public class Enem01BasicLiberal : EnemyController
     // Start is called before the first frame update
     void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager");
         enemyDamage = 0.5f;
         enemyHp = 1;
         speed = 0.5f;

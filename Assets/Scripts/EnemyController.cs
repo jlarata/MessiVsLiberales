@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     protected GameObject messi;
     
+    [SerializeField]
+    protected GameObject spawnManager;
+
     public float messiVelocity;
 
     protected float horizontalInput;
@@ -28,7 +31,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnManager = GameObject.Find("SpawnManager");
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         enemyRb2D = GetComponent<Rigidbody2D>();
@@ -58,6 +61,7 @@ public class EnemyController : MonoBehaviour
         if (enemyHp <= 0)
         {
             Destroy(gameObject);
+            spawnManager.GetComponent<SpawnManager>().totalEnemiesCount--;
         }
     }
 
@@ -66,7 +70,7 @@ public class EnemyController : MonoBehaviour
         enemyHp -= weaponDamage;
     }
 
-    //why do i have this function for? maybe copied from spawnmanager without noticing it.
+    //why do i have this function for? maybe copied from spawnManager without noticing it.
     public void Autodestroy()
     {
         Destroy(gameObject);

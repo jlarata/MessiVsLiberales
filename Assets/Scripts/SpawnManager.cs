@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
     private int upOrDown;
 
     [SerializeField]
-    int totalEnemiesCount;
+    public int totalEnemiesCount;
 
     private bool isSpawning;
     

@@ -11,8 +11,11 @@ public class MessiController : MonoBehaviour
     public Slider hpSlider;
     public float maxHp;
 
+
+    //varios campos como este los hice públicos para llamarlos desde otros objetos
+    //ideales para protegerlos y meterles getters y setters.
     [SerializeField]
-    protected GameObject virtualRotation;
+    public GameObject virtualRotation;
 
     
 
@@ -40,10 +43,10 @@ public class MessiController : MonoBehaviour
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
             case 9:
-            Instantiate(slash, transform.position + new Vector3(-0.5f,0.5f,0), transform.rotation);
+            Instantiate(slash, transform.position + new Vector3(-0.3f,0.5f,0), transform.rotation);
             break;
             case 3: 
-            Instantiate(slash, transform.position + new Vector3(0.5f,0.5f,0), transform.rotation);
+            Instantiate(slash, transform.position + new Vector3(0.3f,0.5f,0), transform.rotation);
             break;
             }
         }
