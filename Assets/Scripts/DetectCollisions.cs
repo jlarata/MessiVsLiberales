@@ -38,7 +38,6 @@ public class DetectCollisions : MonoBehaviour
         {
           GetComponent<EnemyController>().loseHp(other.GetComponent<WeaponController>().weaponDamage);
           //other.GetComponent<WeaponController>
-            Debug.Log("colision detectada con "+other.name);
             
             //Destroy(gameObject);
             //other.gameObject.GetComponent<Enem01BasicLiberal>().Autodestroy();

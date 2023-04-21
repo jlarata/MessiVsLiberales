@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     protected Rigidbody2D enemyRb2D;
     
     public float enemyDamage;
+    public float enemyExp;
 
     [SerializeField]
     protected float enemyHp;
@@ -22,16 +23,22 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     protected GameObject spawnManager;
 
+    [SerializeField]
+    protected GameObject gameController;
+    
     public float messiVelocity;
 
     protected float horizontalInput;
     protected float verticalInput;
 
 
-    // Start is called before the first frame update
     void Start()
     {
+        //remember: all this variables needs to be inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
+        gameController = GameObject.Find("GameController");
+
+
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         enemyRb2D = GetComponent<Rigidbody2D>();
@@ -62,6 +69,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
             spawnManager.GetComponent<SpawnManager>().totalEnemiesCount--;
+            gameController.GetComponent<GameController>().ExpUp(enemyExp);
         }
     }
 

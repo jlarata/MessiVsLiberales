@@ -8,7 +8,11 @@ public class Enem01BasicLiberal : EnemyController
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager");
+        gameController = GameObject.Find("Game Controller");
+
+
         enemyDamage = 0.5f;
+        enemyExp = 1.0f;
         enemyHp = 1;
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
