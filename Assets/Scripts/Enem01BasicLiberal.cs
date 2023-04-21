@@ -7,7 +7,8 @@ public class Enem01BasicLiberal : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        enemyDamage = 0.15f;
+        enemyDamage = 0.5f;
+        enemyHp = 1;
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         enemyRb2D = GetComponent<Rigidbody2D>();
@@ -22,4 +23,6 @@ public class Enem01BasicLiberal : EnemyController
     {
         
     }
+
+
 }

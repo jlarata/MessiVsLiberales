@@ -10,8 +10,11 @@ public class EnemyController : MonoBehaviour
     //private CircleCollider2D enemyCC2D;
     [SerializeField]
     protected Rigidbody2D enemyRb2D;
-
+    
     public float enemyDamage;
+
+    [SerializeField]
+    protected float enemyHp;
 
     [SerializeField]
     protected GameObject messi;
@@ -25,7 +28,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyDamage = 0.15f;
+        
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         enemyRb2D = GetComponent<Rigidbody2D>();
@@ -52,9 +55,18 @@ public class EnemyController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(0, -verticalInput * Time.deltaTime * speed * messiVelocity, 0);
 
-
+        if (enemyHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
+    public void loseHp(float weaponDamage)
+    {
+        enemyHp -= weaponDamage;
+    }
+
+    //why do i have this function for? maybe copied from spawnmanager without noticing it.
     public void Autodestroy()
     {
         Destroy(gameObject);

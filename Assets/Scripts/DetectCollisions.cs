@@ -9,6 +9,7 @@ public class DetectCollisions : MonoBehaviour
   //public GameObject gameObjectQueManejeElAudio;
     public GameObject messi;
     public MessiController messiController;
+    [SerializeField]
     private float thisEnemyDamage;
 
     void Start()
@@ -33,11 +34,14 @@ public class DetectCollisions : MonoBehaviour
             messiController.PerderHp(thisEnemyDamage);
         }
 
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Weapons")
         {
-          //no está generándose colision entre weapons y enemies. revisar
+          GetComponent<EnemyController>().loseHp(other.GetComponent<WeaponController>().weaponDamage);
+          //other.GetComponent<WeaponController>
             Debug.Log("colision detectada con "+other.name);
-            other.gameObject.GetComponent<Enem01BasicLiberal>().Autodestroy();
+            
+            //Destroy(gameObject);
+            //other.gameObject.GetComponent<Enem01BasicLiberal>().Autodestroy();
             
         }
         
