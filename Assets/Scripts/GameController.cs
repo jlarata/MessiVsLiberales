@@ -39,6 +39,15 @@ public class GameController : MonoBehaviour
     [SerializeField] 
     protected Slider expSlider;
 
+    [SerializeField]
+    protected GameObject pauseMenu;
+    [SerializeField]
+    protected GameObject pauseText;
+
+
+    [SerializeField]
+    protected bool pausanias;    
+
     void Start()
     {
         speed = 1.0f;
@@ -53,6 +62,10 @@ public class GameController : MonoBehaviour
 
         maxExp = 10f;
         gBackground = GameObject.Find("GBackground");
+        pauseText = GameObject.Find("Pause Text");
+        pauseText.SetActive(false);
+        pauseMenu = GameObject.Find("Pause Menu");
+        pauseMenu.SetActive(false);
         bgStartPos = gBackground.transform.position;
         repeatWidth = gBackground.GetComponent<Renderer>().bounds.size.x / 3;
         repeatHeight = gBackground.GetComponent<Renderer>().bounds.size.y / 3;
@@ -120,6 +133,11 @@ public class GameController : MonoBehaviour
             xTime = 0f;
             minutes++;
         }
+        
+        if (Input.GetKeyDown(KeyCode.P) | Input.GetKeyDown(KeyCode.Escape))
+        {
+            PausaniasFunction();
+        }
     }
 
     public void ExpUp(float expGain)
@@ -152,6 +170,23 @@ public class GameController : MonoBehaviour
     timeDisplay.text = minutes.ToString("00")+":"+iSeconds.ToString("00");
     }
 
+    void PausaniasFunction()
+    {
+        if (!pausanias)
+        {
+            pausanias = true;
+            pauseMenu.SetActive(true);
+            pauseText.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pausanias = false;
+            pauseMenu.SetActive(false);
+            pauseText.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
 
     
 
