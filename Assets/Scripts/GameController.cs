@@ -29,22 +29,28 @@ public class GameController : MonoBehaviour
     public int lvl;
 
     public TMP_Text lvlAndExp;
-    
-    //[SerializeField]    
-    //protected string lvlAndExpText;
+    public TMP_Text timeDisplay;
+    //construir variables segundo, minuto, etc y hacerlas funcionar?
+    public float seconds;
+    public float xTime;
+    public int iSeconds;
+    public int minutes;
 
     [SerializeField] 
     protected Slider expSlider;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         speed = 1.0f;
 
         lvl = 1;
         exp = 0f;
+        seconds = 0f;
+        xTime = 0f;
+        iSeconds = 0;
+        minutes = 0;
         
+
         maxExp = 10f;
         gBackground = GameObject.Find("GBackground");
         bgStartPos = gBackground.transform.position;
@@ -56,8 +62,11 @@ public class GameController : MonoBehaviour
 
         
         lvlAndExp = GameObject.Find("LvlAndExpDisplay").GetComponent<TMP_Text>();
+        timeDisplay = GameObject.Find("TimeDisplay").GetComponent<TMP_Text>();
         
         lvlAndExp.text = "Level: " +lvl + " | Exp: " +exp;
+        timeDisplay.text = minutes+":"+iSeconds;
+
 
         expSlider = GameObject.Find("ExpSlider").GetComponent<Slider>();
         expSlider.maxValue = maxExp;
@@ -97,9 +106,20 @@ public class GameController : MonoBehaviour
             LvlUp(1);
         }
 
-        //if (transform.position.x < startPos.x - repeatWidth) {
-        //    transform.position = startPos;
-        //}
+
+        seconds += Time.deltaTime;
+        if (seconds-xTime >=1)
+        {
+            xTime++;
+            UpdateTime();
+        }
+        if (seconds >= 59f)
+        {
+            seconds = 0f;
+            iSeconds = 0;
+            xTime = 0f;
+            minutes++;
+        }
     }
 
     public void ExpUp(float expGain)
@@ -124,5 +144,15 @@ public class GameController : MonoBehaviour
    
     lvlAndExp.text = "Level: " +lvl + " | Exp: " +exp;
     }
+
+    public void UpdateTime()
+    {
+    iSeconds = (int)seconds;
     
+    timeDisplay.text = minutes.ToString("00")+":"+iSeconds.ToString("00");
+    }
+
+
+    
+
 }
