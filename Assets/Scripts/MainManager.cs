@@ -21,6 +21,7 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -32,21 +33,6 @@ public class MainManager : MonoBehaviour
         //LoadHighScore();
     }
 
-
-    public void StartNew()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Exit()
-    {
-
-        #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
-        #else
-            Application.Quit(); //original code to quit unity.
-        #endif
-    }
 
     // old highscrore system
     //[System.Serializable]

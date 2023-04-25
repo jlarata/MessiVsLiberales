@@ -11,7 +11,7 @@ public class Enem01BasicLiberal : EnemyController
         gameController = GameObject.Find("Game Controller");
 
 
-        enemyDamage = 0.5f;
+        enemyDamage = 2.5f;
         enemyExp = 1.0f;
         enemyHp = 1;
         speed = 0.5f;

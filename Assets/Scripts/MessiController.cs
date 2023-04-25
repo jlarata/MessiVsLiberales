@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MessiController : MonoBehaviour
 {
     
@@ -17,10 +18,14 @@ public class MessiController : MonoBehaviour
     [SerializeField]
     public GameObject virtualRotation;
 
+    [SerializeField]
+    protected GameObject gameController;
+
     
 
     public GameObject slash;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +34,7 @@ public class MessiController : MonoBehaviour
         hpSlider.value = 10.0f;
         virtualRotation = transform.Find("VRotation").gameObject;
         //virtualRotationScript = virtualRotation.GetComponent<VirtualRotation>();
-        
+        gameController = GameObject.Find("Game Controller");
 
     }
 
@@ -62,8 +67,8 @@ public class MessiController : MonoBehaviour
         hpSlider.value = hp;
 
         } else {
-            //worldText.text = "la re viviste máquina. geim over";
             Debug.Log("le game overino");
+            gameController.GetComponent<GameController>().GameOver();
         }
     }
 

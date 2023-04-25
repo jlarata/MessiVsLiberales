@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameController : MonoBehaviour
 {
-    
     
 
     //had to add "G"background to prevent errors with the "background" element of the UI sliders
@@ -43,13 +47,19 @@ public class GameController : MonoBehaviour
     protected GameObject pauseMenu;
     [SerializeField]
     protected GameObject pauseText;
+    [SerializeField]
+    protected GameObject exitButton;
+    [SerializeField]
+    protected GameObject restartButton;
 
 
     [SerializeField]
     protected bool pausanias;    
 
+
     void Start()
     {
+        Time.timeScale = 1;
         speed = 1.0f;
 
         lvl = 1;
@@ -88,6 +98,11 @@ public class GameController : MonoBehaviour
         
         //lvlAndExpDisplay = lvlAndExpGameObject.GetComponent<Renderer>(TextMeshPro - Text);
         
+        exitButton = GameObject.Find("ExitButton");
+        exitButton.SetActive(false);
+        restartButton = GameObject.Find("RestartButton");
+        restartButton.SetActive(false);
+
 
 
     }
@@ -188,6 +203,29 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        exitButton.SetActive(true);
+        restartButton.SetActive(true);
+    }
+
+
+
+
+
+    //por prolijidad, buscar cómo se llama el Main Manager en la escena Main y tomar el método de ahí con el 
+    //exitButton. 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     
+    public void StartNew()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 }

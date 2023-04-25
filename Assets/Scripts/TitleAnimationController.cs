@@ -50,7 +50,6 @@ public class TitleAnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
         titleAStartPos = titleA.transform.position;
         titleB = GameObject.Find("TitleB").GetComponent<TMP_Text>();
