@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
+  rotateSpeed: 1800
   weaponDamage: 1
   messi: {fileID: 0}
   left: 0

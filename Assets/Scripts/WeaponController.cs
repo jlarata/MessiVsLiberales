@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     //como uso vector3.forward, la direccion va a ser relativa al gameobject que tenga el scrtip. nice.
     public float speed = 400.0f;
+    public float rotateSpeed = 1800.0f;
     public float weaponDamage;
     public GameObject messi;
     public bool left;
@@ -54,12 +55,12 @@ public class WeaponController : MonoBehaviour
         {
             case true:
             transform.RotateAround(messi.transform.position, Vector3.forward, speed * Time.deltaTime);
-            transform.Rotate(new Vector3(0, 0, -1) * 4*speed * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, -1) * rotateSpeed * Time.deltaTime);
             break;
 
             case false:
             transform.RotateAround(messi.transform.position, Vector3.back, speed * Time.deltaTime);
-            transform.Rotate(new Vector3(0, 0, 1) * 4*speed * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime);
             break;
         
         // método directo, lineal.
