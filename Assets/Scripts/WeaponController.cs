@@ -8,13 +8,17 @@ public class WeaponController : MonoBehaviour
     public float speed = 400.0f;
     public float rotateSpeed = 1800.0f;
     public float weaponDamage;
+    public float weaponDelay;
     public GameObject messi;
     public bool left;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         messi = GameObject.Find("Messi");
+        
+        
         
         switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         {
@@ -32,9 +36,11 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        WeaponBehaviour();
+
+        
     }
-     
+
     IEnumerator Duration()
     {
         
@@ -42,12 +48,14 @@ public class WeaponController : MonoBehaviour
         Autodestroy();
     }
 
+    
+
     public void Autodestroy()
     {
         Destroy(gameObject);
     }
 
-    public void Fire()
+    public void WeaponBehaviour()
     {
         //todos estos métodos tendrían que estar en un script class específico de esta arma, 
         //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable

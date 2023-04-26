@@ -12,6 +12,8 @@ public class MessiController : MonoBehaviour
     public Slider hpSlider;
     public float maxHp;
 
+    public bool isFiring;
+
 
     //varios campos como este los hice públicos para llamarlos desde otros objetos
     //ideales para protegerlos y meterles getters y setters.
@@ -36,25 +38,43 @@ public class MessiController : MonoBehaviour
         //virtualRotationScript = virtualRotation.GetComponent<VirtualRotation>();
         gameController = GameObject.Find("Game Controller");
 
+        isFiring = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //test function. fire first weapon Slash.
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!isFiring)
         {
+            //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
+            // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
+            StartCoroutine(Fire(.8f));    
+        }
+
+        
+        
+    }
+
+    public IEnumerator Fire(float delayFire)
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{   
+            isFiring = true;
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
             case 9:
             Instantiate(slash, transform.position + new Vector3(-0.3f,0.5f,0), transform.rotation);
             break;
+
             case 3: 
             Instantiate(slash, transform.position + new Vector3(0.3f,0.5f,0), transform.rotation);
             break;
             }
-        }
+            yield return new WaitForSeconds(delayFire);
+            isFiring = false;
+        //}
     }
     
 
