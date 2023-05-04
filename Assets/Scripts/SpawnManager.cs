@@ -8,6 +8,9 @@ public class SpawnManager : MonoBehaviour
 {
     
 
+    public GameObject gameController;
+    public GameController GameController;
+
     public GameObject enemy01;
     //public GameObject powerup;
     [SerializeField]
@@ -46,8 +49,10 @@ public class SpawnManager : MonoBehaviour
     {
         spawnRangeY = 4f;
         spawnRangeX = 7f;
-        
-        
+        //el objeto
+        gameController = GameObject.Find("Game Controller");
+        //el script
+        GameController = gameController.GetComponent<GameController>();
         
         
     }
@@ -125,7 +130,14 @@ private Vector3 GenerateHorizontalSpawnPosition()
         //{
             isSpawning = true;
             yield return new WaitForSeconds(1);
-            SpawnEnemy01();
+            
+            //cambiar este if por un switch con cases para cada wave
+            //this should be the ENCAPSULATION getter method.
+            if (GameController.Wave == 1)
+            {
+                SpawnEnemy01();
+            }
+            
             isSpawning = false;
             
         //}

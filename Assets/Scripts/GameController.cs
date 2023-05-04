@@ -53,6 +53,18 @@ public class GameController : MonoBehaviour
     protected GameObject restartButton;
 
 
+    //ENCAPSULATION tho not sure if i apllied this how it is supposed to
+    [SerializeField]
+    private int m_Wave = 1;
+
+    [SerializeField]
+    public int Wave
+    {
+        get { return m_Wave;}
+        set { m_Wave = value;}
+    }
+
+
     [SerializeField]
     protected bool pausanias;    
 
@@ -141,6 +153,8 @@ public class GameController : MonoBehaviour
             xTime++;
             UpdateTime();
         }
+        
+        
         if (seconds >= 59f)
         {
             seconds = 0f;
@@ -180,6 +194,14 @@ public class GameController : MonoBehaviour
 
     public void UpdateTime()
     {
+    
+    // this would be the ENCAPSULATION Setter example
+    //en el segundo 2 de cada minuto estaría sumando una wave
+    //if (iSeconds == 2)
+    //{
+    //    Wave ++;
+    //}
+    
     iSeconds = (int)seconds;
     
     timeDisplay.text = minutes.ToString("00")+":"+iSeconds.ToString("00");
