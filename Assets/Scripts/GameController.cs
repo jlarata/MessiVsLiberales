@@ -48,6 +48,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     protected GameObject pauseText;
     [SerializeField]
+    protected GameObject loseText;
+    [SerializeField]
+    protected Color loseTextColor;
+    [SerializeField]
     protected GameObject exitButton;
     [SerializeField]
     protected GameObject restartButton;
@@ -84,8 +88,18 @@ public class GameController : MonoBehaviour
 
         maxExp = 10f;
         gBackground = GameObject.Find("GBackground");
+
         pauseText = GameObject.Find("Pause Text");
         pauseText.SetActive(false);
+
+        loseText = GameObject.Find("Lose Text");
+        loseText.SetActive(false);
+        loseTextColor = loseText.GetComponent<TMP_Text>().color;
+        loseTextColor.a = 0f;
+        loseText.GetComponent<TMP_Text>().color = loseTextColor;
+
+
+
         pauseMenu = GameObject.Find("Pause Menu");
         pauseMenu.SetActive(false);
         bgStartPos = gBackground.transform.position;
@@ -226,14 +240,28 @@ public class GameController : MonoBehaviour
     }
 
     public void GameOver()
-    {
+    {   
         
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        loseText.SetActive(true);
+        StartCoroutine(LoseTextAnimation());
+        
         exitButton.SetActive(true);
         restartButton.SetActive(true);
     }
 
+
+    IEnumerator LoseTextAnimation()
+    {
+        while((loseTextColor.a) < 1.0f)
+        {
+            loseTextColor.a = loseTextColor.a + 0.005f;
+            loseText.GetComponent<TMP_Text>().color = loseTextColor;
+            Debug.Log("a");
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+    }
 
 
 

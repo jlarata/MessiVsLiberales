@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enem01BasicLiberal : EnemyController
 {
-    // Start is called before the first frame update
+    // INHERITANCE. this class inherits from script EnemyController.cs
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager");

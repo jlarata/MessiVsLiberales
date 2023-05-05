@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// INHERITANCE this class is to be parent of all enemies child class.
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
@@ -73,7 +75,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void loseHp(float weaponDamage)
+    //POLYMORPHISM i have no use for this at this point, so i've imagined one
+    // if i would create an "armor" for the enemies, i could implement this method overriding it
+    // so it could LoseHp with a modification (-armor). 
+    // another possibility: splash damage when damaged. 
+
+    public virtual void loseHp(float weaponDamage)
     {
         enemyHp -= weaponDamage;
     }

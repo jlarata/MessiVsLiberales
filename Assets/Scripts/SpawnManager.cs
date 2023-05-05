@@ -143,6 +143,12 @@ private Vector3 GenerateHorizontalSpawnPosition()
         //}
     }
 
+
+    //ABSTRACTION the SpawnEnemy01 Functions calls two functions, each one creating a coordinate
+    // those coordinates are random but limited: one on top or bottom (randomly) and the other left or right (also randomly)
+    // of the screen. then SpawnEnemy01 will spawn 2 enemies, (one horizontally and other vertically) out of
+    // the screen. 
+
      void SpawnEnemy01()
      //im saving this old methods because they could be useful if i want multiple enemies to spam at once.
 //    void SpawnEnemy01(int enemies01ToSpawn)
