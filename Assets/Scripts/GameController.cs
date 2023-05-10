@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
 
     //ENCAPSULATION tho not sure if i apllied this how it is supposed to
     [SerializeField]
-    private int m_Wave = 1;
+    private int m_Wave = 0;
 
     [SerializeField]
     public int Wave
@@ -210,11 +210,12 @@ public class GameController : MonoBehaviour
     {
     
     // this would be the ENCAPSULATION Setter example
-    //en el segundo 2 de cada minuto estaría sumando una wave
-    //if (iSeconds == 2)
-    //{
-    //    Wave ++;
-    //}
+    //en el segundo 30 de cada minuto estaría sumando una wave
+
+    if ((iSeconds == 31) | (iSeconds == 1))
+    {
+        Wave ++;
+    }
     
     iSeconds = (int)seconds;
     

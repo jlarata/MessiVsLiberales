@@ -130,12 +130,14 @@ private Vector3 GenerateHorizontalSpawnPosition()
         //{
             isSpawning = true;
             yield return new WaitForSeconds(1);
-            
-            //cambiar este if por un switch con cases para cada wave
+
             //this should be the ENCAPSULATION getter method.
-            if (GameController.Wave == 1)
+            switch(GameController.Wave)
             {
+                //wave lower than 5, that's 2 minutes aprox.
+                case <5:
                 SpawnEnemy01();
+                break;
             }
             
             isSpawning = false;
@@ -150,20 +152,19 @@ private Vector3 GenerateHorizontalSpawnPosition()
     // the screen. 
 
      void SpawnEnemy01()
-     //im saving this old methods because they could be useful if i want multiple enemies to spam at once.
-//    void SpawnEnemy01(int enemies01ToSpawn)
+
     {
-//        for (int i = 0; i < enemies01ToSpawn; i++)
-//        
-            //every loop will generate two vector3 and two enemies, one vertical and one horizontal.
+
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
+            
+            enemy01.GetComponent<Enem01BasicLiberal>().speed = 4;
             Instantiate(enemy01, verticalRandomPos, enemy01.transform.rotation);
             totalEnemiesCount++;
             Instantiate(enemy01, horizontalRandomPos, enemy01.transform.rotation);
             totalEnemiesCount++;
-//        }
+
     }
 
 

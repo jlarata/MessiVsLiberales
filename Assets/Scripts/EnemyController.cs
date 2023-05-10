@@ -27,7 +27,16 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     protected GameObject gameController;
-    
+    [SerializeField]
+    protected GameController GameController;
+
+    [SerializeField]
+    protected Color enemyColor;
+
+    [SerializeField]
+    protected int wave;
+
+
     public float messiVelocity;
 
     protected float horizontalInput;
@@ -38,14 +47,23 @@ public class EnemyController : MonoBehaviour
     {
         //remember: all this variables needs to be inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
+        //el objeto:
         gameController = GameObject.Find("GameController");
+        //el script:
+        GameController = gameController.GetComponent<GameController>();
+        
+        enemyRb2D = GetComponent<Rigidbody2D>();
 
+        messi = GameObject.Find("Messi");  
+
+        enemyColor = GetComponent<SpriteRenderer>().color;
+        enemyColor.a = 1.0f;
+        GetComponent<SpriteRenderer>().color = enemyColor;
 
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
-        enemyRb2D = GetComponent<Rigidbody2D>();
         
-        messi = GameObject.Find("Messi");  
+        
         messiVelocity = 2.0f;  
         
     }
@@ -84,6 +102,27 @@ public class EnemyController : MonoBehaviour
     {
         enemyHp -= weaponDamage;
     }
+
+    public void HitAnimationF()
+    {
+        StartCoroutine(HitAnimation());
+    }
+
+    public IEnumerator HitAnimation()
+        {
+            enemyColor.a = 0.5f;
+            GetComponent<SpriteRenderer>().color = new Color (255f, 255f, 255f, enemyColor.a);
+            yield return new WaitForSecondsRealtime(0.01f); 
+            enemyColor.a = 1f;
+            GetComponent<SpriteRenderer>().color = new Color (255f, 255f, 255f, enemyColor.a);
+            enemyColor.a = 0.5f;
+            GetComponent<SpriteRenderer>().color = new Color (255f, 255f, 255f, enemyColor.a);
+            yield return new WaitForSecondsRealtime(0.01f); 
+            enemyColor.a = 1f;
+            GetComponent<SpriteRenderer>().color = new Color (255f, 255f, 255f, enemyColor.a);
+            
+        }
+    
 
     //why do i have this function for? maybe copied from spawnManager without noticing it.
     public void Autodestroy()

@@ -37,6 +37,8 @@ public class DetectCollisions : MonoBehaviour
         if (other.gameObject.tag == "Weapons")
         {
           GetComponent<EnemyController>().loseHp(other.GetComponent<WeaponController>().weaponDamage);
+          GetComponent<EnemyController>().HitAnimationF();
+          
           //other.GetComponent<WeaponController>
             
             //Destroy(gameObject);

@@ -565,7 +565,9 @@ MonoBehaviour:
   hp: 0
   hpSlider: {fileID: 25191913000742727}
   maxHp: 0
+  isFiring: 0
   virtualRotation: {fileID: 0}
+  gameController: {fileID: 0}
   slash: {fileID: 681385373218405240, guid: 697cd82c00f977619840b2538ee7ed42, type: 3}
 --- !u!1 &8630070566710023455
 GameObject:
