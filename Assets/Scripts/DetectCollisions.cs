@@ -9,14 +9,16 @@ public class DetectCollisions : MonoBehaviour
   //public GameObject gameObjectQueManejeElAudio;
     public GameObject messi;
     public MessiController messiController;
-    [SerializeField]
-    private float thisEnemyDamage;
+
+    //this should be a protected variable with a setter...
+    //in any case: it's setted from every child enemy script.
+    public float thisEnemyDamage;
 
     void Start()
     {
       messi = GameObject.Find("Messi");
       messiController = messi.GetComponent<MessiController>();
-      thisEnemyDamage = GetComponent<EnemyController>().enemyDamage;
+      
       //gameObjectQueManejeElAudio = GameObject.Find("GameObjectQueManejeElAudio");
       //source = GetComponent<AudioSource>();
     }
@@ -31,7 +33,8 @@ public class DetectCollisions : MonoBehaviour
     {
         if (other.gameObject.name == "Messi")
         {
-            messiController.PerderHp(thisEnemyDamage);
+          Debug.Log("Reno");
+          messiController.PerderHp(thisEnemyDamage);
         }
 
         if (other.gameObject.tag == "Weapons")

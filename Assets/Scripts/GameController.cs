@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     private float speed;
 
     public float exp;
+    public int iExp;
     public float maxExp;
     public int lvl;
 
@@ -57,17 +58,8 @@ public class GameController : MonoBehaviour
     protected GameObject restartButton;
 
 
-    //ENCAPSULATION tho not sure if i apllied this how it is supposed to
     [SerializeField]
-    private int m_Wave = 0;
-
-    [SerializeField]
-    public int Wave
-    {
-        get { return m_Wave;}
-        set { m_Wave = value;}
-    }
-
+    public int wave;
 
     [SerializeField]
     protected bool pausanias;    
@@ -80,10 +72,12 @@ public class GameController : MonoBehaviour
 
         lvl = 1;
         exp = 0f;
+        iExp = 0;
         seconds = 0f;
         xTime = 0f;
         iSeconds = 0;
         minutes = 0;
+        wave = 0;
         
 
         maxExp = 10f;
@@ -202,8 +196,8 @@ public class GameController : MonoBehaviour
     public void UpdateLvlAndExpText()
     {
     //lvlAndExp.text = "Level: " +lvl+ " | Exp: " +exp+ " | Exp to next level: " +(maxExp-exp) ;
-   
-    lvlAndExp.text = "Level: " +lvl + " | Exp: " +exp;
+    iExp = (int)exp;
+    lvlAndExp.text = "Level: " +lvl + " | Exp: " +iExp;
     }
 
     public void UpdateTime()
@@ -214,7 +208,7 @@ public class GameController : MonoBehaviour
 
     if ((iSeconds == 31) | (iSeconds == 1))
     {
-        Wave ++;
+        wave ++;
     }
     
     iSeconds = (int)seconds;

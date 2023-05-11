@@ -6,18 +6,27 @@ using UnityEngine;
 // INHERITANCE this class is to be parent of all enemies child class.
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField]
-    public float speed;
+    
     //[SerializeField]
     //private CircleCollider2D enemyCC2D;
     [SerializeField]
     protected Rigidbody2D enemyRb2D;
-    
+
+    //base variables to multiply
+    public float baseSpeed;
+    public float baseEnemyDamage;
+    public float baseEnemyExp;
+    public float baseEnemyHp;
+
+
+    //the variables to change on wave
+    public float speed;
     public float enemyDamage;
     public float enemyExp;
+    public float enemyHp;
 
-    [SerializeField]
-    protected float enemyHp;
+    //the exponential number (just an arbitrary number)
+    public float expNumber;
 
     [SerializeField]
     protected GameObject messi;
@@ -29,12 +38,11 @@ public class EnemyController : MonoBehaviour
     protected GameObject gameController;
     [SerializeField]
     protected GameController GameController;
+    [SerializeField]
+    protected int wave;
 
     [SerializeField]
     protected Color enemyColor;
-
-    [SerializeField]
-    protected int wave;
 
 
     public float messiVelocity;
@@ -51,6 +59,7 @@ public class EnemyController : MonoBehaviour
         gameController = GameObject.Find("GameController");
         //el script:
         GameController = gameController.GetComponent<GameController>();
+        wave = GameController.wave;
         
         enemyRb2D = GetComponent<Rigidbody2D>();
 

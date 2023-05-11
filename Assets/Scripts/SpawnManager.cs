@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     public GameController GameController;
 
     public GameObject enemy01;
+    
     //public GameObject powerup;
     [SerializeField]
     private float spawnRangeY = 5f;
@@ -38,13 +39,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public int totalEnemiesCount;
 
+    [SerializeField]
     private bool isSpawning;
     
-    //public int enemy01Count;
-    //public int round = 0;
-    //public bool stap = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         spawnRangeY = 4f;
@@ -57,22 +54,15 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (totalEnemiesCount < 80 && isSpawning == false)
+        if (totalEnemiesCount <= 80 && isSpawning == false)
         {
+            //isSpawning = true;
             StartCoroutine(SpawnEnemies());
+            //isSpawning = false;
         }
-//        {
-//            SpawnHolandaWave(ronda);
-//            ronda +=1;
-//            if (ronda%2 == 0)
-//            {
-//                SpawnPowerup();
-//            }
-//        }
-        
+
     }
 
 //generates vertical random position either left or right of screen. to be used by spawner
@@ -129,18 +119,20 @@ private Vector3 GenerateHorizontalSpawnPosition()
         //for(int i = totalEnemiesCount; totalEnemiesCount < 20; i++)
         //{
             isSpawning = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             //this should be the ENCAPSULATION getter method.
-            switch(GameController.Wave)
+            switch(GameController.wave)
             {
-                //wave lower than 5, that's 2 minutes aprox.
-                case <5:
+                //wave lower than 10, that's 4 minutes aprox.
+                case <10:
                 SpawnEnemy01();
                 break;
             }
-            
             isSpawning = false;
+            
+            
+            
             
         //}
     }
@@ -159,7 +151,7 @@ private Vector3 GenerateHorizontalSpawnPosition()
             GenerateHorizontalSpawnPosition();
 
             
-            enemy01.GetComponent<Enem01BasicLiberal>().speed = 4;
+            //enemy01.GetComponent<Enem01BasicLiberal>().speed = 4;
             Instantiate(enemy01, verticalRandomPos, enemy01.transform.rotation);
             totalEnemiesCount++;
             Instantiate(enemy01, horizontalRandomPos, enemy01.transform.rotation);
@@ -168,12 +160,4 @@ private Vector3 GenerateHorizontalSpawnPosition()
     }
 
 
-
-
-
-    //void SpawnPowerup()
-    //{
-    //    
-    //        Instantiate(powerup, GenerateSpawnPosition(), powerup.transform.rotation);
-    //}
 }

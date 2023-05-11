@@ -10,19 +10,21 @@ public class Enem01BasicLiberal : EnemyController
         spawnManager = GameObject.Find("SpawnManager");
         gameController = GameObject.Find("Game Controller");
         GameController = gameController.GetComponent<GameController>();
+        
         messi = GameObject.Find("Messi");
         enemyRb2D = GetComponent<Rigidbody2D>();
 
+        baseSpeed = 0.6f;
+        baseEnemyDamage = 1f;
+        baseEnemyExp = 1f;
+        baseEnemyHp =1f;
+
+        expNumber = 1.2f;
 
 
 
+        wave = GameController.wave;
 
-        wave = GameController.Wave;
-
-        enemyDamage = 1f;
-        enemyExp = 1.0f;
-        enemyHp = 1;
-        speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         
         
@@ -32,7 +34,6 @@ public class Enem01BasicLiberal : EnemyController
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -40,27 +41,27 @@ public class Enem01BasicLiberal : EnemyController
 
     void UpdateToWave()
     {
-        switch(wave)
-        {
-        case (<1):
-        enemyDamage = 1f;
-        enemyExp = 1.0f;
-        enemyHp = 1;
-        speed = 0.5f;
-        break;
-        
-        case >1:
-        if (wave <4)
-        {
-            enemyDamage = 4f;
-            enemyExp = 4.0f;
-            enemyHp = 4;
-            speed = 0.6f;
-        }
-        break;
-        }
-    }
-
-    
-
+        if (wave > 2)
+            {
+                enemyDamage = baseEnemyDamage*(Mathf.Pow(expNumber, 3));
+                GetComponent<DetectCollisions>().thisEnemyDamage = enemyDamage;
+                enemyExp = baseEnemyExp*(Mathf.Pow(expNumber, 3));
+                enemyHp = baseEnemyHp*(Mathf.Pow(expNumber, 3));
+                speed = baseSpeed;
+            } else if (wave > 1)
+            {
+                enemyDamage = baseEnemyDamage*expNumber;
+                GetComponent<DetectCollisions>().thisEnemyDamage = enemyDamage;
+                enemyExp = baseEnemyExp*expNumber;
+                enemyHp = baseEnemyHp*expNumber;
+                speed = baseSpeed;
+            } else if (wave >0)
+            {
+                enemyDamage = baseEnemyDamage;
+                GetComponent<DetectCollisions>().thisEnemyDamage = enemyDamage;
+                enemyExp = baseEnemyExp;
+                enemyHp = baseEnemyHp;
+                speed = baseSpeed;
+            }
+    }           
 }
