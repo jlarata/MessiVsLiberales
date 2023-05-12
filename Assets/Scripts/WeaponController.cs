@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    //como uso vector3.forward, la direccion va a ser relativa al gameobject que tenga el scrtip. nice.
+    //como uso vector3.forward, la direccion va a ser relativa al gameobject que tenga el scrtpt. nice.
     public float speed = 400.0f;
     public float rotateSpeed = 1800.0f;
     public float weaponDamage;
     public float weaponDelay;
     public GameObject messi;
     public bool left;
+    public int multipleFacing;
+
+    public float messiVelocity;
+    protected float horizontalInput;
+    protected float verticalInput;
     
     
     // Start is called before the first frame update
     void Start()
     {
         messi = GameObject.Find("Messi");
+        messiVelocity = 2.0f;
+        multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
         
-        
+       
+
+
         
         switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         {

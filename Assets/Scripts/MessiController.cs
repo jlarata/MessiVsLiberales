@@ -12,7 +12,8 @@ public class MessiController : MonoBehaviour
     public Slider hpSlider;
     public float maxHp;
 
-    public bool isFiring;
+    public bool isFiringShuriken;
+    public bool isFiringAduke;
 
 
     //varios campos como este los hice públicos para llamarlos desde otros objetos
@@ -24,8 +25,9 @@ public class MessiController : MonoBehaviour
     protected GameObject gameController;
 
     
-
+    public GameObject[] weapons;
     public GameObject slash;
+    //public GameObject aduke;
 
     
     // Start is called before the first frame update
@@ -38,7 +40,8 @@ public class MessiController : MonoBehaviour
         //virtualRotationScript = virtualRotation.GetComponent<VirtualRotation>();
         gameController = GameObject.Find("Game Controller");
 
-        isFiring = false;
+        isFiringAduke = false;
+        isFiringShuriken = false;
 
     }
 
@@ -46,36 +49,87 @@ public class MessiController : MonoBehaviour
     void Update()
     {
 
-        if (!isFiring)
+        if (!isFiringAduke)
         {
             //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
             // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
-            StartCoroutine(Fire(.8f));    
+            StartCoroutine(FireAduke(2f));    
+        }
+
+        if (!isFiringShuriken)
+        {
+            //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
+            // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
+            StartCoroutine(FireShuriken(.8f));    
         }
 
         
         
     }
 
-    public IEnumerator Fire(float delayFire)
+    public IEnumerator FireAduke(float delayFire)
     {
         //if (Input.GetKeyDown(KeyCode.Space))
         //{   
-            isFiring = true;
+            isFiringAduke = true;
+            switch(virtualRotation.GetComponent<VirtualRotation>().multipleFacing)
+            {
+
+            //case 3: 
+            //Instantiate(weapons[0], transform.position + new Vector3(0.3f,0f,0), transform.rotation);
+            //break;
+
+
+        //BUENO aparentemente el quaternion es un bardo de manejar, nunca se maneja una sola de las dimensiones
+        //sino que se combinan entre ellas, como ejemplo este delirio que tuve que armar para 4 simples rotaciones.
+            case 3: 
+            Instantiate(weapons[0], transform.position + new Vector3(0.3f,0f,0), new Quaternion(0f,0f,0f,1f));
+            break;
+
+            case 6:
+            Instantiate(weapons[0], transform.position + new Vector3(0f,-0.2f,0), new Quaternion(0f,0f,-1f,1f));
+            break;
+
+            case 9:
+
+            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,0f,0), new Quaternion(0f,0f,1f,0f));
+            break;
+
+            case 12:
+            Instantiate(weapons[0], transform.position + new Vector3(0f,0.2f,0), new Quaternion(0f,0f,-1f,-1f));
+            break;
+            }
+
+            yield return new WaitForSeconds(delayFire);
+            isFiringAduke = false;
+
+            
+        //}
+    }
+
+    public IEnumerator FireShuriken(float delayFire)
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{   
+            isFiringShuriken = true;
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
             case 9:
-            Instantiate(slash, transform.position + new Vector3(-0.3f,0.5f,0), transform.rotation);
+            Instantiate(weapons[1], transform.position + new Vector3(-0.3f,0.5f,0), transform.rotation);
             break;
 
             case 3: 
-            Instantiate(slash, transform.position + new Vector3(0.3f,0.5f,0), transform.rotation);
+            Instantiate(weapons[1], transform.position + new Vector3(0.3f,0.5f,0), transform.rotation);
             break;
             }
             yield return new WaitForSeconds(delayFire);
-            isFiring = false;
+            isFiringShuriken = false;
+
+            
         //}
     }
+
+    
     
 
     //function to be called when messi loses life
