@@ -11,8 +11,12 @@ public class AdukeController : WeaponController
         multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
  
 
+        //if i lower this messivelocity, it reduces the factor of modification of the weapon fired as the
+        //player moves. but that also reduces the effect of the aduken staying on axis while player moving
+        // this is a problem. don't know how to solve.
+       //one obvious solution is making the aduken faster. but that would make, well, faster adukens. 
 
-        messiVelocity = 1f;
+        messiVelocity = 0.8f;
     
         // switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         // {
@@ -54,12 +58,16 @@ public class AdukeController : WeaponController
         Autodestroy();
     }
 
-     public void Autodestroy()
+    new public void Autodestroy()
     {
         Destroy(gameObject);
     }
 
-    public void WeaponBehaviour()
+    //Both Autodestroy and WeaponBehaviour are hiding inherited functions from WeaponController.
+    //To do so, i've added the "new" word. I've read some warnings against this so, lets be aware of possible
+    //malcfunctions on these two.
+
+    new public void WeaponBehaviour()
     {
         //todos estos métodos tendrían que estar en un script class específico de esta arma, 
         //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable

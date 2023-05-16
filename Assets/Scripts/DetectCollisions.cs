@@ -33,7 +33,7 @@ public class DetectCollisions : MonoBehaviour
     {
         if (other.gameObject.name == "Messi")
         {
-          Debug.Log("Reno");
+          //Debug.Log("Reno");
           messiController.PerderHp(thisEnemyDamage);
         }
 

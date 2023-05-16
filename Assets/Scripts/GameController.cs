@@ -253,7 +253,7 @@ public class GameController : MonoBehaviour
         {
             loseTextColor.a = loseTextColor.a + 0.005f;
             loseText.GetComponent<TMP_Text>().color = loseTextColor;
-            Debug.Log("a");
+            //Debug.Log("a");
             yield return new WaitForSecondsRealtime(0.01f);
         }
     }
