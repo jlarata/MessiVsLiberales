@@ -120,3 +120,5 @@ MonoBehaviour:
   weaponDelay: 0
   messi: {fileID: 0}
   left: 0
+  multipleFacing: 0
+  messiVelocity: 0

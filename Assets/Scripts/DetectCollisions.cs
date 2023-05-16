@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DetectCollisions : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class DetectCollisions : MonoBehaviour
     public GameObject messi;
     public MessiController messiController;
 
+    public GameObject damageNumberEO;
+    //public TMP_Text damageNumber;
+
     //this should be a protected variable with a setter...
     //in any case: it's setted from every child enemy script.
     public float thisEnemyDamage;
@@ -18,6 +23,7 @@ public class DetectCollisions : MonoBehaviour
     {
       messi = GameObject.Find("Messi");
       messiController = messi.GetComponent<MessiController>();
+
       
       //gameObjectQueManejeElAudio = GameObject.Find("GameObjectQueManejeElAudio");
       //source = GetComponent<AudioSource>();
@@ -39,9 +45,28 @@ public class DetectCollisions : MonoBehaviour
 
         if (other.gameObject.tag == "Weapons")
         {
+
+          float currentWeaponDamage = other.GetComponent<WeaponController>().weaponDamage;
+          GameObject newDNO = Instantiate(damageNumberEO, transform.position, transform.rotation);
+          newDNO.gameObject.transform.GetChild(0).GetComponent<TMP_Text>().text = currentWeaponDamage.ToString();
+          
+          if (currentWeaponDamage <= 1.0f)
+          {
+            Color lowerDamageNumberColor = new Color(0f, 32f, 166f, 255f);
+            newDNO.gameObject.transform.GetChild(0).GetComponent<TMP_Text>().color = lowerDamageNumberColor;
+          }
+          else if (currentWeaponDamage >1.0f)
+          {
+            Color lowDamageNumberColor = new Color(140f, 213f, 0f, 255f);
+            newDNO.gameObject.transform.GetChild(0).GetComponent<TMP_Text>().color = lowDamageNumberColor;
+          }
+
+
+
           GetComponent<EnemyController>().loseHp(other.GetComponent<WeaponController>().weaponDamage);
           GetComponent<EnemyController>().HitAnimationF();
           
+
           //other.GetComponent<WeaponController>
             
             //Destroy(gameObject);

@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messi: {fileID: 0}
   messiController: {fileID: 0}
+  damageNumberEO: {fileID: 4495384051819028654, guid: 80f1cd9b3a401a6ba875c6cae1235b8e, type: 3}
+  thisEnemyDamage: 0
 --- !u!114 &383235479754106528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,8 +163,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604d7482725da2451b83f2a155665056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   enemyRb2D: {fileID: 0}
+  baseSpeed: 0
+  baseEnemyDamage: 0
+  baseEnemyExp: 0
+  baseEnemyHp: 0
+  speed: 0
   enemyDamage: 0
+  enemyExp: 0
+  enemyHp: 0
+  expNumber: 0
   messi: {fileID: 0}
+  spawnManager: {fileID: 0}
+  gameController: {fileID: 0}
+  GameController: {fileID: 0}
+  wave: 0
+  enemyColor: {r: 0, g: 0, b: 0, a: 0}
   messiVelocity: 0
