@@ -33,9 +33,12 @@ public class GameController : MonoBehaviour
     public float maxExp;
     public int lvl;
 
+
+    //UI TMP Text objects
     public TMP_Text lvlAndExp;
     public TMP_Text timeDisplay;
-    //construir variables segundo, minuto, etc y hacerlas funcionar?
+    
+    //clock
     public float seconds;
     public float xTime;
     public int iSeconds;
@@ -44,6 +47,8 @@ public class GameController : MonoBehaviour
     [SerializeField] 
     protected Slider expSlider;
 
+
+    //pause and endgame Menu and buttons
     [SerializeField]
     protected GameObject pauseMenu;
     [SerializeField]
@@ -57,6 +62,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     protected GameObject restartButton;
 
+    //Lvl up Menu and buttons
+    public GameObject LvlUpMenu;
+    public GameObject LvlUpText;
+    public GameObject LvlUpOption1;
+    public GameObject LvlUpOption2;
+    public GameObject LvlUpOption3;
 
     [SerializeField]
     public int wave;
@@ -100,9 +111,18 @@ public class GameController : MonoBehaviour
         repeatWidth = gBackground.GetComponent<Renderer>().bounds.size.x / 3;
         repeatHeight = gBackground.GetComponent<Renderer>().bounds.size.y / 3;
 
-        //lvlAndExpText = "Level: " +lvl+ " | Exp: " +exp+ " | Exp to next level: " +(maxExp-exp) ;
-        
 
+        LvlUpMenu = GameObject.Find("LvlUpMenu");
+        LvlUpText = GameObject.Find("LvlUpText");
+        LvlUpOption1 = GameObject.Find("LvlUpOption1");
+        LvlUpOption2 = GameObject.Find("LvlUpOption2");
+        LvlUpOption3 = GameObject.Find("LvlUpOption3");
+
+        LvlUpMenu.SetActive(false);
+        LvlUpText.SetActive(false);
+        LvlUpOption1.SetActive(false);
+        LvlUpOption2.SetActive(false);
+        LvlUpOption3.SetActive(false);
         
         lvlAndExp = GameObject.Find("LvlAndExpDisplay").GetComponent<TMP_Text>();
         timeDisplay = GameObject.Find("TimeDisplay").GetComponent<TMP_Text>();
@@ -190,7 +210,34 @@ public class GameController : MonoBehaviour
         maxExp *= 1.2f;
         lvl += lvls;
         expSlider.maxValue = maxExp;
+        LvlUpMenuFunction();
         
+    }
+
+
+    //CUIDADO
+    //LA PAUSA GENERADA POR ESTA FUNCION ES CANCELABLE POR LA FUNCION PAUSA
+    //BLOQUEAR CON UN CONDICIONAL MAS DEL TIPO IF !LVLUPMENU en la funcion de pausanias.
+    public void LvlUpMenuFunction()
+    {
+        pausanias = true;
+        Time.timeScale = 0;
+        LvlUpMenu.SetActive(true);
+        LvlUpText.SetActive(true);
+        LvlUpOption1.SetActive(true);
+        LvlUpOption2.SetActive(true);
+        LvlUpOption3.SetActive(true);
+    }
+
+    public void LvlUpMenuOut()
+    {
+        pausanias = false;
+        Time.timeScale = 1;
+        LvlUpMenu.SetActive(false);
+        LvlUpText.SetActive(false);
+        LvlUpOption1.SetActive(false);
+        LvlUpOption2.SetActive(false);
+        LvlUpOption3.SetActive(false);
     }
 
     public void UpdateLvlAndExpText()
