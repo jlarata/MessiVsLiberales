@@ -23,10 +23,11 @@ public class DamageNumber : MonoBehaviour
         
 
         messiVelocity = 1.0f;
-        StartCoroutine(Duration());
-        damageNumber = this.gameObject.transform.GetChild(0).GetComponent<TMP_Text>();
+        
+        //damageNumber = this.gameObject.transform.GetChild(0).GetComponent<TMP_Text>();
+        //damageNumberColor = damageNumber.color;
 
-        damageNumberColor = damageNumber.color;
+        StartCoroutine(Duration());
 
         //damageNumber.text = damage;
     }
@@ -42,8 +43,8 @@ public class DamageNumber : MonoBehaviour
 
         transform.Translate(0, 0.3f * Time.deltaTime, 0, Space.World);
 
-        damageNumberColor.a = damageNumberColor.a - 0.01f;
-        damageNumber.color = damageNumberColor;
+        //damageNumberColor.a = damageNumberColor.a - 0.01f;
+        //damageNumber.color = damageNumberColor;
     }
 
     IEnumerator Duration()
@@ -55,6 +56,7 @@ public class DamageNumber : MonoBehaviour
 
     public void Autodestroy()
     {
+        
         Destroy(gameObject);
     }
 }
