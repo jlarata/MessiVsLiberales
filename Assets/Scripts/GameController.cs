@@ -283,7 +283,22 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {   
-        
+        //Persistence between sessions
+        if (MainManager.Instance != null)
+        {
+            if (lvl > MainManager.Instance.LvlAchieved)
+            {
+                MainManager.Instance.LvlAchieved = lvl;
+            }
+            //here would go the conditional that unlockes aduke forever.
+            MainManager.Instance.adukeUnlocked = false;
+        } else {
+        MainManager.Instance.LvlAchieved = lvl;
+        MainManager.Instance.adukeUnlocked = false;
+        }
+        MainManager.Instance.SaveState();
+
+
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         loseText.SetActive(true);

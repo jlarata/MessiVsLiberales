@@ -18,9 +18,10 @@ public class MainManager : MonoBehaviour
     public float shurikenLvl;
     public float adukeLvl;
 
-    //public string PlayerName;
-    //public string HighScorePlayerName;
-    //public int HighScore;
+
+    //persistence between sessions data:
+    public int LvlAchieved;
+    public bool adukeUnlocked;
 
 
 
@@ -38,7 +39,40 @@ public class MainManager : MonoBehaviour
         shurikenLvl = 0f;
         adukeLvl= 1f;
 
-        //LoadHighScore();
+    
+        
+       //LoadHighScore();
+       LoadState();
+    }
+    
+    [System.Serializable]
+    class SaveData
+    {
+        public int LvlAchieved;
+        public bool adukeUnlocked;
+    }
+
+    public void SaveState()
+    {
+        SaveData data = new SaveData();
+        data.LvlAchieved = LvlAchieved;
+        data.adukeUnlocked = adukeUnlocked;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+
+    public void LoadState()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            LvlAchieved = data.LvlAchieved;
+            adukeUnlocked = data.adukeUnlocked;
+        }
     }
 
 
