@@ -10,6 +10,7 @@ public class AdukeController : WeaponController
         messi = GameObject.Find("Messi");
         multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
         weaponDamage = 2.0f;
+        weaponDuration = 2.5f;
 
         //if i lower this messivelocity, it reduces the factor of modification of the weapon fired as the
         //player moves. but that also reduces the effect of the aduken staying on axis while player moving
@@ -33,7 +34,7 @@ public class AdukeController : WeaponController
         
 
 
-        StartCoroutine(Duration());
+        StartCoroutine(Duration(weaponDuration));
     }
     
 
@@ -51,12 +52,7 @@ public class AdukeController : WeaponController
     }
 
 
-    IEnumerator Duration()
-    {
-        
-        yield return new WaitForSeconds(2.5f);
-        Autodestroy();
-    }
+
 
     new public void Autodestroy()
     {

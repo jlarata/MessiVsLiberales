@@ -9,6 +9,9 @@ public class WeaponController : MonoBehaviour
     public float rotateSpeed = 1800.0f;
     public float weaponDamage;
     public float weaponDelay;
+    public float weaponDuration;
+
+
     public GameObject messi;
     public bool left;
     public int multipleFacing;
@@ -33,16 +36,15 @@ public class WeaponController : MonoBehaviour
         {
             case 3:
             left = false;
-            break;
+            break;  
 
             case 9:
             left = true;
             break;
         }
-        StartCoroutine(Duration());
+        StartCoroutine(Duration(10.0f));
     }
 
-    // Update is called once per frame
     void Update()
     {
         WeaponBehaviour();
@@ -50,10 +52,10 @@ public class WeaponController : MonoBehaviour
         
     }
 
-    IEnumerator Duration()
+    protected IEnumerator Duration(float time)
     {
         
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(time);
         Autodestroy();
     }
 
@@ -68,22 +70,22 @@ public class WeaponController : MonoBehaviour
     {
         //todos estos métodos tendrían que estar en un script class específico de esta arma, 
         //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable
-        switch(left)
-        {
-            case true:
-            transform.RotateAround(messi.transform.position, Vector3.forward, speed * Time.deltaTime);
-            transform.Rotate(new Vector3(0, 0, -1) * rotateSpeed * Time.deltaTime);
-            break;
+        // switch(left)
+        // {
+        //     case true:
+        //     transform.RotateAround(messi.transform.position, Vector3.forward, speed * Time.deltaTime);
+        //     transform.Rotate(new Vector3(0, 0, -1) * rotateSpeed * Time.deltaTime);
+        //     break;
 
-            case false:
-            transform.RotateAround(messi.transform.position, Vector3.back, speed * Time.deltaTime);
-            transform.Rotate(new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime);
-            break;
+        //     case false:
+        //     transform.RotateAround(messi.transform.position, Vector3.back, speed * Time.deltaTime);
+        //     transform.Rotate(new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime);
+        //     break;
         
-        // método directo, lineal.
-        // transform.Translate(Vector3.down * Time.deltaTime * speed);
+        // // método directo, lineal.
+        // // transform.Translate(Vector3.down * Time.deltaTime * speed);
         
-        }
+        // }
     }
 
     

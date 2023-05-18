@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 681385373218405238}
   - component: {fileID: 681385373218405239}
   - component: {fileID: 9057582519167719654}
-  - component: {fileID: 1531324076321150384}
+  - component: {fileID: -9083907211739670940}
   m_Layer: 8
   m_Name: Slash
   m_TagString: Weapons
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.863598, y: 5.663924}
   m_EdgeRadius: 0
---- !u!114 &1531324076321150384
+--- !u!114 &-9083907211739670940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +121,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 681385373218405240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5542abb5fd0a3dccb3aa14698d4df72, type: 3}
+  m_Script: {fileID: 11500000, guid: e9201a52780761cb093cc2c7071cb92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
   rotateSpeed: 1800
-  weaponDamage: 1
+  weaponDamage: 0
   weaponDelay: 0
+  weaponDuration: 20
   messi: {fileID: 0}
   left: 0
+  multipleFacing: 0
+  messiVelocity: 0
