@@ -10,10 +10,10 @@ public class MessiController : MonoBehaviour
 
     public float hp;
     public Slider hpSlider;
-    public float maxHp;
 
     public bool isFiringShuriken;
     public bool isFiringAduke;
+    public bool isRegen;
 
 
     //varios campos como este los hice públicos para llamarlos desde otros objetos
@@ -29,10 +29,25 @@ public class MessiController : MonoBehaviour
     public GameObject slash;
     //public GameObject aduke;
 
+    //lvlupvariables
+    public float messiHpLvl;
+    public float regenLvl;
+    public float regenRatio;
+    public float shurikenLvl;
+    public float adukeLvl;
+     
+
     
     // Start is called before the first frame update
     void Start()
     {
+        messiHpLvl = 1f;
+        shurikenLvl = 1f;
+        adukeLvl = 0f;
+        regenLvl = 0.1f;
+        regenRatio = 1f;
+        
+        
         hp = 10.0f;
         hpSlider.maxValue = hp;
         hpSlider.value = 10.0f;
@@ -42,21 +57,31 @@ public class MessiController : MonoBehaviour
 
         isFiringAduke = false;
         isFiringShuriken = false;
+        isRegen = false;
+
+        
 
     }
 
-    // Update is called once per frame
+    
+
     void Update()
     {
 
-        if (!isFiringAduke)
+        if (!isRegen && (hp < hpSlider.maxValue))
+        {
+            StartCoroutine(regenHP(regenLvl, regenRatio));
+        }
+        
+
+        if (!isFiringAduke && !(adukeLvl == 0f))
         {
             //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
             // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
             StartCoroutine(FireAduke(2f));    
         }
 
-        if (!isFiringShuriken)
+        if (!isFiringShuriken && !(shurikenLvl == 0f))
         {
             //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
             // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
@@ -64,6 +89,16 @@ public class MessiController : MonoBehaviour
         }
 
         
+        
+    }
+
+    public IEnumerator regenHP(float regenLvl, float regenRatio)
+    {
+        isRegen = true;
+        hp += regenLvl;
+        hpSlider.value = hp;
+        yield return new WaitForSeconds(regenRatio);
+        isRegen = false;
         
     }
 
@@ -144,6 +179,21 @@ public class MessiController : MonoBehaviour
             Debug.Log("le game overino");
             gameController.GetComponent<GameController>().GameOver();
         }
+    }
+
+    //these two functions are triggered when LvlupOption2 gameobject button is clicked
+    //note that is growing in discrete numbers, always 1f so, 10% of original hp
+    //could be rewrited to something like messiHpLvl *= 1.1 / hpSlider.maxValue *= 1.1
+    //so it would be always a 10% increment.
+    public void LvlUpMaxHp()
+    {
+        messiHpLvl ++;
+        updateMaxHp();
+    }
+
+    public void updateMaxHp()
+    {
+        hpSlider.maxValue++;
     }
 
 
