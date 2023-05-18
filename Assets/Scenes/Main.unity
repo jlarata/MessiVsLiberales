@@ -1133,6 +1133,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 816463471}
+        m_TargetAssemblyTypeName: MessiController, Assembly-CSharp
+        m_MethodName: LvlUpShuriken
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641376621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2796,6 +2808,7 @@ MonoBehaviour:
   LvlUpOption3: {fileID: 0}
   wave: 0
   pausanias: 0
+  isLvlUpMenu: 0
 --- !u!4 &1721700314
 Transform:
   m_ObjectHideFlags: 0

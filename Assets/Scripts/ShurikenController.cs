@@ -54,7 +54,7 @@ public class ShurikenController : WeaponController
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
-            case 6:
+            case >5:
             weaponDamage *= 8f;
             scaleChange.x *= 1.2f;
             scaleChange.y *= 1.2f;

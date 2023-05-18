@@ -11,7 +11,12 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
-
+    //these data will persist from the title scene to the main scene to be read (at least by messicontroller)
+    public float messiHpLvl;
+    public float regenLvl;
+    public float regenRatio;
+    public float shurikenLvl;
+    public float adukeLvl;
 
     //public string PlayerName;
     //public string HighScorePlayerName;
@@ -29,6 +34,9 @@ public class MainManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        shurikenLvl = 0f;
+        adukeLvl= 1f;
 
         //LoadHighScore();
     }

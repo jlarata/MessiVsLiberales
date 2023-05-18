@@ -41,11 +41,19 @@ public class MessiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         messiHpLvl = 1f;
-        shurikenLvl = 1f;
-        adukeLvl = 0f;
         regenLvl = 0.1f;
         regenRatio = 1f;
+
+        if (MainManager.Instance != null)
+        {
+        shurikenLvl = MainManager.Instance.shurikenLvl;
+        adukeLvl = MainManager.Instance.adukeLvl;
+        } else {
+        shurikenLvl = 1f;
+        adukeLvl = 0f;
+        }
         
         
         hp = 10.0f;
