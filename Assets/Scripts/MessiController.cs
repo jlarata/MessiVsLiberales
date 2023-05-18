@@ -196,6 +196,11 @@ public class MessiController : MonoBehaviour
         hpSlider.maxValue++;
     }
 
+    public void LvlUpShuriken()
+    {
+        shurikenLvl++;
+    }
+
 
 
 }

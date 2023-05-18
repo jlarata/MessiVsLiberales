@@ -10,7 +10,12 @@ public class WeaponController : MonoBehaviour
     public float weaponDamage;
     public float weaponDelay;
     public float weaponDuration;
+    public Vector3 scaleChange;
 
+    //these variables will be readed from MessiController script, by each weapon. 
+    public float shurikenLvl;
+    public float adukeLvl;
+    
 
     public GameObject messi;
     public bool left;

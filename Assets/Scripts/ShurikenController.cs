@@ -12,6 +12,7 @@ public class ShurikenController : WeaponController
         weaponDuration = 0.3f;
 
         messi = GameObject.Find("Messi");
+        shurikenLvl = messi.GetComponent<MessiController>().shurikenLvl;
 
         weaponDamage = 1.0f;
 
@@ -26,6 +27,42 @@ public class ShurikenController : WeaponController
             break;
         }
         StartCoroutine(Duration(weaponDuration));
+
+        scaleChange = transform.localScale;
+        switch(shurikenLvl)
+        {
+            case 1:
+            scaleChange.x *= 0.5f;
+            scaleChange.y *= 0.5f;
+            break;
+            case 2:
+            scaleChange.x *= 0.7f;
+            scaleChange.y *= 0.7f;
+            break;
+            case 3:
+            weaponDamage *= 4f;
+            scaleChange.x *= 0.7f;
+            scaleChange.y *= 0.7f;
+            break;
+            case 4:
+            weaponDamage *= 4f;
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 5:
+            weaponDamage *= 8f;
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 6:
+            weaponDamage *= 8f;
+            scaleChange.x *= 1.2f;
+            scaleChange.y *= 1.2f;
+            break;
+        }
+        transform.localScale = scaleChange;
+
+
     }
 
     void Update()

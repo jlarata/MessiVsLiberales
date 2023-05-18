@@ -73,8 +73,9 @@ public class GameController : MonoBehaviour
     public int wave;
 
     [SerializeField]
-    protected bool pausanias;    
-
+    protected bool pausanias;
+    [SerializeField]
+    protected bool isLvlUpMenu;
 
     void Start()
     {
@@ -214,13 +215,9 @@ public class GameController : MonoBehaviour
         
     }
 
-
-    //CUIDADO
-    //LA PAUSA GENERADA POR ESTA FUNCION ES CANCELABLE POR LA FUNCION PAUSA
-    //BLOQUEAR CON UN CONDICIONAL MAS DEL TIPO IF !LVLUPMENU en la funcion de pausanias.
     public void LvlUpMenuFunction()
     {
-        pausanias = true;
+        isLvlUpMenu = true;
         Time.timeScale = 0;
         LvlUpMenu.SetActive(true);
         LvlUpText.SetActive(true);
@@ -231,13 +228,13 @@ public class GameController : MonoBehaviour
 
     public void LvlUpMenuOut()
     {
-        pausanias = false;
         Time.timeScale = 1;
         LvlUpMenu.SetActive(false);
         LvlUpText.SetActive(false);
         LvlUpOption1.SetActive(false);
         LvlUpOption2.SetActive(false);
         LvlUpOption3.SetActive(false);
+        isLvlUpMenu = false;
     }
 
     public void UpdateLvlAndExpText()
@@ -265,7 +262,9 @@ public class GameController : MonoBehaviour
 
     void PausaniasFunction()
     {
-        if (!pausanias)
+        if (!isLvlUpMenu)
+        {
+            if (!pausanias)
         {
             pausanias = true;
             pauseMenu.SetActive(true);
@@ -279,6 +278,7 @@ public class GameController : MonoBehaviour
             pauseText.SetActive(false);
             Time.timeScale = 1;
         }
+        }   
     }
 
     public void GameOver()
