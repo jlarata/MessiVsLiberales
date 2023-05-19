@@ -19,6 +19,18 @@ public class TitleController : MonoBehaviour
         optionsPanel.SetActive(false);
     }
 
+    public void StartWithShuriken()
+    {
+        MainManager.Instance.shurikenLvl = 1;
+        MainManager.Instance.adukeLvl = 0;
+    }
+
+    public void StartWithAduke()
+    {
+        MainManager.Instance.adukeLvl = 1;
+        MainManager.Instance.shurikenLvl = 0;
+    }
+
     public void StartNew()
     {
 
@@ -46,6 +58,8 @@ public class TitleController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+
 
     public void Exit()
     {

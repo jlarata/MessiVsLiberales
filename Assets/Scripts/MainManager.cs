@@ -37,8 +37,8 @@ public class MainManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        shurikenLvl = 0f;
-        adukeLvl= 1f;
+        shurikenLvl = 1;
+        optionsUnlocked = true;
 
     
         
@@ -51,14 +51,14 @@ public class MainManager : MonoBehaviour
     {
         public int LvlAchieved;
         public bool adukeUnlocked;
-        public bool optionsUnlocked;
+        //public bool optionsUnlocked;
     }
 
     public void SaveState()
     {
         SaveData data = new SaveData();
         data.LvlAchieved = LvlAchieved;
-        data.optionsUnlocked = optionsUnlocked;
+        //data.optionsUnlocked = optionsUnlocked;
         data.adukeUnlocked = adukeUnlocked;
         
 
@@ -75,7 +75,7 @@ public class MainManager : MonoBehaviour
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
             LvlAchieved = data.LvlAchieved;
-            optionsUnlocked = data.optionsUnlocked;
+            //optionsUnlocked = data.optionsUnlocked;
             adukeUnlocked = data.adukeUnlocked;
         }
     }
