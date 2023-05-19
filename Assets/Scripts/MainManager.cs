@@ -22,6 +22,7 @@ public class MainManager : MonoBehaviour
     //persistence between sessions data:
     public int LvlAchieved;
     public bool adukeUnlocked;
+    public bool optionsUnlocked;
 
 
 
@@ -50,13 +51,16 @@ public class MainManager : MonoBehaviour
     {
         public int LvlAchieved;
         public bool adukeUnlocked;
+        public bool optionsUnlocked;
     }
 
     public void SaveState()
     {
         SaveData data = new SaveData();
         data.LvlAchieved = LvlAchieved;
+        data.optionsUnlocked = optionsUnlocked;
         data.adukeUnlocked = adukeUnlocked;
+        
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -71,6 +75,7 @@ public class MainManager : MonoBehaviour
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
             LvlAchieved = data.LvlAchieved;
+            optionsUnlocked = data.optionsUnlocked;
             adukeUnlocked = data.adukeUnlocked;
         }
     }

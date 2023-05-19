@@ -10,8 +10,39 @@ using UnityEditor;
 public class TitleController : MonoBehaviour
 {
 
+    public GameObject optionsPanel;
+    //public GameObject optionsPanelStartButton;
+
+    void Start()
+    {
+        optionsPanel = GameObject.Find("OptionsPanel");
+        optionsPanel.SetActive(false);
+    }
 
     public void StartNew()
+    {
+
+        if (MainManager.Instance.optionsUnlocked)
+        {
+            StartWithOptions();
+        } else
+        {
+            StartWithoutOptions();
+        }
+    }
+
+    public void StartWithOptions()
+    {
+        if (!optionsPanel.activeSelf)
+        {
+            optionsPanel.SetActive(true);
+        } else 
+        {
+            SceneManager.LoadScene(1);
+        }
+    }    
+
+    public void StartWithoutOptions()
     {
         SceneManager.LoadScene(1);
     }
