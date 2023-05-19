@@ -38,6 +38,9 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         shurikenLvl = 1;
+
+        // optionsunlocked by default (remember to uncomment this on the savedata class and save and load data
+        // functions)
         optionsUnlocked = true;
 
     
