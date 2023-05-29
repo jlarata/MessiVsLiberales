@@ -209,6 +209,11 @@ public class MessiController : MonoBehaviour
         shurikenLvl++;
     }
 
+    public void LvlUpAduke()
+    {
+        adukeLvl++;
+    }
+
 
 
 }

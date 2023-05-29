@@ -1,0 +1,8 @@
+a. hay un error en el desplazaminto vertical hacia abajo en el mapa. hacia la derecha anda bien
+b. bloquear el upgrade de las armas en el lvlupmenu luego de terminados sus upgrades
+c. hacer un mapa de scripts? comencé hoy y tuve que rastrear qué manejaba qué.
+d. messi anda muy rápido. comenzar más lento.
+
+x. más armas
+y. más enemigos
+z. introducir algún tipo de randomización en la aparición de los botones del lvlupmenu.

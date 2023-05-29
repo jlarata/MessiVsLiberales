@@ -12,6 +12,8 @@ public class AdukeController : WeaponController
         weaponDamage = 2.0f;
         weaponDuration = 2.5f;
 
+        adukeLvl = messi.GetComponent<MessiController>().adukeLvl;
+
         //if i lower this messivelocity, it reduces the factor of modification of the weapon fired as the
         //player moves. but that also reduces the effect of the aduken staying on axis while player moving
         // this is a problem. don't know how to solve.
@@ -35,6 +37,43 @@ public class AdukeController : WeaponController
 
 
         StartCoroutine(Duration(weaponDuration));
+
+        scaleChange = transform.localScale;
+        switch(adukeLvl)
+        {
+            case 1:
+            scaleChange.x *= 0.7f;
+            scaleChange.y *= 0.7f;
+            break;
+            case 2:
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 3:
+            weaponDamage *= 4f;
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 4:
+            weaponDamage *= 4f;
+            scaleChange.x *= 1.1f;
+            scaleChange.y *= 1.1f;
+            break;
+            case 5:
+            weaponDamage *= 6f;
+            scaleChange.x *= 1.1f;
+            scaleChange.y *= 1.1f;
+            break;
+            case >5:
+            weaponDamage *= 6f;
+            scaleChange.x *= 1.3f;
+            scaleChange.y *= 1.3f;
+            break;
+        }
+        transform.localScale = scaleChange;
+
+
+    
     }
     
 
