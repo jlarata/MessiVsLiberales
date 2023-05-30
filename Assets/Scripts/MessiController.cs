@@ -112,34 +112,59 @@ public class MessiController : MonoBehaviour
 
     public IEnumerator FireAduke(float delayFire)
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{   
+
             isFiringAduke = true;
-            switch(virtualRotation.GetComponent<VirtualRotation>().multipleFacing)
+            
+  
+            switch(virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing)
             {
 
-            //case 3: 
-            //Instantiate(weapons[0], transform.position + new Vector3(0.3f,0f,0), transform.rotation);
-            //break;
+
 
 
         //BUENO aparentemente el quaternion es un bardo de manejar, nunca se maneja una sola de las dimensiones
         //sino que se combinan entre ellas, como ejemplo este delirio que tuve que armar para 4 simples rotaciones.
-            case 3: 
+
+        //update: the later comment says quaternions are REALLY hard to manage. 
+        //as it can be shown in the frst 4 basic facing directions
+        //however, the four diagonal-facing instantiating methods are created with a new, better, simpler method.
+        // (quaternion.euler)
+
+            //4 basic facing directions
+            case 300: 
             Instantiate(weapons[0], transform.position + new Vector3(0.3f,0f,0), new Quaternion(0f,0f,0f,1f));
             break;
 
-            case 6:
+            case 600:
             Instantiate(weapons[0], transform.position + new Vector3(0f,-0.2f,0), new Quaternion(0f,0f,-1f,1f));
             break;
 
-            case 9:
-
+            case 900:
             Instantiate(weapons[0], transform.position + new Vector3(-0.3f,0f,0), new Quaternion(0f,0f,1f,0f));
             break;
 
-            case 12:
+            case 1200:
             Instantiate(weapons[0], transform.position + new Vector3(0f,0.2f,0), new Quaternion(0f,0f,-1f,-1f));
+            break;
+
+            //diagonals. up-left
+            case 1030:
+            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 112.5f));
+            break;
+            
+            //diagonals. up-right
+            case 130:
+            Instantiate(weapons[0], transform.position + new Vector3(0.3f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 22.5f));
+            break;
+
+            //diagonals. down-left
+            case 430:
+            Instantiate(weapons[0], transform.position + new Vector3(0.3f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -22.5f));
+            break;
+
+            //diagonals. down-right
+            case 730:
+            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -112.5f));
             break;
             }
 
@@ -147,13 +172,18 @@ public class MessiController : MonoBehaviour
             isFiringAduke = false;
 
             
-        //}
+        
     }
 
     public IEnumerator FireShuriken(float delayFire)
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{   
+        //this is different from aduke because i dont want using up or down input interfering with this value
+        //so if i were to use totalMovementFacing, i would have to set a response to 600 and 1200 cases
+        //that would bring a new problem because i would want the shuriken "remember" if messi was facing right
+        //or left before he went up or down. 
+
+        //because of this, i still need the "hfacing" variable in VirtualRotation script. but (i think) 
+        //i wont be using anymore the "multiplefacing" variable anymore. 
             isFiringShuriken = true;
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
@@ -169,7 +199,7 @@ public class MessiController : MonoBehaviour
             isFiringShuriken = false;
 
             
-        //}
+        
     }
 
     

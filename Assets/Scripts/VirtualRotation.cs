@@ -6,21 +6,77 @@ public class VirtualRotation : MonoBehaviour
 {
 
     
-    //just gonna create a int for "facing" imitating the clock numbers.
-    public int multipleFacing;
+    //varaible not needed anymore? see comment in messicontroller.
+    //public int multipleFacing;
     //same. only horizontal
     public int hFacing;
+    public Vector2 totalMovement;
+    public int totalMovementFacing; 
     
 
     void Start()
     {
-        multipleFacing = 9;
+        
+        //multipleFacing = 9;
         hFacing = 9;
+        totalMovementFacing = 900;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+        totalMovement = new Vector2(inputX, inputY);
+
+        if (inputX != 0 && inputY != 0)
+        {
+            if (totalMovement.y == 1 && totalMovement.x == -1)
+            { //Debug.Log("up-left");
+            totalMovementFacing = 1030;
+            }
+
+            if (totalMovement.y == 1 && totalMovement.x == 1)
+            { //Debug.Log("up-right");
+            totalMovementFacing = 130;
+            }
+
+            if (totalMovement.y == -1 && totalMovement.x == -1)
+            { //Debug.Log("down-left");
+            totalMovementFacing = 730;
+            }
+
+            if (totalMovement.y == -1 && totalMovement.x == 1)
+            { //Debug.Log("down-right");
+            totalMovementFacing = 430;
+            }
+            
+        }
+        else
+        {
+            if (totalMovement.x == -1)
+            {
+                //Debug.Log("left");
+                totalMovementFacing = 900;
+            }
+            if (totalMovement.x == 1)
+            {
+                //Debug.Log("right");
+                totalMovementFacing = 300;
+            }
+            if (totalMovement.y == 1)
+            {
+                //Debug.Log("up");
+                totalMovementFacing = 1200;
+            }
+            if (totalMovement.y == -1)
+            {
+                //Debug.Log("down");
+                totalMovementFacing = 600;
+            }
+        }
+        
 
 
         if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.D))
@@ -39,7 +95,7 @@ public class VirtualRotation : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 90f, 0f);
             }
 
-            multipleFacing = 3;
+            //multipleFacing = 3;
             hFacing = 3;
         }
 
@@ -57,7 +113,7 @@ public class VirtualRotation : MonoBehaviour
             {
             transform.rotation = Quaternion.Euler(0f, -90f, 0f);
             }
-            multipleFacing = 9;
+            //multipleFacing = 9;
             hFacing = 9;
         }        
         
@@ -75,7 +131,7 @@ public class VirtualRotation : MonoBehaviour
             {
             transform.rotation = Quaternion.Euler(90f, 0f, 0f);
             }
-            multipleFacing = 12;
+            //multipleFacing = 12;
         }  
 
         if (Input.GetKey(KeyCode.DownArrow) | Input.GetKey(KeyCode.S))
@@ -92,67 +148,8 @@ public class VirtualRotation : MonoBehaviour
             {
             transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
             }
-            multipleFacing = 6;
+            //multipleFacing = 6;
         } 
         
-        
-
-        // if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.D))
-        // {
-        //     if (transform.rotation.y < .5)
-        //     {
-        //     transform.Rotate(transform.rotation.x, 90f, 0f, Space.World); 
-        //     }
-        // }
-
-
-        // if (Input.GetKey(KeyCode.LeftArrow)| Input.GetKey(KeyCode.A))
-        // {
-        //     if (transform.rotation.y > -.5)
-        //     {
-        //     transform.Rotate(transform.rotation.x, -90f, 0f, Space.World); 
-        //     }
-        // }
-        // if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey(KeyCode.W))
-        
-        //     if (transform.rotation.x < .5)
-        //     {
-        //     transform.Rotate(90f, transform.rotation.y, 0f, Space.World); 
-        //     }
-        
-        //{
-        //    transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-        //}
-        // if (Input.GetKey(KeyCode.DownArrow)| Input.GetKey(KeyCode.S))
-        // {
-        //     if (transform.rotation.x > -.5)
-        //     {
-        //     transform.Rotate(-90f, transform.rotation.y, 0f, Space.World); 
-        //     }
-        // }
-
-    
-
-
-        //if ((Input.GetKey(KeyCode.RightArrow) | Input.GetKey(KeyCode.D)) && (GetKey(KeyCode.DownArrow) | Input.GetKey(KeyCode.S)))
-        //{
-        //    transform.rotation = Quaternion.Euler(-90f, 90f, 0f);
-        //}
-
-
-        //do i want the rotator to have a neutral/standard rotation when not pressed?
-        // if i do, i can decomment this else
-        //else 
-        //{
-        //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        //}
-        
-        
-        
-        //horizontalInput = Input.GetAxis("Horizontal");
-        //transform.Rotate(0f, -horizontalInput, 0f, Space.World);
-
-        //verticalInput = Input.GetAxis("Vertical");
-        //transform.Rotate()
     }
 }

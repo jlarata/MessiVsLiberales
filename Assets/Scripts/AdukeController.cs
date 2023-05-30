@@ -6,9 +6,10 @@ public class AdukeController : WeaponController
 {
     void Start()
     {
-        speed = 1;
+        speed = 0.5f;
         messi = GameObject.Find("Messi");
-        multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
+        //multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
+        totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
         weaponDamage = 2.0f;
         weaponDuration = 2.5f;
 
@@ -108,22 +109,44 @@ public class AdukeController : WeaponController
         //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable
         
         
-        switch(multipleFacing)
+        switch(totalMovementFacing)
         {
-            case 9:
-            transform.Translate(Vector3.left * Time.deltaTime * speed * 0.8f, Space.World);
+            
+            
+            case 900:
+            transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
+            break;            
+
+            case 300:
+            transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
             break;
 
-            case 3:
-            transform.Translate(Vector3.right * Time.deltaTime * speed * 0.8f, Space.World);
+            case 600:
+            transform.Translate(Vector3.down * Time.deltaTime * speed, Space.World);
             break;
 
-            case 6:
-            transform.Translate(Vector3.down * Time.deltaTime * speed * 0.8f, Space.World);
+            case 1200:
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
             break;
 
-            case 12:
-            transform.Translate(Vector3.up * Time.deltaTime * speed * 0.8f, Space.World);
+            case 1030:
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
+            transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
+            break;
+            
+            case 130:
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
+            transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
+            break;
+
+            case 430:
+            transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
+            transform.Translate(Vector3.down * Time.deltaTime * speed, Space.World);
+            break;
+
+            case 730:
+            transform.Translate(Vector3.down * Time.deltaTime * speed, Space.World);
+            transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
             break;
         
         }

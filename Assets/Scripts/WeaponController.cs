@@ -19,7 +19,9 @@ public class WeaponController : MonoBehaviour
 
     public GameObject messi;
     public bool left;
-    public int multipleFacing;
+    //varaible not needed anymore? see comment in messicontroller.
+    //public int multipleFacing;
+    public int totalMovementFacing;
 
     public float messiVelocity;
     protected float horizontalInput;
@@ -31,8 +33,9 @@ public class WeaponController : MonoBehaviour
     {
         messi = GameObject.Find("Messi");
         messiVelocity = 2.0f;
-        multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
-        
+        //multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
+        totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
+
        
 
 
