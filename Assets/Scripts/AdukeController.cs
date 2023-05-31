@@ -20,7 +20,7 @@ public class AdukeController : WeaponController
         // this is a problem. don't know how to solve.
        //one obvious solution is making the aduken faster. but that would make, well, faster adukens. 
 
-        messiVelocity = 0.8f;
+        messiVelocity = 1f;
     
         // switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         // {

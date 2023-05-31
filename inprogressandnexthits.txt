@@ -1,7 +1,11 @@
-a. hay un error en el desplazaminto vertical hacia abajo en el mapa. hacia la derecha anda bien
+//a. hay un error en el desplazaminto vertical hacia abajo en el mapa. hacia la derecha anda bien
+31.5 fixed
+
 b. bloquear el upgrade de las armas en el lvlupmenu luego de terminados sus upgrades
 c. hacer un mapa de scripts? comencé hoy y tuve que rastrear qué manejaba qué.
-d. messi anda muy rápido. comenzar más lento.
+
+//d. messi anda muy rápido. comenzar más lento.
+31.5 messi es más chico y más lento. el juego es considerablemente más difícil.
 
 x. más armas
 y. más enemigos

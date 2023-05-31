@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        speed = 1.0f;
+        speed = 0.6f;
 
         lvl = 1;
         exp = 0f;

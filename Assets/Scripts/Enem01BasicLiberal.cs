@@ -29,7 +29,7 @@ public class Enem01BasicLiberal : EnemyController
         
         
           
-        messiVelocity = 2.0f;  
+        messiVelocity = 1.1f;  
         UpdateToWave();
         
     }

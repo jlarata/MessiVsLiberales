@@ -35,6 +35,7 @@ public class MessiController : MonoBehaviour
     public float regenRatio;
     public float shurikenLvl;
     public float adukeLvl;
+    public float iDF;
      
 
     
@@ -132,7 +133,7 @@ public class MessiController : MonoBehaviour
 
             //4 basic facing directions
             case 300: 
-            Instantiate(weapons[0], transform.position + new Vector3(0.3f,0f,0), new Quaternion(0f,0f,0f,1f));
+            Instantiate(weapons[0], transform.position + new Vector3(0.2f,0f,0), new Quaternion(0f,0f,0f,1f));
             break;
 
             case 600:
@@ -140,7 +141,7 @@ public class MessiController : MonoBehaviour
             break;
 
             case 900:
-            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,0f,0), new Quaternion(0f,0f,1f,0f));
+            Instantiate(weapons[0], transform.position + new Vector3(-0.2f,0f,0), new Quaternion(0f,0f,1f,0f));
             break;
 
             case 1200:
@@ -149,22 +150,22 @@ public class MessiController : MonoBehaviour
 
             //diagonals. up-left
             case 1030:
-            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 112.5f));
+            Instantiate(weapons[0], transform.position + new Vector3(-0.2f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 112.5f));
             break;
             
             //diagonals. up-right
             case 130:
-            Instantiate(weapons[0], transform.position + new Vector3(0.3f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 22.5f));
+            Instantiate(weapons[0], transform.position + new Vector3(0.2f,0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, 22.5f));
             break;
 
             //diagonals. down-left
             case 430:
-            Instantiate(weapons[0], transform.position + new Vector3(0.3f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -22.5f));
+            Instantiate(weapons[0], transform.position + new Vector3(0.2f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -22.5f));
             break;
 
             //diagonals. down-right
             case 730:
-            Instantiate(weapons[0], transform.position + new Vector3(-0.3f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -112.5f));
+            Instantiate(weapons[0], transform.position + new Vector3(-0.2f,-0.2f,0), transform.rotation * Quaternion.Euler (0f, 0f, -112.5f));
             break;
             }
 
@@ -185,14 +186,38 @@ public class MessiController : MonoBehaviour
         //because of this, i still need the "hfacing" variable in VirtualRotation script. but (i think) 
         //i wont be using anymore the "multiplefacing" variable anymore. 
             isFiringShuriken = true;
+
+
+            //iDF is instantiateDistanceFactor: takes shuriken lvl to create a growing distance factor
+            switch(shurikenLvl)
+            {
+                case 1:
+                case 2:;
+                iDF = 1f;
+                break;
+                case 3:
+                case 4:;
+                iDF = 1.2f;
+                break;
+                case 5:
+                case 6:;
+                iDF = 1.4f;
+                break;
+                case 7:
+                case 8:;
+                iDF = 1.6f;
+                break;
+            }
+
+
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
             case 9:
-            Instantiate(weapons[1], transform.position + new Vector3(-0.3f,0.5f,0), transform.rotation);
+            Instantiate(weapons[1], transform.position + new Vector3(-0.15f*iDF,0.25f*iDF,0), transform.rotation);
             break;
 
             case 3: 
-            Instantiate(weapons[1], transform.position + new Vector3(0.3f,0.5f,0), transform.rotation);
+            Instantiate(weapons[1], transform.position + new Vector3(0.15f*iDF,0.25f*iDF,0), transform.rotation);
             break;
             }
             yield return new WaitForSeconds(delayFire);

@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tImprove Tu vieja"
+  m_text: "\tImprove Aduke"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2856,7 +2856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533740850}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.0208, y: 0.1578, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3585,7 +3585,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1812099221393586902, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5103995490666020735, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3612,12 +3612,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8593032733159892826, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593032733159892826, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593032733159892826, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8593032733159892826, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8593032733159892826, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_LocalPosition.z
