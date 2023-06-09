@@ -17,11 +17,14 @@ public class MainManager : MonoBehaviour
     public float regenRatio;
     public float shurikenLvl;
     public float adukeLvl;
+    public float diMariaLvl;
 
 
     //persistence between sessions data:
     public int LvlAchieved;
     public bool adukeUnlocked;
+    //ESTO HAY QUE IMPLEMENTARLO?
+    public bool diMariaUnlocked;
     public bool optionsUnlocked;
 
 
@@ -54,6 +57,7 @@ public class MainManager : MonoBehaviour
     {
         public int LvlAchieved;
         public bool adukeUnlocked;
+        public bool diMariaUnlocked;
         //public bool optionsUnlocked;
     }
 
@@ -63,6 +67,7 @@ public class MainManager : MonoBehaviour
         data.LvlAchieved = LvlAchieved;
         //data.optionsUnlocked = optionsUnlocked;
         data.adukeUnlocked = adukeUnlocked;
+        data.diMariaUnlocked = diMariaUnlocked;
         
 
         string json = JsonUtility.ToJson(data);
@@ -80,6 +85,7 @@ public class MainManager : MonoBehaviour
             LvlAchieved = data.LvlAchieved;
             //optionsUnlocked = data.optionsUnlocked;
             adukeUnlocked = data.adukeUnlocked;
+            diMariaUnlocked = data.diMariaUnlocked;
         }
     }
 

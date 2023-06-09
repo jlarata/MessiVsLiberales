@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -20}
+  m_AnchoredPosition: {x: -5, y: -20}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25191913000742727
@@ -285,8 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3e52403359ec521903c59a08850661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multipleFacing: 0
   hFacing: 0
+  totalMovement: {x: 0, y: 0}
+  totalMovementFacing: 0
 --- !u!1 &8188397422100022532
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 8593032733159892825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.07, y: 0.27, z: -2.02}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8753252038919198754}
@@ -564,11 +565,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   hpSlider: {fileID: 25191913000742727}
-  maxHp: 0
-  isFiring: 0
+  isFiringShuriken: 0
+  isFiringAduke: 0
+  isFiringDiMaria: 0
+  isRegen: 0
   virtualRotation: {fileID: 0}
   gameController: {fileID: 0}
+  weapons:
+  - {fileID: 7653205183442131717, guid: 787f4e94429c36b8caf35d3e590690ea, type: 3}
+  - {fileID: 681385373218405240, guid: 697cd82c00f977619840b2538ee7ed42, type: 3}
+  - {fileID: 5488982368222653790, guid: 7c7eae7133aae0b538f7db81890eb478, type: 3}
   slash: {fileID: 681385373218405240, guid: 697cd82c00f977619840b2538ee7ed42, type: 3}
+  messiHpLvl: 0
+  regenLvl: 0
+  regenRatio: 0
+  shurikenLvl: 0
+  adukeLvl: 0
+  diMariaLvl: 0
+  iDF: 0
 --- !u!1 &8630070566710023455
 GameObject:
   m_ObjectHideFlags: 0

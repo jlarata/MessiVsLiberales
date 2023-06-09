@@ -15,6 +15,7 @@ public class WeaponController : MonoBehaviour
     //these variables will be readed from MessiController script, by each weapon. 
     public float shurikenLvl;
     public float adukeLvl;
+    public float diMariaLvl;
     
 
     public GameObject messi;

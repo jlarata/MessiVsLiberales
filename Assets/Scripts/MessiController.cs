@@ -13,6 +13,7 @@ public class MessiController : MonoBehaviour
 
     public bool isFiringShuriken;
     public bool isFiringAduke;
+    public bool isFiringDiMaria;
     public bool isRegen;
 
 
@@ -35,6 +36,7 @@ public class MessiController : MonoBehaviour
     public float regenRatio;
     public float shurikenLvl;
     public float adukeLvl;
+    public float diMariaLvl;
     public float iDF;
      
 
@@ -51,9 +53,14 @@ public class MessiController : MonoBehaviour
         {
         shurikenLvl = MainManager.Instance.shurikenLvl;
         adukeLvl = MainManager.Instance.adukeLvl;
+        diMariaLvl = MainManager.Instance.diMariaLvl;
         } else {
         shurikenLvl = 1f;
         adukeLvl = 0f;
+
+        //
+        //VOLVER A CERO ESTO CUANDO TERMINE IMPL.
+        diMariaLvl = 1f;
         }
         
         
@@ -66,6 +73,7 @@ public class MessiController : MonoBehaviour
 
         isFiringAduke = false;
         isFiringShuriken = false;
+        isFiringDiMaria = false;
         isRegen = false;
 
         
@@ -95,6 +103,11 @@ public class MessiController : MonoBehaviour
             //Dentro de Fire puede ir el parametro weaponDelay, que tome el delay especifico 
             // del arma que corresponda. eso implica repensar los métodos cuando haya más de un arma.
             StartCoroutine(FireShuriken(.8f));    
+        }
+
+        if (!isFiringDiMaria && !(diMariaLvl == 0f))
+        {
+            StartCoroutine(FireDiMaria(2f));    
         }
 
         
@@ -222,6 +235,20 @@ public class MessiController : MonoBehaviour
             }
             yield return new WaitForSeconds(delayFire);
             isFiringShuriken = false;
+
+            
+        
+    }
+    
+    public IEnumerator FireDiMaria(float delayFire)
+    {
+
+            isFiringDiMaria = true;
+
+            Instantiate(weapons[2], transform.position + new Vector3(0f*iDF,0.0f*iDF,0), transform.rotation);
+           
+            yield return new WaitForSeconds(delayFire);
+            isFiringDiMaria = false;
 
             
         
