@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
     public GameObject LvlUpOption2;
     public GameObject LvlUpOption3;
     public GameObject LvlUpOption4;
+    public GameObject LvlUpOption5;
 
     [SerializeField]
     public int wave;
@@ -120,6 +121,8 @@ public class GameController : MonoBehaviour
         LvlUpOption2 = GameObject.Find("LvlUpOption2");
         LvlUpOption3 = GameObject.Find("LvlUpOption3");
         LvlUpOption4 = GameObject.Find("LvlUpOption4");
+        LvlUpOption5 = GameObject.Find("LvlUpOption5");
+
 
         LvlUpMenu.SetActive(false);
         LvlUpText.SetActive(false);
@@ -127,6 +130,7 @@ public class GameController : MonoBehaviour
         LvlUpOption2.SetActive(false);
         LvlUpOption3.SetActive(false);
         LvlUpOption4.SetActive(false);
+        LvlUpOption5.SetActive(false);
         
         lvlAndExp = GameObject.Find("LvlAndExpDisplay").GetComponent<TMP_Text>();
         timeDisplay = GameObject.Find("TimeDisplay").GetComponent<TMP_Text>();
@@ -228,6 +232,7 @@ public class GameController : MonoBehaviour
         LvlUpOption2.SetActive(true);
         LvlUpOption3.SetActive(true);
         LvlUpOption4.SetActive(true);
+        LvlUpOption5.SetActive(true);
     }
 
     public void LvlUpMenuOut()
@@ -239,6 +244,7 @@ public class GameController : MonoBehaviour
         LvlUpOption2.SetActive(false);
         LvlUpOption3.SetActive(false);
         LvlUpOption4.SetActive(false);
+        LvlUpOption5.SetActive(false);
         isLvlUpMenu = false;
     }
 

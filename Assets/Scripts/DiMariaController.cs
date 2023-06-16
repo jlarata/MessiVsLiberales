@@ -18,14 +18,56 @@ public class DiMariaController : WeaponController
         messi = GameObject.Find("Messi");
         totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
 
+
         weaponDamage = 1.0f;
-        weaponDuration = 3f;
+        
         xRange = 4.7f;
         yRange = 2.5f;
 
         diMariaLvl = messi.GetComponent<MessiController>().diMariaLvl;
         setNewDirection();
         
+
+        scaleChange = transform.localScale;
+        switch(diMariaLvl)
+        {
+            case 1:
+            weaponDuration = 2f;
+            scaleChange.x *= 0.7f;
+            scaleChange.y *= 0.7f;
+            break;
+            case 2:
+            weaponDuration = 2f;
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 3:
+            weaponDuration = 2.5f;
+            weaponDamage *= 2f;
+            scaleChange.x *= 0.9f;
+            scaleChange.y *= 0.9f;
+            break;
+            case 4:
+            weaponDuration = 2.5f;
+            weaponDamage *= 2f;
+            scaleChange.x *= 1.1f;
+            scaleChange.y *= 1.1f;
+            break;
+            case 5:
+            weaponDuration = 2.5f;
+            weaponDamage *= 3f;
+            scaleChange.x *= 1.1f;
+            scaleChange.y *= 1.1f;
+            break;
+            case >5:
+            weaponDuration = 3f;
+            weaponDamage *= 3f;
+            scaleChange.x *= 1.3f;
+            scaleChange.y *= 1.3f;
+            break;
+        }
+        transform.localScale = scaleChange;
+
     }
 
     // Update is called once per frame
@@ -65,11 +107,6 @@ public class DiMariaController : WeaponController
         }
         
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(-horizontalInput * Time.deltaTime * speed * messiVelocity, 0, 0, Space.World);
-
-        verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(0, -verticalInput * Time.deltaTime * speed * messiVelocity, 0, Space.World);
         }
         
         

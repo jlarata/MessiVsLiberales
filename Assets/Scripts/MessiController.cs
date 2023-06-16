@@ -107,7 +107,7 @@ public class MessiController : MonoBehaviour
 
         if (!isFiringDiMaria && !(diMariaLvl == 0f))
         {
-            StartCoroutine(FireDiMaria(2f));    
+            StartCoroutine(FireDiMaria(4f));    
         }
 
         
@@ -294,6 +294,11 @@ public class MessiController : MonoBehaviour
     public void LvlUpAduke()
     {
         adukeLvl++;
+    }
+
+    public void LvlUpDiMaria()
+    {
+        diMariaLvl++;
     }
 
 
