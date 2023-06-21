@@ -43,32 +43,68 @@ public class AdukeController : WeaponController
         switch(adukeLvl)
         {
             case 1:
+            weaponDuration = 2f;
             scaleChange.x *= 0.7f;
             scaleChange.y *= 0.7f;
             break;
             case 2:
+            weaponDuration = 2f;
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
             case 3:
-            weaponDamage *= 4f;
+            weaponDuration = 2.5f;
+            weaponDamage *= 2f;
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
             case 4:
-            weaponDamage *= 4f;
+            weaponDuration = 2.5f;
+            weaponDamage *= 2f;
             scaleChange.x *= 1.1f;
             scaleChange.y *= 1.1f;
             break;
             case 5:
-            weaponDamage *= 6f;
+            weaponDuration = 2.5f;
+            weaponDamage *= 4f;
             scaleChange.x *= 1.1f;
             scaleChange.y *= 1.1f;
             break;
-            case >5:
-            weaponDamage *= 6f;
+            case 6:
+            weaponDuration = 3f;
+            weaponDamage *= 4;
+            scaleChange.x *= 1.1f;
+            scaleChange.y *= 1.1f;
+            break;
+            case 7:
+            weaponDuration = 3f;
+            weaponDamage *= 4;
             scaleChange.x *= 1.3f;
             scaleChange.y *= 1.3f;
+            break;
+            case 8:
+            weaponDuration = 3f;
+            weaponDamage *= 6;
+            scaleChange.x *= 1.3f;
+            scaleChange.y *= 1.3f;
+            break;
+            case 9:
+            weaponDuration = 3f;
+            weaponDamage *= 6;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case 10:
+            weaponDuration = 3.5f;
+            weaponDamage *= 6;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case >10:
+            weaponDuration = 4f;
+            weaponDamage *= 8;
+            scaleChange.x *= 1.6f;
+            scaleChange.y *= 1.6f;
             break;
         }
         transform.localScale = scaleChange;

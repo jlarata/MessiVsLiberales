@@ -32,39 +32,70 @@ public class DiMariaController : WeaponController
         switch(diMariaLvl)
         {
             case 1:
-            weaponDuration = 2f;
+            weaponDuration = 1f;
             scaleChange.x *= 0.7f;
             scaleChange.y *= 0.7f;
             break;
             case 2:
-            weaponDuration = 2f;
+            weaponDuration = 1f;
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
             case 3:
-            weaponDuration = 2.5f;
+            weaponDuration = 1f;
             weaponDamage *= 2f;
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
             case 4:
-            weaponDuration = 2.5f;
+            weaponDuration = 1f;
             weaponDamage *= 2f;
             scaleChange.x *= 1.1f;
             scaleChange.y *= 1.1f;
             break;
             case 5:
-            weaponDuration = 2.5f;
-            weaponDamage *= 3f;
+            weaponDuration = 1.5f;
+            weaponDamage *= 2f;
             scaleChange.x *= 1.1f;
             scaleChange.y *= 1.1f;
             break;
-            case >5:
-            weaponDuration = 3f;
-            weaponDamage *= 3f;
+            case 6:
+            weaponDuration = 1.5f;
+            weaponDamage *= 2f;
             scaleChange.x *= 1.3f;
             scaleChange.y *= 1.3f;
             break;
+            case 7:
+            weaponDuration = 1.5f;
+            weaponDamage *= 2f;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case 8:
+            weaponDuration = 2f;
+            weaponDamage *= 2f;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case 9:
+            weaponDuration = 2f;
+            weaponDamage *= 3f;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case 10:
+            weaponDuration = 2.5f;
+            weaponDamage *= 3f;
+            scaleChange.x *= 1.7f;
+            scaleChange.y *= 1.7f;
+            break;
+            case >10:
+            weaponDuration = 2.5f;
+            weaponDamage *= 3f;
+            scaleChange.x *= 1.7f;
+            scaleChange.y *= 1.7f;
+            break;
+
         }
         transform.localScale = scaleChange;
 

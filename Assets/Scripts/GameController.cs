@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
     protected GameObject gBackground;
     [SerializeField]
     protected Vector3 bgStartPos;
+
+    public GameObject messi;
+
     
     private float repeatWidth;
     private float repeatHeight;
@@ -96,6 +99,8 @@ public class GameController : MonoBehaviour
 
         maxExp = 10f;
         gBackground = GameObject.Find("GBackground");
+
+        messi = GameObject.Find("Messi");
 
         pauseText = GameObject.Find("Pause Text");
         pauseText.SetActive(false);
@@ -228,11 +233,29 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0;
         LvlUpMenu.SetActive(true);
         LvlUpText.SetActive(true);
-        LvlUpOption1.SetActive(true);
+        //shuriken
+        if (messi.GetComponent<MessiController>().shurikenLvl < 10)
+        {  
+            LvlUpOption1.SetActive(true);
+        }
+        //maxhp
         LvlUpOption2.SetActive(true);
-        LvlUpOption3.SetActive(true);
+
+        //aduke
+        if (messi.GetComponent<MessiController>().adukeLvl < 10)
+        {
+            LvlUpOption3.SetActive(true);
+        }
+
+        //nada
         LvlUpOption4.SetActive(true);
-        LvlUpOption5.SetActive(true);
+
+        //dimaria
+        if (messi.GetComponent<MessiController>().diMariaLvl < 10)
+        {
+            LvlUpOption5.SetActive(true);
+        }
+        
     }
 
     public void LvlUpMenuOut()

@@ -54,10 +54,40 @@ public class ShurikenController : WeaponController
             scaleChange.x *= 0.9f;
             scaleChange.y *= 0.9f;
             break;
-            case >5:
+            case 6:
             weaponDamage *= 4f;
             scaleChange.x *= 1.2f;
             scaleChange.y *= 1.2f;
+            break;
+            case 7:
+            weaponDuration = 0.5f;
+            weaponDamage *= 4f;
+            scaleChange.x *= 1.2f;
+            scaleChange.y *= 1.2f;
+            break;
+            case 8:
+            weaponDuration = 0.5f;
+            weaponDamage *= 6f;
+            scaleChange.x *= 1.2f;
+            scaleChange.y *= 1.2f;
+            break;
+            case 9:
+            weaponDuration = 0.5f;
+            weaponDamage *= 6f;
+            scaleChange.x *= 1.4f;
+            scaleChange.y *= 1.4f;
+            break;
+            case 10:
+            weaponDuration = 0.6f;
+            weaponDamage *= 7f;
+            scaleChange.x *= 1.5f;
+            scaleChange.y *= 1.5f;
+            break;
+            case > 10:
+            weaponDuration = 0.7f;
+            weaponDamage *= 7.5f;
+            scaleChange.x *= 1.6f;
+            scaleChange.y *= 1.6f;
             break;
         }
         transform.localScale = scaleChange;

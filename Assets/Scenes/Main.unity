@@ -3094,6 +3094,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 816463471}
+        m_TargetAssemblyTypeName: MessiController, Assembly-CSharp
+        m_MethodName: LvlUpDiMaria
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1536737287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3333,6 +3345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBackground: {fileID: 0}
   bgStartPos: {x: 0, y: 0, z: 0}
+  messi: {fileID: 0}
   speed: 0
   exp: 0
   iExp: 0
@@ -3357,6 +3370,7 @@ MonoBehaviour:
   LvlUpOption2: {fileID: 0}
   LvlUpOption3: {fileID: 0}
   LvlUpOption4: {fileID: 0}
+  LvlUpOption5: {fileID: 0}
   wave: 0
   pausanias: 0
   isLvlUpMenu: 0
@@ -3853,6 +3867,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1812099221393586902, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812099221393586902, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 5103995490666020735, guid: 3a635f2f70c72396ea2d24ad2ef0eebc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
