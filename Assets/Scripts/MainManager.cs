@@ -44,7 +44,7 @@ public class MainManager : MonoBehaviour
 
         // optionsunlocked by default (remember to uncomment this on the savedata class and save and load data
         // functions)
-        optionsUnlocked = true;
+        optionsUnlocked = false;
 
     
         
@@ -58,14 +58,14 @@ public class MainManager : MonoBehaviour
         public int LvlAchieved;
         public bool adukeUnlocked;
         public bool diMariaUnlocked;
-        //public bool optionsUnlocked;
+        public bool optionsUnlocked;
     }
 
     public void SaveState()
     {
         SaveData data = new SaveData();
         data.LvlAchieved = LvlAchieved;
-        //data.optionsUnlocked = optionsUnlocked;
+        data.optionsUnlocked = optionsUnlocked;
         data.adukeUnlocked = adukeUnlocked;
         data.diMariaUnlocked = diMariaUnlocked;
         
@@ -83,10 +83,20 @@ public class MainManager : MonoBehaviour
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
             LvlAchieved = data.LvlAchieved;
-            //optionsUnlocked = data.optionsUnlocked;
+            optionsUnlocked = data.optionsUnlocked;
             adukeUnlocked = data.adukeUnlocked;
             diMariaUnlocked = data.diMariaUnlocked;
         }
+    }
+
+    public void UnlockAndLock()
+    {
+        if (!optionsUnlocked)
+        {
+            optionsUnlocked = true;
+        }
+        else
+        optionsUnlocked = false;
     }
 
 

@@ -1034,7 +1034,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1846656735}
         m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
-        m_MethodName: StartWithAduke
+        m_MethodName: StartWithDiMaria
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -369,4 +369,16 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+
+    public void UnlockAndLock()
+    {
+        if (MainManager.Instance != null)
+        {
+            MainManager.Instance.UnlockAndLock();
+        }
+    }
+    
+    
+
+
 }
