@@ -31,6 +31,13 @@ public class TitleController : MonoBehaviour
         MainManager.Instance.shurikenLvl = 0;
     }
 
+    public void StartWithDiMaria()
+    {
+        MainManager.Instance.adukeLvl = 0;
+        MainManager.Instance.shurikenLvl = 0;
+        MainManager.Instance.diMariaLvl = 1;
+    }
+
     public void StartNew()
     {
 

@@ -9,6 +9,12 @@ c. hacer un mapa de scripts? comencé hoy y tuve que rastrear qué manejaba qué
 //d. messi anda muy rápido. comenzar más lento.
 31.5 messi es más chico y más lento. el juego es considerablemente más difícil.
 
+e. añadir dimaria al menu de armas en la primera pantalla y armar la lógica de desbloqueo
+por cierto la lógica del desbloqueo no está andando creo, ni bien se arranca a jugar te permite entrar con cualquier arma
+cuando supuestamente ni deberia verse el cartel si no se desbloqueó.
+
+
+
 x. más armas
 y. más enemigos
 z. introducir algún tipo de randomización en la aparición de los botones del lvlupmenu.
