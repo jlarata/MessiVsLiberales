@@ -3560,7 +3560,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
   GameController: {fileID: 0}
-  enemy01: {fileID: 4678304031824846195, guid: db80a9f8f1e80dde3a379c96f275cc07, type: 3}
+  enemiesList:
+  - {fileID: 4678304031824846195, guid: db80a9f8f1e80dde3a379c96f275cc07, type: 3}
+  - {fileID: 4678304031824846195, guid: 91dcb0c6d770f83879933007ece9efd6, type: 3}
+  - {fileID: 4678304031824846195, guid: 39512a1b0529b2c458f2706ce1d03576, type: 3}
+  - {fileID: 4678304031824846195, guid: 39c7ca5a40fa14ed9b6cba7f9648388f, type: 3}
   spawnRangeY: 0
   spawnRangeX: 0
   spawnPosX: 0

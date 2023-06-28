@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject gameController;
     public GameController GameController;
 
-    public GameObject enemy01;
+    public GameObject[] enemiesList;
     
     //public GameObject powerup;
     [SerializeField]
@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (totalEnemiesCount <= 80 && isSpawning == false)
+        if (totalEnemiesCount <= 140 && isSpawning == false)
         {
             //isSpawning = true;
             StartCoroutine(SpawnEnemies());
@@ -125,8 +125,44 @@ private Vector3 GenerateHorizontalSpawnPosition()
             switch(GameController.wave)
             {
                 //wave lower than 10, that's 4 minutes aprox.
-                case <10:
+                case <2:
                 SpawnEnemy01();
+                break;
+                case 2:
+                SpawnEnemy0102();
+                break;
+                case 3:
+                SpawnEnemy0102();
+                break;
+                case 4:
+                SpawnEnemy02();
+                break;
+                case 5:
+                SpawnEnemy02();
+                break;
+                case 6:
+                SpawnEnemy0203();
+                break;
+                case 7:
+                SpawnEnemy0203();
+                break;
+                case 8:
+                SpawnEnemy03();
+                break;
+                case 9:
+                SpawnEnemy03();
+                break;
+                case 10:
+                SpawnEnemy0304();
+                break;
+                case 11:
+                SpawnEnemy0304();
+                break;
+                case 12:
+                SpawnEnemy04();
+                break;
+                case 13:
+                SpawnEnemy04();
                 break;
             }
             isSpawning = false;
@@ -150,11 +186,94 @@ private Vector3 GenerateHorizontalSpawnPosition()
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
-            
-            //enemy01.GetComponent<Enem01BasicLiberal>().speed = 4;
-            Instantiate(enemy01, verticalRandomPos, enemy01.transform.rotation);
+            Instantiate(enemiesList[0], verticalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-            Instantiate(enemy01, horizontalRandomPos, enemy01.transform.rotation);
+            Instantiate(enemiesList[0], horizontalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+    void SpawnEnemy0102()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+
+            Instantiate(enemiesList[0], verticalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+
+    void SpawnEnemy02()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+            
+            Instantiate(enemiesList[1], verticalRandomPos, enemiesList[1].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[1].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+    void SpawnEnemy0203()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+
+            Instantiate(enemiesList[1], verticalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[2], horizontalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+    void SpawnEnemy03()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+            
+            Instantiate(enemiesList[2], verticalRandomPos, enemiesList[1].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[2], horizontalRandomPos, enemiesList[1].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+    void SpawnEnemy0304()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+
+            Instantiate(enemiesList[2], verticalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[3], horizontalRandomPos, enemiesList[0].transform.rotation);
+            totalEnemiesCount++;
+
+    }
+
+    void SpawnEnemy04()
+
+    {
+
+            GenerateVerticalSpawnPosition();
+            GenerateHorizontalSpawnPosition();
+            
+            Instantiate(enemiesList[3], verticalRandomPos, enemiesList[1].transform.rotation);
+            totalEnemiesCount++;
+            Instantiate(enemiesList[3], horizontalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
 
     }

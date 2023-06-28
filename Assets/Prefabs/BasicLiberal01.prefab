@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -160115600780165631}
   - component: {fileID: 7905215944460765866}
   - component: {fileID: 1029931764635389015}
-  - component: {fileID: 383235479754106528}
+  - component: {fileID: 6634997453057233642}
   m_Layer: 7
-  m_Name: Enemy01
+  m_Name: BasicLiberal01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   messiController: {fileID: 0}
   damageNumberEO: {fileID: 4495384051819028654, guid: 80f1cd9b3a401a6ba875c6cae1235b8e, type: 3}
   thisEnemyDamage: 0
---- !u!114 &383235479754106528
+--- !u!114 &6634997453057233642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4678304031824846195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604d7482725da2451b83f2a155665056, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e27765fddd926a1877fb8fc23a66d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRb2D: {fileID: 0}
