@@ -74,6 +74,9 @@ public class GameController : MonoBehaviour
     public GameObject LvlUpOption4;
     public GameObject LvlUpOption5;
 
+    //Cursor Controller
+    public GameObject cursorController;
+
     [SerializeField]
     public int wave;
 
@@ -99,6 +102,7 @@ public class GameController : MonoBehaviour
 
         maxExp = 10f;
         gBackground = GameObject.Find("GBackground");
+        cursorController = GameObject.Find("Cursor Controller");
 
         messi = GameObject.Find("Messi");
 
@@ -229,10 +233,12 @@ public class GameController : MonoBehaviour
 
     public void LvlUpMenuFunction()
     {
+
         isLvlUpMenu = true;
         Time.timeScale = 0;
         LvlUpMenu.SetActive(true);
         LvlUpText.SetActive(true);
+
         //shuriken
         if (messi.GetComponent<MessiController>().shurikenLvl < 10)
         {  
@@ -255,6 +261,9 @@ public class GameController : MonoBehaviour
         {
             LvlUpOption5.SetActive(true);
         }
+
+        //cursor (it's important this is called after every options of lvlup)
+        cursorController.GetComponent<CursorController>().SetCursorActive();
         
     }
 

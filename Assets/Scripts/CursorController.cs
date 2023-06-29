@@ -25,6 +25,18 @@ public class CursorController : MonoBehaviour
     public GameObject OptionsCursor09;
     public GameObject OptionsCursor10; */
 
+    public GameObject LvlUpOption1;
+    public GameObject LvlUpOption2;
+    public GameObject LvlUpOption3;
+    public GameObject LvlUpOption4;
+    public GameObject LvlUpOption5;
+    /* public GameObject LvlUpOption6;
+    public GameObject LvlUpOption7;
+    public GameObject LvlUpOption8;
+    public GameObject LvlUpOption9;
+    public GameObject LvlUpOption10; */
+    
+
     void Start()
     {
         GameController = GameObject.Find("Game Controller");
@@ -41,7 +53,19 @@ public class CursorController : MonoBehaviour
         OptionsCursor0 = GameObject.Find("Cursor0");
         OptionsCursor0 = GameObject.Find("Cursor0"); */
 
-        OptionsCursor01.SetActive(true);
+        LvlUpOption1 = GameObject.Find("LvlUpOption1");
+        LvlUpOption2 = GameObject.Find("LvlUpOption2");
+        LvlUpOption3 = GameObject.Find("LvlUpOption3");
+        LvlUpOption4 = GameObject.Find("LvlUpOption4");
+        LvlUpOption5 = GameObject.Find("LvlUpOption5");
+        /* LvlUpOption6 = GameObject.Find("LvlUpOption6");
+        LvlUpOption7 = GameObject.Find("LvlUpOption7");
+        LvlUpOption8 = GameObject.Find("LvlUpOption8");
+        LvlUpOption9 = GameObject.Find("LvlUpOption9");
+        LvlUpOption10 = GameObject.Find("LvlUpOption10"); */
+
+
+        OptionsCursor01.SetActive(false);
         OptionsCursor02.SetActive(false);
         OptionsCursor03.SetActive(false);
         OptionsCursor04.SetActive(false);
@@ -133,41 +157,129 @@ public class CursorController : MonoBehaviour
 
     public void CursorDown()
     {
+        //cursor is on option 1 (shuriken)
         if (OptionsCursor01.activeSelf)
         {
-            OptionsCursor01.SetActive(false);
-            OptionsCursor02.SetActive(true);
-        }
+            //case 1: option 2 (maxHP) not active
 
+            if (!LvlUpOption2.activeSelf)
+
+            {
+                //case 1-b option 3 (aduke) not active
+                if (!LvlUpOption3.activeSelf)
+                {
+                    OptionsCursor01.SetActive(false);
+                    OptionsCursor04.SetActive(true);
+                }
+                else
+                {
+                    //case 1-a option 3 (aduke) active
+                    OptionsCursor01.SetActive(false);
+                    OptionsCursor03.SetActive(true);    
+                }
+                
+            } else
+            {
+            //case 2 option 2 (maxHP) active
+            OptionsCursor01.SetActive(false);
+            OptionsCursor02.SetActive(true);    
+            }            
+        }
+        //cursor is on option 2 (maxhp)
         else if (OptionsCursor02.activeSelf)
         {
-            OptionsCursor02.SetActive(false);
-            OptionsCursor03.SetActive(true);
+            //case 1: option 3 (aduke) not active
+            if (!LvlUpOption3.activeSelf)
+            {
+                if (LvlUpOption4.activeSelf)
+                {
+                    OptionsCursor02.SetActive(false);
+                    OptionsCursor04.SetActive(true);
+                }
+                
+            } else
+            {
+                //case 2: option 3 (aduke) active
+                OptionsCursor02.SetActive(false);
+                OptionsCursor03.SetActive(true);                
+            }
+
         }
         else if (OptionsCursor03.activeSelf)
         {
-            OptionsCursor03.SetActive(false);
-            OptionsCursor04.SetActive(true);
+            //only case possible: option 4 (xD) active
+            if (LvlUpOption4.activeSelf)
+            {
+                OptionsCursor03.SetActive(false);
+                OptionsCursor04.SetActive(true);
+            }
+            
         }
     }
 
     public void CursorUp()
     {
+        //cursor is on option 4 (xD)
         if (OptionsCursor04.activeSelf)
         {
-            OptionsCursor04.SetActive(false);
-            OptionsCursor03.SetActive(true);
+            //case 1: option 3 (aduke) is not active
+            if (!LvlUpOption3.activeSelf)
+                {
+                    //case 1-b: option 2 (maxHp) is not active 
+                    if (!LvlUpOption2.activeSelf)
+                    {
+                       //option1 must be active
+                        if (LvlUpOption1.activeSelf)
+                        {
+                            OptionsCursor04.SetActive(false);
+                            OptionsCursor01.SetActive(true);
+                        }
+
+                    } else
+                    {
+                    //option 2 active
+                    OptionsCursor04.SetActive(false);
+                    OptionsCursor02.SetActive(true);
+                    }
+                    
+                } else 
+                {
+                    //option 3 (aduke) is active
+                    OptionsCursor04.SetActive(false);
+                    OptionsCursor03.SetActive(true);
+                }
+
         }
 
+        //cursor is on option 3 (aduke)
         else if (OptionsCursor03.activeSelf)
         {
+            //option 2 (maxHp) is not active 
+            if (!LvlUpOption2.activeSelf)
+            {
+                //option 1 must be active
+                    if (LvlUpOption1.activeSelf)
+                    {
+                        OptionsCursor03.SetActive(false);
+                        OptionsCursor01.SetActive(true);
+                    }         
+            } else  
+            {
+            //option 2 (MaxHp) is active
             OptionsCursor03.SetActive(false);
             OptionsCursor02.SetActive(true);
+            }
         }
+        //cursor is on option 2 (maxHp)
         else if (OptionsCursor02.activeSelf)
         {
-            OptionsCursor02.SetActive(false);
-            OptionsCursor01.SetActive(true);
+            //option 1 (shuriken) must be active
+            if (LvlUpOption1.activeSelf)
+            {
+                OptionsCursor02.SetActive(false);
+                OptionsCursor01.SetActive(true);
+            }
+            
         }
 
     }
@@ -195,29 +307,72 @@ public class CursorController : MonoBehaviour
     {
         if (OptionsCursor01.activeSelf)
         {
+            OptionsCursor01.SetActive(false);
             Messi.GetComponent<MessiController>().LvlUpShuriken();
             GameController.GetComponent<GameController>().LvlUpMenuOut();
         }
          else if (OptionsCursor02.activeSelf)
         {
+            OptionsCursor02.SetActive(false);
             Messi.GetComponent<MessiController>().LvlUpMaxHp();
             GameController.GetComponent<GameController>().LvlUpMenuOut();
         }
         else if (OptionsCursor03.activeSelf)
         {
+            OptionsCursor03.SetActive(false);
             Messi.GetComponent<MessiController>().LvlUpAduke();
             GameController.GetComponent<GameController>().LvlUpMenuOut();
         }
         else if (OptionsCursor04.activeSelf)
         {
+            OptionsCursor04.SetActive(false);
             //xD esto no hace nada
             GameController.GetComponent<GameController>().LvlUpMenuOut();
         }
         else if (OptionsCursor05.activeSelf)
         {
+            OptionsCursor05.SetActive(false);
             Messi.GetComponent<MessiController>().LvlUpDiMaria();
             GameController.GetComponent<GameController>().LvlUpMenuOut();
         } 
+    }
+
+    // this is the function called from the GameController: activates the cursor on the 
+    // first option avaiable 
+    public void SetCursorActive()
+    {
+        if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        } else if (LvlUpOption2.activeSelf)
+        {
+            OptionsCursor02.SetActive(true);
+        } else if (LvlUpOption3.activeSelf)
+        {
+            OptionsCursor03.SetActive(true);
+        } else if (LvlUpOption4.activeSelf)
+        {
+            OptionsCursor04.SetActive(true);
+        } else if (LvlUpOption5.activeSelf)
+        {
+            OptionsCursor05.SetActive(true);
+        } /* else if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        } else if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        } else if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        } else if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        } else if (LvlUpOption1.activeSelf)
+        {
+            OptionsCursor01.SetActive(true);
+        }  */ 
+        
     }
 
 }

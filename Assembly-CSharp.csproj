@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/SpawnManager.cs" />
+     <Compile Include="Assets/Scripts/CursorController.cs" />
      <Compile Include="Assets/Scripts/DetectCollisions.cs" />
      <Compile Include="Assets/Scripts/MessiController.cs" />
      <Compile Include="Assets/Scripts/DiMariaController.cs" />
@@ -53,7 +54,6 @@
      <Compile Include="Assets/Scripts/TitleController.cs" />
      <Compile Include="Assets/Scripts/ShurikenController.cs" />
      <Compile Include="Assets/Scripts/VirtualRotation.cs" />
-     <Compile Include="Assets/Scripts/CursorController.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
