@@ -288,17 +288,127 @@ public class CursorController : MonoBehaviour
     {
         if (OptionsCursor05.activeSelf)
         {
-            OptionsCursor05.SetActive(false);
+            if (LvlUpOption1.activeSelf)
+            {
             OptionsCursor01.SetActive(true);
+            OptionsCursor05.SetActive(false);
+            } else
+            if (LvlUpOption2.activeSelf)
+            {
+            OptionsCursor02.SetActive(true);
+            OptionsCursor05.SetActive(false);
+            } else
+            if (LvlUpOption3.activeSelf)
+            {
+            OptionsCursor03.SetActive(true);
+            OptionsCursor05.SetActive(false);
+            } else 
+            if (LvlUpOption4.activeSelf)
+            {
+            OptionsCursor04.SetActive(true);
+            OptionsCursor05.SetActive(false);
+            }
         }
     }
+
     public void CursorRight()
     {
         if (OptionsCursor01.activeSelf)
         {
+            if (LvlUpOption5.activeSelf)
+            {
             OptionsCursor01.SetActive(false);
             OptionsCursor05.SetActive(true);
+            } /*else
+            if (LvlUpOption6.activeSelf)
+            {
+            OptionsCursor01.SetActive(false);
+            OptionsCursor06.SetActive(true);
+            } else
+            if (LvlUpOption7.activeSelf)
+            {
+            OptionsCursor01.SetActive(false);
+            OptionsCursor07.SetActive(true);
+            } else 
+            if (LvlUpOption8.activeSelf)
+            {
+            OptionsCursor01.SetActive(false);
+            OptionsCursor08.SetActive(true);
+            }*/
+        } else
+        if (OptionsCursor02.activeSelf)
+        {
+            /*if (LvlUpOption6.activeSelf)
+            {
+            OptionsCursor02.SetActive(false);
+            OptionsCursor06.SetActive(true);
+            }*/
+            if (LvlUpOption5.activeSelf)
+            {
+            OptionsCursor02.SetActive(false);
+            OptionsCursor05.SetActive(true);
+            } /*else
+            if (LvlUpOption7.activeSelf)
+            {
+            OptionsCursor02.SetActive(false);
+            OptionsCursor07.SetActive(true);
+            } else 
+            if (LvlUpOption8.activeSelf)
+            {
+            OptionsCursor02.SetActive(false);
+            OptionsCursor08.SetActive(true);
+            }*/
+        } else
+        if (OptionsCursor03.activeSelf)
+        {
+            /*
+            if (LvlUpOption7.activeSelf)
+            {
+            OptionsCursor03.SetActive(false);
+            OptionsCursor07.SetActive(true);
+            } else            
+            if (LvlUpOption6.activeSelf)
+            {
+            OptionsCursor03.SetActive(false);
+            OptionsCursor06.SetActive(true);
+            } else 
+            if (LvlUpOption8.activeSelf)
+            {
+            OptionsCursor03.SetActive(false);
+            OptionsCursor08.SetActive(true);
+            } else */
+            if (LvlUpOption5.activeSelf)
+            {
+            OptionsCursor03.SetActive(false);
+            OptionsCursor05.SetActive(true);
+            } 
+        } else
+        if (OptionsCursor04.activeSelf)
+        {
+            /*
+            if (LvlUpOption8.activeSelf)
+            {
+            OptionsCursor04.SetActive(false);
+            OptionsCursor08.SetActive(true);
+            } else
+            if (LvlUpOption7.activeSelf)
+            {
+            OptionsCursor04.SetActive(false);
+            OptionsCursor07.SetActive(true);
+            } else            
+            if (LvlUpOption6.activeSelf)
+            {
+            OptionsCursor04.SetActive(false);
+            OptionsCursor06.SetActive(true);
+            } else 
+             */
+            if (LvlUpOption5.activeSelf)
+            {
+            OptionsCursor04.SetActive(false);
+            OptionsCursor05.SetActive(true);
+            } 
         }
+
     }
 
 
