@@ -133,13 +133,7 @@ public class GameController : MonoBehaviour
         LvlUpOption5 = GameObject.Find("LvlUpOption5");
 
 
-        LvlUpMenu.SetActive(false);
-        LvlUpText.SetActive(false);
-        LvlUpOption1.SetActive(false);
-        LvlUpOption2.SetActive(false);
-        LvlUpOption3.SetActive(false);
-        LvlUpOption4.SetActive(false);
-        LvlUpOption5.SetActive(false);
+        
         
         lvlAndExp = GameObject.Find("LvlAndExpDisplay").GetComponent<TMP_Text>();
         timeDisplay = GameObject.Find("TimeDisplay").GetComponent<TMP_Text>();
@@ -162,6 +156,17 @@ public class GameController : MonoBehaviour
 
 
 
+    }
+
+    public void HideLvlUpMenu()
+    {
+        LvlUpMenu.SetActive(false);
+        LvlUpText.SetActive(false);
+        LvlUpOption1.SetActive(false);
+        LvlUpOption2.SetActive(false);
+        LvlUpOption3.SetActive(false);
+        LvlUpOption4.SetActive(false);
+        LvlUpOption5.SetActive(false);
     }
 
     // Update is called once per frame

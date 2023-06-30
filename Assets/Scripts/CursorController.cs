@@ -76,6 +76,8 @@ public class CursorController : MonoBehaviour
         OptionsCursor09.SetActive(false);
         OptionsCursor10.SetActive(false);
          */
+
+         GameController.GetComponent<GameController>().HideLvlUpMenu();
     }
 
     void Update()
