@@ -35,11 +35,13 @@ public class GameController : MonoBehaviour
     public int iExp;
     public float maxExp;
     public int lvl;
+    public int currentWealth;
 
 
     //UI TMP Text objects
     public TMP_Text lvlAndExp;
     public TMP_Text timeDisplay;
+    public TMP_Text wealthDisplay;
     
     //clock
     public float seconds;
@@ -98,6 +100,7 @@ public class GameController : MonoBehaviour
         iSeconds = 0;
         minutes = 0;
         wave = 0;
+        currentWealth = 0;
         
 
         maxExp = 10f;
@@ -141,6 +144,9 @@ public class GameController : MonoBehaviour
         
         lvlAndExp.text = "Level: " +lvl + " | Exp: " +exp;
         timeDisplay.text = minutes+":"+iSeconds;
+
+        wealthDisplay = GameObject.Find("WealthDisplay").GetComponent<TMP_Text>();
+        wealthDisplay.text = ""+ currentWealth;
 
 
         expSlider = GameObject.Find("ExpSlider").GetComponent<Slider>();
@@ -300,6 +306,12 @@ public class GameController : MonoBehaviour
     //lvlAndExp.text = "Level: " +lvl+ " | Exp: " +exp+ " | Exp to next level: " +(maxExp-exp) ;
     iExp = (int)exp;
     lvlAndExp.text = "Level: " +lvl + " | Exp: " +iExp;
+    }
+
+    public void UpdateCurrentWealth(int income)
+    {
+        currentWealth += income;
+        wealthDisplay.text = ""+ currentWealth;
     }
 
     public void UpdateTime()
