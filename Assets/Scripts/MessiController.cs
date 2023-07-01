@@ -38,6 +38,7 @@ public class MessiController : MonoBehaviour
     public float adukeLvl;
     public float diMariaLvl;
     public float iDF;
+    public float speed;
      
 
     
@@ -48,6 +49,15 @@ public class MessiController : MonoBehaviour
         messiHpLvl = 1f;
         regenLvl = 0.1f;
         regenRatio = 1f;
+
+        /* So if I change this value all new instantiated elements will consider the new velocity 
+        therefore messi would move "faster" between them. but the old instantiated (and the background)
+        wont update the "messivelocity" var. this is a problem: while messi would move faster between 
+        some of the enemies, he will crash against the old ones
+        
+        only solution i can think: some all-game-updater. maybe a function that searches every object
+        with a tag and change it's messivelocity var (and bgbackground) */
+        speed = 0.4f;
 
         if (MainManager.Instance != null)
         {

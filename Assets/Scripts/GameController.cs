@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     private float verticalInput;
     
     [SerializeField]
-    private float speed;
+    public float messiVelocity;
 
     public float exp;
     public int iExp;
@@ -88,7 +88,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        speed = 0.6f;
+        
 
         lvl = 1;
         exp = 0f;
@@ -105,6 +105,7 @@ public class GameController : MonoBehaviour
         cursorController = GameObject.Find("Cursor Controller");
 
         messi = GameObject.Find("Messi");
+        messiVelocity = messi.GetComponent<MessiController>().speed;
 
         pauseText = GameObject.Find("Pause Text");
         pauseText.SetActive(false);
@@ -185,11 +186,20 @@ public class GameController : MonoBehaviour
         }
 
         //movement controller
+
+        /* Old function.
         horizontalInput = Input.GetAxis("Horizontal");
-        gBackground.transform.Translate(Vector3.right * -horizontalInput * Time.deltaTime * speed);
+        gBackground.transform.Translate(Vector3.right * -horizontalInput * Time.deltaTime * messiVelocity *0.5f);
 
         verticalInput = Input.GetAxis("Vertical");
-        gBackground.transform.Translate(Vector3.forward * -verticalInput * Time.deltaTime * speed);
+        gBackground.transform.Translate(Vector3.forward * -verticalInput * Time.deltaTime * messiVelocity *0.5f); */
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        gBackground.transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
+
+        verticalInput = Input.GetAxis("Vertical");
+        gBackground.transform.Translate(0, 0, -verticalInput * Time.deltaTime * messiVelocity);
+
 
         if (exp >= maxExp)
         {

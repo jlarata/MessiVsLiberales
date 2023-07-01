@@ -12,9 +12,13 @@ public class Enemy02BasicCosplay : EnemyController
         GameController = gameController.GetComponent<GameController>();
         
         messi = GameObject.Find("Messi");
+        MessiController = messi.GetComponent<MessiController>();
+        
+        messiVelocity = MessiController.speed; 
+
         enemyRb2D = GetComponent<Rigidbody2D>();
 
-        baseSpeed = 0.5f;
+        baseSpeed = 0.65f;
         baseEnemyDamage = 2f;
         baseEnemyExp = 2f;
         baseEnemyHp = 2f;
@@ -29,7 +33,7 @@ public class Enemy02BasicCosplay : EnemyController
         
         
           
-        messiVelocity = 1.1f;  
+        
         UpdateToWave();
         
     }

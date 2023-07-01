@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8174881866339777646}
   - component: {fileID: 9050284135539921236}
-  - component: {fileID: -5198948682495913695}
-  - component: {fileID: -874890014499359555}
+  - component: {fileID: -2948609284376472417}
+  - component: {fileID: 1879886058106916555}
   m_Layer: 0
-  m_Name: Messimoleon Copper
+  m_Name: Messimoleon Gold Several1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7382538589891639702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.1}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7e712c8a3320358e848e9110da89650, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3a46de41e6b920478d63614adcaa68b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5198948682495913695
+--- !u!114 &-2948609284376472417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   speed: 0
   horizontalInput: 0
   verticalInput: 0
---- !u!61 &-874890014499359555
+--- !u!61 &1879886058106916555
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,12 +120,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 7.66}
+    oldSize: {x: 38.412636, y: 19}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.8, y: 7.66}
+  m_Size: {x: 38.412636, y: 19}
   m_EdgeRadius: 0

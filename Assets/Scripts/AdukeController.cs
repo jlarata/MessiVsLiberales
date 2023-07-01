@@ -8,6 +8,8 @@ public class AdukeController : WeaponController
     {
         speed = 0.35f;
         messi = GameObject.Find("Messi");
+        MessiController = messi.GetComponent<MessiController>();
+        messiVelocity = MessiController.speed; 
         //multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
         totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
         weaponDamage = 2.0f;
@@ -15,12 +17,7 @@ public class AdukeController : WeaponController
 
         adukeLvl = messi.GetComponent<MessiController>().adukeLvl;
 
-        //if i lower this messivelocity, it reduces the factor of modification of the weapon fired as the
-        //player moves. but that also reduces the effect of the aduken staying on axis while player moving
-        // this is a problem. don't know how to solve.
-       //one obvious solution is making the aduken faster. but that would make, well, faster adukens. 
 
-        messiVelocity = 0.8f;
     
         // switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         // {
@@ -141,9 +138,6 @@ public class AdukeController : WeaponController
 
     new public void WeaponBehaviour()
     {
-        //todos estos métodos tendrían que estar en un script class específico de esta arma, 
-        //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable
-        
         
         switch(totalMovementFacing)
         {
@@ -198,11 +192,11 @@ public class AdukeController : WeaponController
         //     break;
         
         // }
-
+    
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(-horizontalInput * Time.deltaTime * speed * messiVelocity, 0, 0, Space.World);
+        transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0, Space.World);
 
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(0, -verticalInput * Time.deltaTime * speed * messiVelocity, 0, Space.World);
+        transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0, Space.World);
     }
 }

@@ -12,9 +12,13 @@ public class Enemy03BasicBaldman : EnemyController
         GameController = gameController.GetComponent<GameController>();
         
         messi = GameObject.Find("Messi");
+        MessiController = messi.GetComponent<MessiController>();
+        
+        messiVelocity = MessiController.speed; 
+
         enemyRb2D = GetComponent<Rigidbody2D>();
 
-        baseSpeed = 0.4f;
+        baseSpeed = 0.5f;
         baseEnemyDamage = 3f;
         baseEnemyExp = 3f;
         baseEnemyHp = 3f;
@@ -27,9 +31,6 @@ public class Enemy03BasicBaldman : EnemyController
 
         //enemyCC2D = GetComponent<CircleCollider2D>();
         
-        
-          
-        messiVelocity = 1.1f;  
         UpdateToWave();
         
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 // INHERITANCE this class is to be parent of all enemies child class.
 public class EnemyController : MonoBehaviour
 {
@@ -25,12 +26,19 @@ public class EnemyController : MonoBehaviour
     public float enemyExp;
     public float enemyHp;
 
+   //a list of drops to be used
+    public GameObject[] dropList; 
+    public int dropRandomNumber;
+
     //the exponential number (just an arbitrary number)
     public float expNumber;
 
     [SerializeField]
     protected GameObject messi;
-    
+    [SerializeField]
+    protected MessiController MessiController;
+
+
     [SerializeField]
     protected GameObject spawnManager;
 
@@ -53,17 +61,22 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        //remember: all this variables needs to be inicializated in the child classes.
+        //remember: all this variables needs to be ALSO inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
         //el objeto:
         gameController = GameObject.Find("GameController");
         //el script:
         GameController = gameController.GetComponent<GameController>();
         wave = GameController.wave;
-        
+
         enemyRb2D = GetComponent<Rigidbody2D>();
 
-        messi = GameObject.Find("Messi");  
+        messi = GameObject.Find("Messi");
+        MessiController = messi.GetComponent<MessiController>();
+        /*messiVelocity = MessiController.speed; */
+
+        
+    
 
         enemyColor = GetComponent<SpriteRenderer>().color;
         enemyColor.a = 1.0f;
@@ -72,8 +85,6 @@ public class EnemyController : MonoBehaviour
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
         
-        
-        messiVelocity = 2.0f;  
         
     }
 
@@ -88,18 +99,32 @@ public class EnemyController : MonoBehaviour
         //new method, using transform position with a Vector3.MoveTowards (so enemies dont push too much eachother)
         transform.position = Vector3.MoveTowards(transform.position, messi.transform.position, Time.deltaTime * speed);
 
+
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(-horizontalInput * Time.deltaTime * speed * messiVelocity, 0, 0);
+        transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
 
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(0, -verticalInput * Time.deltaTime * speed * messiVelocity, 0);
+        transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0);
+    }
 
-        if (enemyHp <= 0)
+    public void normalDrop()
+    {   
+        //this conditional prevents errors in case of having an enemy without elemnts in the array dropList.
+        if (!(dropList.Length == 0))
         {
-            Destroy(gameObject);
-            spawnManager.GetComponent<SpawnManager>().totalEnemiesCount--;
-            gameController.GetComponent<GameController>().ExpUp(enemyExp);
+            dropRandomNumber = Random.Range(1, 100);
+            if (dropRandomNumber >89)
+            {
+                Instantiate(dropList[1], transform.position, transform.rotation);
+            }
+            else if (dropRandomNumber >49)
+            {
+                Instantiate(dropList[0], transform.position, transform.rotation);
+            }
+            
         }
+        
+        
     }
 
     //POLYMORPHISM i have no use for this at this point, so i've imagined one
@@ -110,6 +135,14 @@ public class EnemyController : MonoBehaviour
     public virtual void loseHp(float weaponDamage)
     {
         enemyHp -= weaponDamage;
+
+        if (enemyHp <= 0)
+        {
+            normalDrop();
+            Destroy(gameObject);
+            spawnManager.GetComponent<SpawnManager>().totalEnemiesCount--;
+            gameController.GetComponent<GameController>().ExpUp(enemyExp);
+        }
     }
 
     public void HitAnimationF()

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8174881866339777646}
   - component: {fileID: 9050284135539921236}
-  - component: {fileID: -5198948682495913695}
-  - component: {fileID: -874890014499359555}
+  - component: {fileID: 956600644040021813}
+  - component: {fileID: 2601801437575210359}
   m_Layer: 0
-  m_Name: Messimoleon Copper
+  m_Name: Messimoleon Silver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7e712c8a3320358e848e9110da89650, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbdbd5632b3977a6f9f3766ce7366ec8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5198948682495913695
+--- !u!114 &956600644040021813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   speed: 0
   horizontalInput: 0
   verticalInput: 0
---- !u!61 &-874890014499359555
+--- !u!61 &2601801437575210359
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

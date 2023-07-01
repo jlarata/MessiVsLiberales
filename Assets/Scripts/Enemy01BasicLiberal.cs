@@ -2,34 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy01BasicLiberal : EnemyController
 {
     // INHERITANCE. this class inherits from script EnemyController.cs
     void Start()
     {
+        //remember: all this variables needs to be inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
+        //el objeto:
         gameController = GameObject.Find("Game Controller");
+        //el script:
         GameController = gameController.GetComponent<GameController>();
         
+
         messi = GameObject.Find("Messi");
+        MessiController = messi.GetComponent<MessiController>();
+        
+        messiVelocity = MessiController.speed; 
+
         enemyRb2D = GetComponent<Rigidbody2D>();
 
-        baseSpeed = 0.4f;
+        baseSpeed = 0.5f;
         baseEnemyDamage = 1f;
         baseEnemyExp = 1f;
         baseEnemyHp =1f;
 
         expNumber = 1.5f;
 
-
-
         wave = GameController.wave;
 
+        
         //enemyCC2D = GetComponent<CircleCollider2D>();
-        
-        
-          
-        messiVelocity = 1.1f;  
+      
         UpdateToWave();
         
     }
@@ -81,6 +86,13 @@ public class Enemy01BasicLiberal : EnemyController
                 enemyHp = baseEnemyHp*expNumber;
                 speed = baseSpeed;
             } else if (wave > 0)
+            {
+                enemyDamage = baseEnemyDamage;
+                GetComponent<DetectCollisions>().thisEnemyDamage = enemyDamage;
+                enemyExp = baseEnemyExp;
+                enemyHp = baseEnemyHp;
+                speed = baseSpeed;
+            } else if (wave == 0)
             {
                 enemyDamage = baseEnemyDamage;
                 GetComponent<DetectCollisions>().thisEnemyDamage = enemyDamage;

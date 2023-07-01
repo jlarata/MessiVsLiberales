@@ -163,3 +163,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d2cb09f11e43cc1b016e2ab86c4020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRb2D: {fileID: 0}
+  baseSpeed: 0
+  baseEnemyDamage: 0
+  baseEnemyExp: 0
+  baseEnemyHp: 0
+  speed: 0
+  enemyDamage: 0
+  enemyExp: 0
+  enemyHp: 0
+  dropList:
+  - {fileID: 7382538589891639702, guid: e32f17164741c9543941f34b10a70d56, type: 3}
+  - {fileID: 7382538589891639702, guid: b77a777dd86c90cf192aa50f46f1bc10, type: 3}
+  dropRandomNumber: 0
+  expNumber: 0
+  messi: {fileID: 0}
+  MessiController: {fileID: 0}
+  spawnManager: {fileID: 0}
+  gameController: {fileID: 0}
+  GameController: {fileID: 0}
+  wave: 0
+  enemyColor: {r: 0, g: 0, b: 0, a: 0}
+  messiVelocity: 0
