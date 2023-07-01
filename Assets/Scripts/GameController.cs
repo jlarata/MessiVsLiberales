@@ -362,11 +362,15 @@ public class GameController : MonoBehaviour
             }
             //here would go the conditional that unlockes aduke forever.
             MainManager.Instance.adukeUnlocked = false;
-        } else {
+            
+            MainManager.Instance.totalWealth += currentWealth;
+            
+            MainManager.Instance.SaveState();
+        } /* else  {
         MainManager.Instance.LvlAchieved = lvl;
         MainManager.Instance.adukeUnlocked = false;
-        }
-        MainManager.Instance.SaveState();
+        } */
+        
 
 
         Time.timeScale = 0;

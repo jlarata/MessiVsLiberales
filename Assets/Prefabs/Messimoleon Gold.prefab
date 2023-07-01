@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7382538589891639702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.1}
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,10 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messi: {fileID: 0}
+  MessiController: {fileID: 0}
+  gameController: {fileID: 0}
+  GameController: {fileID: 0}
   messiVelocity: 0
   speed: 0
   horizontalInput: 0
   verticalInput: 0
+  value: 0
 --- !u!61 &8982831904913753290
 BoxCollider2D:
   m_ObjectHideFlags: 0
