@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $$$$
+  m_text: Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfd429736504b3317b445b257125d597, type: 2}
   m_sharedMaterial: {fileID: 5890236409285076328, guid: dfd429736504b3317b445b257125d597, type: 2}
@@ -1563,7 +1563,6 @@ MonoBehaviour:
   adukeLvl: 0
   diMariaLvl: 0
   LvlAchieved: 0
-  totalWealth: 0
   basicLiberal1Killed: 0
   basicCosplay1Killed: 0
   basicBaldman1Killed: 0

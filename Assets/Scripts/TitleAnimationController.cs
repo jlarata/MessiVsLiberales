@@ -79,7 +79,10 @@ public class TitleAnimationController : MonoBehaviour
         d3c.GetComponent<TMP_Text>().color = d3cColor;
 
 
-
+        if (MainManager.Instance != null)
+        {
+            MainManager.Instance.IniciateWealthDisplay();
+        }
         
     }
 

@@ -14,9 +14,7 @@ public class GameController : MonoBehaviour
     
 
     //had to add "G"background to prevent errors with the "background" element of the UI sliders
-    [SerializeField]
-    protected GameObject gBackground;
-    [SerializeField]
+    public GameObject gBackground;
     protected Vector3 bgStartPos;
 
     public GameObject messi;
@@ -177,7 +175,7 @@ public class GameController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         
         //infinite background
@@ -200,11 +198,7 @@ public class GameController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         gBackground.transform.Translate(Vector3.forward * -verticalInput * Time.deltaTime * messiVelocity *0.5f); */
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        gBackground.transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
-
-        verticalInput = Input.GetAxis("Vertical");
-        gBackground.transform.Translate(0, 0, -verticalInput * Time.deltaTime * messiVelocity);
+        // Move();
 
 
         if (exp >= maxExp)
@@ -234,6 +228,20 @@ public class GameController : MonoBehaviour
             PausaniasFunction();
         }
     }
+
+    /* public void Move()
+    {
+        
+        horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput != 0)
+        {
+            Debug.Log("trying horizontal input");
+            gBackground.transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
+        }      
+        
+        verticalInput = Input.GetAxis("Vertical");
+        gBackground.transform.Translate(0, 0, -verticalInput * Time.deltaTime * messiVelocity);
+    } */
 
     public void ExpUp(float expGain)
     {

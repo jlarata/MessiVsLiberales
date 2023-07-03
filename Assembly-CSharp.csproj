@@ -51,6 +51,7 @@
      <Compile Include="Assets/Scripts/GameController.cs" />
      <Compile Include="Assets/Scripts/TitleAnimationController.cs" />
      <Compile Include="Assets/Scripts/Enemy03BasicBaldman.cs" />
+     <Compile Include="Assets/Scripts/GBackgroundController.cs" />
      <Compile Include="Assets/Scripts/Enemy02BasicCosplay.cs" />
      <Compile Include="Assets/Scripts/TitleController.cs" />
      <Compile Include="Assets/Scripts/ShurikenController.cs" />

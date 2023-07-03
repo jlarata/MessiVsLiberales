@@ -57,7 +57,7 @@ public class MessiController : MonoBehaviour
         
         only solution i can think: some all-game-updater. maybe a function that searches every object
         with a tag and change it's messivelocity var (and bgbackground) */
-        speed = 0.6f;
+        speed = 0.7f;
 
         if (MainManager.Instance != null)
         {
@@ -67,10 +67,7 @@ public class MessiController : MonoBehaviour
         } else {
         shurikenLvl = 1f;
         adukeLvl = 0f;
-
-        //
-        //VOLVER A CERO ESTO CUANDO TERMINE IMPL.
-        diMariaLvl = 1f;
+        diMariaLvl = 0f;
         }
         
         

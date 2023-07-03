@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.IO;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using UnityEngine.UI;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
@@ -30,6 +30,7 @@ public class MainManager : MonoBehaviour
     //gold and maxlvl
     public int LvlAchieved;
     public int totalWealth;
+    
     //how many of each, historic
     public int basicLiberal1Killed;
     public int basicCosplay1Killed;
@@ -42,13 +43,11 @@ public class MainManager : MonoBehaviour
     public bool diMariaUnlocked;
     public bool optionsUnlocked;
 
-    
-
-
-
-
     private void Awake()
     {
+
+        
+
         Time.timeScale = 1;
         if (Instance != null)
         {
@@ -64,13 +63,26 @@ public class MainManager : MonoBehaviour
         // functions)
         optionsUnlocked = false;
 
-    
-        
-       //LoadHighScore();
-       LoadState();
+        basicLiberal1Killed = 0;
+        basicCosplay1Killed = 0;
+        basicBaldman1Killed = 0;
+        basicLiberal2Killed = 0;
 
-        wealthDisplay = GameObject.Find("WealthDisplay").GetComponent<TMP_Text>();
-        wealthDisplay.text = ""+ totalWealth;
+        
+
+        LoadState();
+
+        //why like this? read gbackgroundcontroller
+        //new changes: now this setting of wealthdisplay is a function, and is called from
+        //titleanimationcontroller. this is because this script (mainmanager) doesnt not awake nor start
+        //when it came from another scene (that is: on a restart game for example).
+        //until i made this late fix, in the new titlescene after a gameover, the script wouldn't
+        //bind to the object (the tmp_text)
+
+        //apparently this problem does not afect the data persistence between scenes.
+
+        //wealthDisplay = GameObject.Find("WealthDisplay").GetComponent<TMP_Text>();
+        //wealthDisplay.text = ""+ totalWealth;
     }
     
     [System.Serializable]
@@ -87,6 +99,12 @@ public class MainManager : MonoBehaviour
         public int basicCosplay1Killed;
         public int basicBaldman1Killed;
         public int basicLiberal2Killed;
+    }
+
+    public void IniciateWealthDisplay()
+    {
+            wealthDisplay = GameObject.Find("WealthDisplay").GetComponent<TMP_Text>();
+            wealthDisplay.text = ""+ totalWealth;
     }
 
     public void SaveState()
@@ -141,37 +159,4 @@ public class MainManager : MonoBehaviour
         optionsUnlocked = false;
     }
 
-
-    // old highscrore system
-    //[System.Serializable]
-    //class SaveData
-    //{
-    //    public string HighScorePlayerName;
-    //    public int HighScore;
-    //}
-
-    //public void SaveHighScore()
-    //{
-    //    SaveData data = new SaveData();
-    //    data.HighScorePlayerName = HighScorePlayerName;
-    //    data.HighScore = HighScore;
-
-    //    string json = JsonUtility.ToJson(data);
-
-    //    File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-    //}
-
-    //ublic void LoadHighScore()
-
-    //{
-    //    string path = Application.persistentDataPath + "/savefile.json";
-    //    if (File.Exists(path))
-    //    {
-    //        string json = File.ReadAllText(path);
-    //        SaveData data = JsonUtility.FromJson<SaveData>(json);
-
-    //        HighScorePlayerName = data.HighScorePlayerName;
-    //        HighScore = data.HighScore;
-    //    }
-    //}
 }
