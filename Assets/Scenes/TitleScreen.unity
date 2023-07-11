@@ -1556,6 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f638dce67ca700204aa5e3d786f391aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wealthDisplay: {fileID: 0}
   messiHpLvl: 0
   regenLvl: 0
   regenRatio: 0
@@ -1563,6 +1564,7 @@ MonoBehaviour:
   adukeLvl: 0
   diMariaLvl: 0
   LvlAchieved: 0
+  totalWealth: 0
   basicLiberal1Killed: 0
   basicCosplay1Killed: 0
   basicBaldman1Killed: 0
@@ -2131,6 +2133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 0}
+  buttonsList:
+  - {fileID: 5443282997218032432, guid: 7438d57ea8e11610a8bf41576833ac7d, type: 3}
 --- !u!1 &1968691575
 GameObject:
   m_ObjectHideFlags: 0

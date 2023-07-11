@@ -6,18 +6,54 @@ using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using UnityEngine.UI;
+using TMPro;
+
 
 public class TitleController : MonoBehaviour
 {
 
     public GameObject optionsPanel;
     //public GameObject optionsPanelStartButton;
+    public GameObject[] buttonsList;
+
 
     void Start()
     {
         optionsPanel = GameObject.Find("OptionsPanel");
         optionsPanel.SetActive(false);
+
+        buttonInstance();
     }
+
+
+
+    public void buttonInstance()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject buttonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        Debug.Log("button created");
+
+        UnityEngine.UI.Button buttonInstanceBtn = buttonInstance.GetComponent<Button>();
+
+        buttonInstance.GetComponentInChildren<TMP_Text>().text = "button Text";
+
+        Debug.Log("text changed");
+
+        buttonInstance.transform.SetParent(canvas.transform);
+        buttonInstance.transform.localPosition = new Vector3(1,1,0);
+
+        buttonInstanceBtn.onClick.AddListener(SomeFunction);
+
+    }
+
+    public void SomeFunction()
+    {
+        Debug.Log("onclick event added");
+    }
+    
+
+
 
     public void StartWithShuriken()
     {
