@@ -51,8 +51,11 @@ public class TitleAnimationController : MonoBehaviour
     public GameObject[] buttonsList;
     public GameObject titleController;
 
+    //buttons
     public GameObject StartButtonInstance;
     public GameObject ExitButtonInstance;
+    //titles
+    public GameObject titleBInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +70,13 @@ public class TitleAnimationController : MonoBehaviour
 
         titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
         titleAStartPos = titleA.transform.position;
+        /*
+        old method
         titleB = GameObject.Find("TitleB").GetComponent<TMP_Text>();
-        titleBStartPos = titleB.transform.position;
+        titleBStartPos = titleB.transform.position;*/
+        titleBStartPos = titleBInstance.transform.position;
+
+        
         StartCoroutine(TranslateTitlesAndFadeIn());
     
         
@@ -141,15 +149,21 @@ public class TitleAnimationController : MonoBehaviour
 
         if (moveRestOfTitles)
         {
-            if (!(titleB.transform.position.x >= (titleBStartPos.x + 800))) 
+
+            /*if (!(titleB.transform.position.x >= (titleBStartPos.x + 800))) 
             {
             titleB.transform.Translate(25, 0, 0 * Time.deltaTime);
-            }
+            }*/
 
             /*if (!(startButton.transform.position.y >= (startButtonStartPos.y + 700))) 
             {
             startButton.transform.Translate(0, 32, 0 * Time.deltaTime);
             }*/
+
+            if (!(titleBInstance.transform.position.x >= (titleBStartPos.x + 800))) 
+            {
+            titleBInstance.transform.Translate(25, 0, 0 * Time.deltaTime);
+            }
 
             if (!(StartButtonInstance.transform.position.y >= (startButtonStartPos.y + 700))) 
             {
@@ -169,18 +183,24 @@ public class TitleAnimationController : MonoBehaviour
     {
 
         GameObject canvas = GameObject.Find("Canvas");
+
+        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         Debug.Log("buttons created");
 
+        //titleBInstance.GetComponentInChildren<TMP_Text>().text = "Vs \r\n Liberals";
         StartButtonInstance.GetComponentInChildren<TMP_Text>().text = "Start";
         ExitButtonInstance.GetComponentInChildren<TMP_Text>().text = "Exit";
 
         Debug.Log("text changed");
 
+        titleBInstance.transform.SetParent(canvas.transform);
         StartButtonInstance.transform.SetParent(canvas.transform);
         ExitButtonInstance.transform.SetParent(canvas.transform);
 
+        titleBInstance.transform.localPosition = new Vector3(-1000,100,0);
         StartButtonInstance.transform.localPosition = new Vector3(-400,-800,0);
         ExitButtonInstance.transform.localPosition = new Vector3(400,-850,0);
 
