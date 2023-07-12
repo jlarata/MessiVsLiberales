@@ -23,7 +23,7 @@ public class TitleController : MonoBehaviour
         optionsPanel = GameObject.Find("OptionsPanel");
         optionsPanel.SetActive(false);
 
-        buttonInstance();
+        //buttonInstance();
     }
 
 

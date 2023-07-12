@@ -1674,7 +1674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1590532454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -500}
+  m_AnchoredPosition: {x: -400, y: -800}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590532455
@@ -2105,6 +2105,11 @@ MonoBehaviour:
   moveFirstTitle: 0
   messiColor: {r: 0, g: 0, b: 0, a: 0}
   d3cColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonsList:
+  - {fileID: 5443282997218032432, guid: 7438d57ea8e11610a8bf41576833ac7d, type: 3}
+  titleController: {fileID: 0}
+  StartButtonInstance: {fileID: 0}
+  ExitButtonInstance: {fileID: 0}
 --- !u!4 &1846656734
 Transform:
   m_ObjectHideFlags: 0
@@ -2511,6 +2516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5443282997218032432, guid: 4fc4b0bdd2d8e50198e8391c36065b79, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5443282997218032433, guid: 4fc4b0bdd2d8e50198e8391c36065b79, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2581,7 +2590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443282997218032433, guid: 4fc4b0bdd2d8e50198e8391c36065b79, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -500
+      value: -850
       objectReference: {fileID: 0}
     - target: {fileID: 5443282997218032433, guid: 4fc4b0bdd2d8e50198e8391c36065b79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.UI;
 using TMPro;
 
@@ -47,9 +48,23 @@ public class TitleAnimationController : MonoBehaviour
     [SerializeField]
     protected Color d3cColor;
 
+    public GameObject[] buttonsList;
+    public GameObject titleController;
+
+    public GameObject StartButtonInstance;
+    public GameObject ExitButtonInstance;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        titleController = GameObject.Find("Title Controller");
+        
+        ButtonsInstance();
+
+        startButtonStartPos = StartButtonInstance.transform.position;
+        exitButtonStartPos = ExitButtonInstance.transform.position;
+
         titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
         titleAStartPos = titleA.transform.position;
         titleB = GameObject.Find("TitleB").GetComponent<TMP_Text>();
@@ -59,12 +74,12 @@ public class TitleAnimationController : MonoBehaviour
         
 
 
-
+        /* old buttons method
         startButton = GameObject.Find("StartButton");
         startButtonStartPos = startButton.transform.position;
         exitButton = GameObject.Find("ExitButton");
         exitButtonStartPos = exitButton.transform.position;
-        
+        */
 
 
         messiFondo = GameObject.Find("Messi Fondo");
@@ -131,17 +146,60 @@ public class TitleAnimationController : MonoBehaviour
             titleB.transform.Translate(25, 0, 0 * Time.deltaTime);
             }
 
-            if (!(startButton.transform.position.y >= (startButtonStartPos.y + 400))) 
+            /*if (!(startButton.transform.position.y >= (startButtonStartPos.y + 700))) 
             {
-            startButton.transform.Translate(0, 16, 0 * Time.deltaTime);
+            startButton.transform.Translate(0, 32, 0 * Time.deltaTime);
+            }*/
+
+            if (!(StartButtonInstance.transform.position.y >= (startButtonStartPos.y + 700))) 
+            {
+            StartButtonInstance.transform.Translate(0, 16, 0 * Time.deltaTime);
             }
 
-            if (!(exitButton.transform.position.y >= (exitButtonStartPos.y + 400))) 
+            if (!(ExitButtonInstance.transform.position.y >= (exitButtonStartPos.y + 700))) 
             {
-            exitButton.transform.Translate(0, 16, 0 * Time.deltaTime);
+            ExitButtonInstance.transform.Translate(0, 32, 0 * Time.deltaTime);
             }
 
 
         }
+    }
+
+    public void ButtonsInstance()
+    {
+
+        GameObject canvas = GameObject.Find("Canvas");
+        StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        Debug.Log("buttons created");
+
+        StartButtonInstance.GetComponentInChildren<TMP_Text>().text = "Start";
+        ExitButtonInstance.GetComponentInChildren<TMP_Text>().text = "Exit";
+
+        Debug.Log("text changed");
+
+        StartButtonInstance.transform.SetParent(canvas.transform);
+        ExitButtonInstance.transform.SetParent(canvas.transform);
+
+        StartButtonInstance.transform.localPosition = new Vector3(-400,-800,0);
+        ExitButtonInstance.transform.localPosition = new Vector3(400,-850,0);
+
+
+        UnityEngine.UI.Button StartButtonInstanceBtn = StartButtonInstance.GetComponent<Button>();
+        UnityEngine.UI.Button ExitButtonInstanceBtn = ExitButtonInstance.GetComponent<Button>();
+
+        StartButtonInstanceBtn.onClick.AddListener(StartNew);
+        ExitButtonInstanceBtn.onClick.AddListener(Exit);
+
+    }
+
+    public void StartNew()
+    {
+        Debug.Log("onclick event added");
+        titleController.GetComponent<TitleController>().StartNew();
+    }
+    public void Exit()
+    {
+        titleController.GetComponent<TitleController>().Exit();
     }
 }
