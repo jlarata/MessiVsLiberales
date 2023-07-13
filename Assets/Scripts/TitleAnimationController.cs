@@ -56,6 +56,7 @@ public class TitleAnimationController : MonoBehaviour
     public GameObject ExitButtonInstance;
     //titles
     public GameObject titleBInstance;
+    public GameObject titleAInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -68,13 +69,14 @@ public class TitleAnimationController : MonoBehaviour
         startButtonStartPos = StartButtonInstance.transform.position;
         exitButtonStartPos = ExitButtonInstance.transform.position;
 
-        titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
-        titleAStartPos = titleA.transform.position;
+        //titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
+        //titleAStartPos = titleA.transform.position;
         /*
         old method
         titleB = GameObject.Find("TitleB").GetComponent<TMP_Text>();
         titleBStartPos = titleB.transform.position;*/
         titleBStartPos = titleBInstance.transform.position;
+        titleAStartPos = titleAInstance.transform.position;
 
         
         StartCoroutine(TranslateTitlesAndFadeIn());
@@ -125,9 +127,9 @@ public class TitleAnimationController : MonoBehaviour
         
         if (moveFirstTitle)
         {
-            if (!(titleA.transform.position.y <= (titleAStartPos.y -270)))
+            if (!(titleAInstance.transform.position.y <= (titleAStartPos.y -370)))
             {
-                titleA.transform.Translate(0, -1.5f, 0 * Time.deltaTime);
+                titleAInstance.transform.Translate(0, -1.5f, 0 * Time.deltaTime);
             }
 
         }
@@ -182,9 +184,14 @@ public class TitleAnimationController : MonoBehaviour
     public void ButtonsInstance()
     {
 
+        //this is going to get .setParent from the buttons and titles instantiation
         GameObject canvas = GameObject.Find("Canvas");
+        //in Canvas, sorting order is organized by scene hierarchy. so i use empty objects to control that hierarchy:
+        GameObject TitlesCanvas = GameObject.Find("TitlesCanvas");
+        GameObject TitleACanvas = GameObject.Find("TitleACanvas");
 
-        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,-118,0), new Quaternion(0,0,0,0));
+        titleAInstance = Instantiate(buttonsList[2], new Vector3(0,0,0), new Quaternion(0,0,0,0));
 
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
@@ -196,11 +203,16 @@ public class TitleAnimationController : MonoBehaviour
 
         Debug.Log("text changed");
 
-        titleBInstance.transform.SetParent(canvas.transform);
+        titleBInstance.transform.SetParent(TitlesCanvas.transform);
+        titleAInstance.transform.SetParent(TitleACanvas.transform);
+
         StartButtonInstance.transform.SetParent(canvas.transform);
         ExitButtonInstance.transform.SetParent(canvas.transform);
 
         titleBInstance.transform.localPosition = new Vector3(-1000,100,0);
+        titleAInstance.transform.localPosition = new Vector3(-50, 618,0);
+        
+
         StartButtonInstance.transform.localPosition = new Vector3(-400,-800,0);
         ExitButtonInstance.transform.localPosition = new Vector3(400,-850,0);
 
