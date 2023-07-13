@@ -413,7 +413,31 @@ public class CursorController : MonoBehaviour
 
     }
 
+    public void OptionsCursor01Out()
+    {
+        OptionsCursor01.SetActive(false);
+    }
+    public void OptionsCursor02Out()
+    {
+        OptionsCursor02.SetActive(false);
+    }
+    public void OptionsCursor03Out()
+    {
+        OptionsCursor03.SetActive(false);
+    }
+    public void OptionsCursor04Out()
+    {
+        OptionsCursor04.SetActive(false);
+    }
+    public void OptionsCursor05Out()
+    {
+        OptionsCursor05.SetActive(false);
+    }
 
+    /*public void OptionsCursor0Out()
+    {
+        OptionsCursor0.SetActive(false);
+    }*/
 
     public void ExecuteCurrentOption()
     {
