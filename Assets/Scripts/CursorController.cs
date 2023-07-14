@@ -413,6 +413,40 @@ public class CursorController : MonoBehaviour
 
     }
 
+    public void AllOptionsCursorOut()
+    {
+        if (OptionsCursor01.activeSelf)
+        {
+            OptionsCursor01.SetActive(false);
+        }
+        if (OptionsCursor02.activeSelf)
+        {
+            OptionsCursor02.SetActive(false);
+        }
+        if (OptionsCursor03.activeSelf)
+        {
+            OptionsCursor03.SetActive(false);
+        }
+        if (OptionsCursor04.activeSelf)
+        {
+            OptionsCursor04.SetActive(false);
+        }/*
+        if (OptionsCursor01.activeSelf)
+        {
+            OptionsCursor01.SetActive(false);
+        }
+        if (OptionsCursor01.activeSelf)
+        {
+            OptionsCursor01.SetActive(false);
+        }
+
+        if (OptionsCursor01.activeSelf)
+        {
+            OptionsCursor01.SetActive(false);
+        }*/
+        
+    }
+
     public void OptionsCursor01Out()
     {
         OptionsCursor01.SetActive(false);
