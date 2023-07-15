@@ -308,6 +308,10 @@ public class MessiController : MonoBehaviour
         diMariaLvl++;
     }
 
+    public void LvlUpRegenLvl()
+    {
+        regenLvl *= 1.9f;
+    }
 
 
 }

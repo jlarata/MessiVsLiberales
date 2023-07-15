@@ -19,8 +19,8 @@ public class CursorController : MonoBehaviour
     public GameObject OptionsCursor03;
     public GameObject OptionsCursor04;
     public GameObject OptionsCursor05;
-/*     public GameObject OptionsCursor06;
-    public GameObject OptionsCursor07;
+    public GameObject OptionsCursor06;
+/*    public GameObject OptionsCursor07;
     public GameObject OptionsCursor08;
     public GameObject OptionsCursor09;
     public GameObject OptionsCursor10; */
@@ -30,8 +30,8 @@ public class CursorController : MonoBehaviour
     public GameObject LvlUpOption3;
     public GameObject LvlUpOption4;
     public GameObject LvlUpOption5;
-    /* public GameObject LvlUpOption6;
-    public GameObject LvlUpOption7;
+    public GameObject LvlUpOption6;
+    /*public GameObject LvlUpOption7;
     public GameObject LvlUpOption8;
     public GameObject LvlUpOption9;
     public GameObject LvlUpOption10; */
@@ -47,8 +47,8 @@ public class CursorController : MonoBehaviour
         OptionsCursor03 = GameObject.Find("Cursor03");
         OptionsCursor04 = GameObject.Find("Cursor04");
         OptionsCursor05 = GameObject.Find("Cursor05");
-        /* OptionsCursor0 = GameObject.Find("Cursor0");
-        OptionsCursor0 = GameObject.Find("Cursor0");
+        OptionsCursor06 = GameObject.Find("Cursor06");
+        /*OptionsCursor0 = GameObject.Find("Cursor0");
         OptionsCursor0 = GameObject.Find("Cursor0");
         OptionsCursor0 = GameObject.Find("Cursor0");
         OptionsCursor0 = GameObject.Find("Cursor0"); */
@@ -58,8 +58,8 @@ public class CursorController : MonoBehaviour
         LvlUpOption3 = GameObject.Find("LvlUpOption3");
         LvlUpOption4 = GameObject.Find("LvlUpOption4");
         LvlUpOption5 = GameObject.Find("LvlUpOption5");
-        /* LvlUpOption6 = GameObject.Find("LvlUpOption6");
-        LvlUpOption7 = GameObject.Find("LvlUpOption7");
+        LvlUpOption6 = GameObject.Find("LvlUpOption6");
+        /*LvlUpOption7 = GameObject.Find("LvlUpOption7");
         LvlUpOption8 = GameObject.Find("LvlUpOption8");
         LvlUpOption9 = GameObject.Find("LvlUpOption9");
         LvlUpOption10 = GameObject.Find("LvlUpOption10"); */
@@ -70,8 +70,8 @@ public class CursorController : MonoBehaviour
         OptionsCursor03.SetActive(false);
         OptionsCursor04.SetActive(false);
         OptionsCursor05.SetActive(false);
-     /*    OptionsCursor06.SetActive(false);
-        OptionsCursor07.SetActive(false);
+        OptionsCursor06.SetActive(false);
+        /*OptionsCursor07.SetActive(false);
         OptionsCursor08.SetActive(false);
         OptionsCursor09.SetActive(false);
         OptionsCursor10.SetActive(false);
@@ -217,6 +217,14 @@ public class CursorController : MonoBehaviour
             }
             
         }
+        else if (OptionsCursor05.activeSelf)
+        {
+            if(LvlUpOption6.activeSelf)
+            {
+                OptionsCursor05.SetActive(false);
+                OptionsCursor06.SetActive(true);
+            }
+        }
     }
 
     public void CursorUp()
@@ -282,6 +290,15 @@ public class CursorController : MonoBehaviour
                 OptionsCursor01.SetActive(true);
             }
             
+        }
+        
+        else if (OptionsCursor06.activeSelf)
+        {
+            if(LvlUpOption5.activeSelf)
+            {
+                OptionsCursor06.SetActive(false);
+                OptionsCursor05.SetActive(true);
+            }
         }
 
     }
@@ -430,16 +447,16 @@ public class CursorController : MonoBehaviour
         if (OptionsCursor04.activeSelf)
         {
             OptionsCursor04.SetActive(false);
-        }/*
-        if (OptionsCursor01.activeSelf)
-        {
-            OptionsCursor01.SetActive(false);
         }
-        if (OptionsCursor01.activeSelf)
+        if (OptionsCursor05.activeSelf)
         {
-            OptionsCursor01.SetActive(false);
+            OptionsCursor05.SetActive(false);
         }
-
+        if (OptionsCursor06.activeSelf)
+        {
+            OptionsCursor06.SetActive(false);
+        }
+        /*
         if (OptionsCursor01.activeSelf)
         {
             OptionsCursor01.SetActive(false);
@@ -504,6 +521,12 @@ public class CursorController : MonoBehaviour
             OptionsCursor05.SetActive(false);
             Messi.GetComponent<MessiController>().LvlUpDiMaria();
             GameController.GetComponent<GameController>().LvlUpMenuOut();
+        }
+        else if (OptionsCursor06.activeSelf)
+        {
+            OptionsCursor06.SetActive(false);
+            Messi.GetComponent<MessiController>().LvlUpRegenLvl();
+            GameController.GetComponent<GameController>().LvlUpMenuOut();
         } 
     }
 
@@ -526,10 +549,10 @@ public class CursorController : MonoBehaviour
         } else if (LvlUpOption5.activeSelf)
         {
             OptionsCursor05.SetActive(true);
-        } /* else if (LvlUpOption1.activeSelf)
+        }  else if (LvlUpOption6.activeSelf)
         {
-            OptionsCursor01.SetActive(true);
-        } else if (LvlUpOption1.activeSelf)
+            OptionsCursor06.SetActive(true);
+        } /*else if (LvlUpOption1.activeSelf)
         {
             OptionsCursor01.SetActive(true);
         } else if (LvlUpOption1.activeSelf)

@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
     public GameObject LvlUpOption3;
     public GameObject LvlUpOption4;
     public GameObject LvlUpOption5;
+    public GameObject LvlUpOption6;
 
     //Cursor Controller
     public GameObject cursorController;
@@ -133,6 +134,7 @@ public class GameController : MonoBehaviour
         LvlUpOption3 = GameObject.Find("LvlUpOption3");
         LvlUpOption4 = GameObject.Find("LvlUpOption4");
         LvlUpOption5 = GameObject.Find("LvlUpOption5");
+        LvlUpOption6 = GameObject.Find("LvlUpOption6");
 
 
         
@@ -172,6 +174,7 @@ public class GameController : MonoBehaviour
         LvlUpOption3.SetActive(false);
         LvlUpOption4.SetActive(false);
         LvlUpOption5.SetActive(false);
+        LvlUpOption6.SetActive(false);
     }
 
     // Update is called once per frame
@@ -291,6 +294,11 @@ public class GameController : MonoBehaviour
             LvlUpOption5.SetActive(true);
         }
 
+        if (messi.GetComponent<MessiController>().regenLvl < 10)
+        {
+            LvlUpOption6.SetActive(true);
+        }
+
         //cursor (it's important this is called after every options of lvlup)
         cursorController.GetComponent<CursorController>().SetCursorActive();
         
@@ -306,6 +314,7 @@ public class GameController : MonoBehaviour
         LvlUpOption3.SetActive(false);
         LvlUpOption4.SetActive(false);
         LvlUpOption5.SetActive(false);
+        LvlUpOption6.SetActive(false);
         isLvlUpMenu = false;
     }
 
