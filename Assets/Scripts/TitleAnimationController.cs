@@ -127,7 +127,7 @@ public class TitleAnimationController : MonoBehaviour
         
         if (moveFirstTitle)
         {
-            if (!(titleAInstance.transform.position.y <= (titleAStartPos.y -370)))
+            if (!(titleAInstance.transform.position.y <= (titleAStartPos.y -570)))
             {
                 titleAInstance.transform.Translate(0, -1.5f, 0 * Time.deltaTime);
             }
@@ -162,7 +162,7 @@ public class TitleAnimationController : MonoBehaviour
             startButton.transform.Translate(0, 32, 0 * Time.deltaTime);
             }*/
 
-            if (!(titleBInstance.transform.position.x >= (titleBStartPos.x + 800))) 
+            if (!(titleBInstance.transform.position.x >= (titleBStartPos.x + 1000))) 
             {
             titleBInstance.transform.Translate(25, 0, 0 * Time.deltaTime);
             }
@@ -190,8 +190,8 @@ public class TitleAnimationController : MonoBehaviour
         GameObject TitlesCanvas = GameObject.Find("TitlesCanvas");
         GameObject TitleACanvas = GameObject.Find("TitleACanvas");
 
-        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,-118,0), new Quaternion(0,0,0,0));
-        titleAInstance = Instantiate(buttonsList[2], new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,-318,0), new Quaternion(0,0,0,0));
+        titleAInstance = Instantiate(buttonsList[2], new Vector3(200,0,0), new Quaternion(0,0,0,0));
 
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
