@@ -57,6 +57,7 @@ public class TitleAnimationController : MonoBehaviour
     //titles
     public GameObject titleBInstance;
     public GameObject titleAInstance;
+    public Color titleAInstanceColor;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +83,9 @@ public class TitleAnimationController : MonoBehaviour
         StartCoroutine(TranslateTitlesAndFadeIn());
     
         
+        titleAInstanceColor = titleAInstance.GetComponent<TMP_Text>().color;
+        titleAInstanceColor.a = 0f;
+        titleAInstance.GetComponent<TMP_Text>().color = titleAInstanceColor;        
 
 
         /* old buttons method
@@ -126,8 +130,14 @@ public class TitleAnimationController : MonoBehaviour
     {
         
         if (moveFirstTitle)
+        
         {
-            if (!(titleAInstance.transform.position.y <= (titleAStartPos.y -570)))
+            if (titleAInstanceColor.a < .9f)
+            {
+                titleAInstanceAlfa();
+            }
+            
+            if (!(titleAInstance.transform.position.y <= (titleAStartPos.y -370)))
             {
                 titleAInstance.transform.Translate(0, -1.5f, 0 * Time.deltaTime);
             }
@@ -162,9 +172,9 @@ public class TitleAnimationController : MonoBehaviour
             startButton.transform.Translate(0, 32, 0 * Time.deltaTime);
             }*/
 
-            if (!(titleBInstance.transform.position.x >= (titleBStartPos.x + 1000))) 
+            if (!(titleBInstance.transform.position.x >= (titleBStartPos.x + 1800))) 
             {
-            titleBInstance.transform.Translate(25, 0, 0 * Time.deltaTime);
+            titleBInstance.transform.Translate(50, 0, 0 * Time.deltaTime);
             }
 
             if (!(StartButtonInstance.transform.position.y >= (startButtonStartPos.y + 700))) 
@@ -190,8 +200,8 @@ public class TitleAnimationController : MonoBehaviour
         GameObject TitlesCanvas = GameObject.Find("TitlesCanvas");
         GameObject TitleACanvas = GameObject.Find("TitleACanvas");
 
-        titleBInstance = Instantiate(buttonsList[1], new Vector3(0,-318,0), new Quaternion(0,0,0,0));
-        titleAInstance = Instantiate(buttonsList[2], new Vector3(200,0,0), new Quaternion(0,0,0,0));
+        titleBInstance = Instantiate(buttonsList[1], new Vector3(-600,-518,0), new Quaternion(0,0,0,0));
+        titleAInstance = Instantiate(buttonsList[2], new Vector3(400,0,0), new Quaternion(0,0,0,0));
 
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
@@ -209,7 +219,7 @@ public class TitleAnimationController : MonoBehaviour
         StartButtonInstance.transform.SetParent(canvas.transform);
         ExitButtonInstance.transform.SetParent(canvas.transform);
 
-        titleBInstance.transform.localPosition = new Vector3(-1000,100,0);
+        titleBInstance.transform.localPosition = new Vector3(-2000,100,0);
         titleAInstance.transform.localPosition = new Vector3(-50, 618,0);
         
 
@@ -234,4 +244,14 @@ public class TitleAnimationController : MonoBehaviour
     {
         titleController.GetComponent<TitleController>().Exit();
     }
+
+    public void titleAInstanceAlfa()
+    {
+        if (titleAInstanceColor.a < 1f)
+            {
+                titleAInstanceColor.a = titleAInstanceColor.a + 0.005f;
+                titleAInstance.GetComponent<TMP_Text>().color = titleAInstanceColor;
+            }
+    }
+    
 }
