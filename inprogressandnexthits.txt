@@ -19,4 +19,4 @@ x. más armas
 y. más enemigos
 z. introducir algún tipo de randomización en la aparición de los botones del lvlupmenu.
 
-...
+
