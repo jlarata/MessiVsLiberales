@@ -42,6 +42,6 @@ public class CheatsController : MonoBehaviour
     void OpenTerminal()
 
     {
-        Instantiate(terminales[0], this.transform);    
+        Instantiate(terminales[0], this.transform);
     }
 }

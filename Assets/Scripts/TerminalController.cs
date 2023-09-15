@@ -19,7 +19,8 @@ public class TerminalController : MonoBehaviour
 
     void Start()
     {
-
+        //makes the inputfield Selected when is initiated
+        GetComponent<TMP_InputField>().ActivateInputField();
         //el objeto
         gameController = GameObject.Find("Game Controller");
         //el script
