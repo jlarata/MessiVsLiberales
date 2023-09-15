@@ -314,4 +314,11 @@ public class MessiController : MonoBehaviour
     }
 
 
+    public void IDDQD()
+    {
+        messiHpLvl *= 1000;
+        regenLvl *= 100;
+        regenRatio *= 100;
+    }
+
 }
