@@ -85,6 +85,7 @@ public class GameController : MonoBehaviour
     protected bool pausanias;
     [SerializeField]
     protected bool isLvlUpMenu;
+    public bool isTerminalOpen;
 
     void Start()
     {
@@ -347,9 +348,9 @@ public class GameController : MonoBehaviour
     timeDisplay.text = minutes.ToString("00")+":"+iSeconds.ToString("00");
     }
 
-    void PausaniasFunction()
+    public void PausaniasFunction()
     {
-        if (!isLvlUpMenu)
+        if (!isLvlUpMenu && !isTerminalOpen)
         {
             if (!pausanias)
         {
