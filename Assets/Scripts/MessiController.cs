@@ -126,7 +126,8 @@ public class MessiController : MonoBehaviour
         isRegen = true;
         hp += regenLvl;
         hpSlider.value = hp;
-        yield return new WaitForSeconds(regenRatio);
+        //  invert the number for regenratio (otherwise it would be slowing the regen as it grows)
+        yield return new WaitForSeconds(1/regenRatio);
         isRegen = false;
         
     }
@@ -316,9 +317,11 @@ public class MessiController : MonoBehaviour
 
     public void IDDQD()
     {
-        messiHpLvl *= 1000;
-        regenLvl *= 100;
-        regenRatio *= 100;
+        //messiHpLvl *= 1000;
+        hp = 10000;
+        regenLvl = 10000;
+        hpSlider.maxValue = 10000;
+        regenRatio = 4f;
     }
 
 }
