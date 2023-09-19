@@ -314,6 +314,7 @@ public class MessiController : MonoBehaviour
         regenLvl *= 1.9f;
     }
 
+    //cheats
 
     public void IDDQD()
     {
@@ -322,6 +323,14 @@ public class MessiController : MonoBehaviour
         regenLvl = 10000;
         hpSlider.maxValue = 10000;
         regenRatio = 4f;
+    }
+
+    public void JohnWick()
+    {
+        shurikenLvl = 10;
+        adukeLvl = 10;
+        diMariaLvl = 10;
+
     }
 
 }

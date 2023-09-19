@@ -14,7 +14,8 @@ public class TerminalController : MonoBehaviour
     public CheatsController CheatsController; 
 
     public bool is1;
-    
+    public bool is2;
+    public bool is3;
   
 
     void Start()
@@ -60,6 +61,24 @@ public class TerminalController : MonoBehaviour
                 GameObject.Find("Messi").GetComponent<MessiController>().IDDQD();
                 Debug.Log("modo diablo perrito malvado!");
                 is1 = true;
+            }   
+        }
+        if(thisInput == "maximaciencia" || thisInput == "MAXIMACIENCIA") 
+        {
+            if (!is2)
+            {
+                GameController.goTromp();
+                Debug.Log("Make Argentina Great Again!");
+                is2 = true;
+            }   
+        }
+        if(thisInput == "sgc2c" || thisInput == "SGC2C") 
+        {
+            if (!is3)
+            {
+                GameObject.Find("Messi").GetComponent<MessiController>().JohnWick();
+                Debug.Log("Never. St0p. Drink'n");
+                is3 = true;
             }   
         }
     }

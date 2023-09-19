@@ -437,6 +437,11 @@ public class GameController : MonoBehaviour
     }
     
     
+//cheats
 
+    public void goTromp()
+    {
+        wave = 12;
+    }
 
 }
