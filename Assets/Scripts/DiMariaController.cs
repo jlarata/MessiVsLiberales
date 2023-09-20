@@ -137,8 +137,14 @@ public class DiMariaController : WeaponController
             setNewDirection();
         }
         
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0, Space.World);
 
-        }
+        verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0, Space.World);
+    }
+
+    
         
         
 

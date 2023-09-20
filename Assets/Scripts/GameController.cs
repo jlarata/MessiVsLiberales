@@ -54,6 +54,9 @@ public class GameController : MonoBehaviour
     //pause and endgame Menu and buttons
     [SerializeField]
     protected GameObject pauseMenu;
+    
+    public bool gameOver;
+
     [SerializeField]
     protected GameObject pauseText;
     [SerializeField]
@@ -352,20 +355,24 @@ public class GameController : MonoBehaviour
     {
         if (!isLvlUpMenu && !isTerminalOpen)
         {
-            if (!pausanias)
-        {
-            pausanias = true;
-            pauseMenu.SetActive(true);
-            pauseText.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            pausanias = false;
-            pauseMenu.SetActive(false);
-            pauseText.SetActive(false);
-            Time.timeScale = 1;
-        }
+            if (!gameOver)
+            {
+                if (!pausanias)
+                {
+                pausanias = true;
+                pauseMenu.SetActive(true);
+                pauseText.SetActive(true);
+                Time.timeScale = 0;
+                }
+                else
+                {
+                pausanias = false;
+                pauseMenu.SetActive(false);
+                pauseText.SetActive(false);
+                Time.timeScale = 1;
+                }
+            }
+            
         }   
     }
 
@@ -392,6 +399,7 @@ public class GameController : MonoBehaviour
 
 
         Time.timeScale = 0;
+        gameOver = true;
         pauseMenu.SetActive(true);
         loseText.SetActive(true);
         StartCoroutine(LoseTextAnimation());
