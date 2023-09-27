@@ -4835,6 +4835,7 @@ MonoBehaviour:
   minutes: 0
   expSlider: {fileID: 0}
   pauseMenu: {fileID: 0}
+  gameOver: 0
   pauseText: {fileID: 0}
   loseText: {fileID: 0}
   loseTextColor: {r: 0, g: 0, b: 0, a: 0}
