@@ -17,14 +17,15 @@ public class TitleAnimationController : MonoBehaviour
     protected TMP_Text titleB;
     [SerializeField]
     protected Vector3 titleBStartPos;
-    [SerializeField]
-    protected GameObject startButton;
-    [SerializeField]
-    protected Vector3 startButtonStartPos;
-    [SerializeField]
-    protected GameObject exitButton;
-    [SerializeField]
-    protected Vector3 exitButtonStartPos;
+    public GameObject startButton;
+
+    public Vector3 startButtonStartPos;
+    
+    public GameObject exitButton;
+    
+    public Vector3 exitButtonStartPos;
+    public Vector3 marketButtonStartPos;
+    
     
     [SerializeField]
     protected GameObject messiFondo;
@@ -54,6 +55,7 @@ public class TitleAnimationController : MonoBehaviour
     //buttons
     public GameObject StartButtonInstance;
     public GameObject ExitButtonInstance;
+    public GameObject MarketButtonInstance;
     //titles
     public GameObject titleBInstance;
     public GameObject titleAInstance;
@@ -66,18 +68,8 @@ public class TitleAnimationController : MonoBehaviour
         titleController = GameObject.Find("Title Controller");
         
         ButtonsInstance();
-
-        startButtonStartPos = StartButtonInstance.transform.position;
-        exitButtonStartPos = ExitButtonInstance.transform.position;
-
-        //titleA = GameObject.Find("TitleA").GetComponent<TMP_Text>();
-        //titleAStartPos = titleA.transform.position;
-        /*
-        old method
-        titleB = GameObject.Find("TitleB").GetComponent<TMP_Text>();
-        titleBStartPos = titleB.transform.position;*/
-        titleBStartPos = titleBInstance.transform.position;
-        titleAStartPos = titleAInstance.transform.position;
+       
+        
 
         
         StartCoroutine(TranslateTitlesAndFadeIn());
@@ -88,12 +80,6 @@ public class TitleAnimationController : MonoBehaviour
         titleAInstance.GetComponent<TMP_Text>().color = titleAInstanceColor;        
 
 
-        /* old buttons method
-        startButton = GameObject.Find("StartButton");
-        startButtonStartPos = startButton.transform.position;
-        exitButton = GameObject.Find("ExitButton");
-        exitButtonStartPos = exitButton.transform.position;
-        */
 
 
         messiFondo = GameObject.Find("Messi Fondo");
@@ -187,6 +173,18 @@ public class TitleAnimationController : MonoBehaviour
             ExitButtonInstance.transform.Translate(0, 32, 0 * Time.deltaTime);
             }
 
+            if (!(MarketButtonInstance.transform.position.y >= (marketButtonStartPos.y + 600)))
+            {
+                MarketButtonInstance.transform.Translate(0, 8, 0 * Time.deltaTime);
+            }
+
+            if (!(MarketButtonInstance.transform.position.x >= (marketButtonStartPos.x + 200)))
+            {
+                
+                MarketButtonInstance.transform.Translate(2.8f, 0, 0 * Time.deltaTime);
+            }
+            
+
 
         }
     }
@@ -200,50 +198,78 @@ public class TitleAnimationController : MonoBehaviour
         GameObject TitlesCanvas = GameObject.Find("TitlesCanvas");
         GameObject TitleACanvas = GameObject.Find("TitleACanvas");
 
-        titleBInstance = Instantiate(buttonsList[1], new Vector3(-600,-518,0), new Quaternion(0,0,0,0));
-        titleAInstance = Instantiate(buttonsList[2], new Vector3(400,0,0), new Quaternion(0,0,0,0));
 
+        //Set each title starting position and then set that Vector3 as a variable
+        //to be used on the movement animation
+        titleBInstance = Instantiate(buttonsList[1], new Vector3(-600,-518,0), new Quaternion(0,0,0,0));
+        
+        titleAInstance = Instantiate(buttonsList[2], new Vector3(400,0,0), new Quaternion(0,0,0,0));
+        
+        
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
-        Debug.Log("buttons created");
+
+        //third button: market. this sets the parent object directly in the instantation.
+        MarketButtonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0), canvas.transform);
+
+        //Debug.Log("buttons created");
 
         //titleBInstance.GetComponentInChildren<TMP_Text>().text = "Vs \r\n Liberals";
         StartButtonInstance.GetComponentInChildren<TMP_Text>().text = "Start";
         ExitButtonInstance.GetComponentInChildren<TMP_Text>().text = "Exit";
+        MarketButtonInstance.GetComponentInChildren<TMP_Text>().text = "Free Market";
 
-        Debug.Log("text changed");
+        //Debug.Log("text changed");
 
         titleBInstance.transform.SetParent(TitlesCanvas.transform);
+        
         titleAInstance.transform.SetParent(TitleACanvas.transform);
+        
 
         StartButtonInstance.transform.SetParent(canvas.transform);
         ExitButtonInstance.transform.SetParent(canvas.transform);
 
         titleBInstance.transform.localPosition = new Vector3(-2000,100,0);
+        titleBStartPos = titleBInstance.transform.position;
         titleAInstance.transform.localPosition = new Vector3(-50, 618,0);
+        titleAStartPos = titleAInstance.transform.position;
         
-
+        //Set each button starting position and then set that Vector3 as a variable
+        //to be used on the movement animation
         StartButtonInstance.transform.localPosition = new Vector3(-400,-800,0);
+        startButtonStartPos = StartButtonInstance.transform.position;
         ExitButtonInstance.transform.localPosition = new Vector3(400,-850,0);
-
+        exitButtonStartPos = ExitButtonInstance.transform.position;
+        MarketButtonInstance.transform.localPosition = new Vector3(-200, -800, 0);
+        marketButtonStartPos = MarketButtonInstance.transform.position;
+        
 
         UnityEngine.UI.Button StartButtonInstanceBtn = StartButtonInstance.GetComponent<Button>();
         UnityEngine.UI.Button ExitButtonInstanceBtn = ExitButtonInstance.GetComponent<Button>();
+        UnityEngine.UI.Button MarketButtonInstanceBtn = MarketButtonInstance.GetComponent<Button>();
 
         StartButtonInstanceBtn.onClick.AddListener(StartNew);
         ExitButtonInstanceBtn.onClick.AddListener(Exit);
+        MarketButtonInstanceBtn.onClick.AddListener(Market);
 
     }
 
+    
+
     public void StartNew()
     {
-        Debug.Log("onclick event added");
         titleController.GetComponent<TitleController>().StartNew();
     }
     public void Exit()
     {
         titleController.GetComponent<TitleController>().Exit();
     }
+
+    public void Market()
+    {
+        titleController.GetComponent<TitleController>().Market();
+    }
+
 
     public void titleAInstanceAlfa()
     {

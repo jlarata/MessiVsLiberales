@@ -28,6 +28,8 @@ public class TitleController : MonoBehaviour
 
 
 
+
+    /* Example function to instantiate a button
     public void buttonInstance()
     {
         GameObject canvas = GameObject.Find("Canvas");
@@ -50,7 +52,7 @@ public class TitleController : MonoBehaviour
     public void SomeFunction()
     {
         Debug.Log("onclick event added");
-    }
+    }*/
     
 
 
@@ -102,6 +104,10 @@ public class TitleController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void Market()
+    {
+        SceneManager.LoadScene(2);
+    }
 
 
     public void Exit()

@@ -25,19 +25,19 @@ public class UIButtonsController : MonoBehaviour
 
     public void InstantiateButtons()
     {
-        GameObject BackButtonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0), GameObject.Find("UI Buttons").transform);
-        //BackButtonInstance.transform.SetParent(GameObject.Find("UI Buttons").transform, false);
+        //set parent object
+        GameObject UIButtons = GameObject.Find("UI Buttons");
+        //instanciate the button and set UIButton as parent
+        GameObject BackButtonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0), UIButtons.transform);
+        //move the button to the desired location (regarding the parent object)
         BackButtonInstance.transform.localPosition = new Vector3(-150,0,0);
-        Debug.Log("button created");
+        
+        //set the button component
         UnityEngine.UI.Button BackButtonInstanceBtn = BackButtonInstance.GetComponent<Button>();
-        Debug.Log("identified component button");
-
+        
+        //add a function to the button componetn
         BackButtonInstanceBtn.onClick.AddListener(BackToTitles);
-        Debug.Log("onclick event added");
-
-        //NO PUEDO CARGARLE LA FUNCION AL PREFAB
-        //REVISAR EN EL SCRIPT DE TITLES CONTROLLER. SE LE PUEDEN AGREGAR LAS FUNCINOES DESDE EL 
-        //SCRIPT DESPUÉS DE INSTANCIAR.
+        
     }
 
     public void BackToTitles()
