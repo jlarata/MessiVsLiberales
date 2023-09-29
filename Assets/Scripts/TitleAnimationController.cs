@@ -93,11 +93,14 @@ public class TitleAnimationController : MonoBehaviour
         d3cColor.a = 0f;
         d3c.GetComponent<TMP_Text>().color = d3cColor;
 
-
+        /* this was for testing only, not needed anymore.
+        it calls a mainmanager function that search the object and sets its text
+        the new method in MarketScene is more complex because first it creates the button
+        and then references to it in order to sets its text
         if (MainManager.Instance != null)
         {
             MainManager.Instance.IniciateWealthDisplay();
-        }
+        }*/
         
     }
 

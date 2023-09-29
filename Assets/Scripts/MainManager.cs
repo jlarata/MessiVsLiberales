@@ -15,6 +15,8 @@ public class MainManager : MonoBehaviour
 
     //Just for testing?
     public TMP_Text wealthDisplay;
+    public TMP_Text marketWealthDisplay;
+
 
     //these data will persist from the title scene to the main scene to be read (at least by messicontroller)
     public float messiHpLvl;
@@ -105,6 +107,15 @@ public class MainManager : MonoBehaviour
     {
             wealthDisplay = GameObject.Find("WealthDisplay").GetComponent<TMP_Text>();
             wealthDisplay.text = ""+ totalWealth;
+    }
+    public void IniciateMarketWealthDisplay()
+    {
+            marketWealthDisplay = GameObject.Find("MarketWealthDisplay(Clone)").GetComponent<TMP_Text>();   
+            
+            /*GameObject.Find("BuyButtons").GetComponent<BuyButtonsController>().speed;
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            GameObject.Find("MarketWealthDisplay").GetComponent<TMP_Text>();*/
+            marketWealthDisplay.text = ""+ totalWealth;
     }
 
     public void SaveState()

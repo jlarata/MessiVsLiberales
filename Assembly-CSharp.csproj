@@ -61,6 +61,7 @@
      <Compile Include="Assets/Scripts/GBackgroundController.cs" />
      <Compile Include="Assets/Scripts/TitleAnimationController.cs" />
      <Compile Include="Assets/Scripts/TerminalController.cs" />
+     <Compile Include="Assets/Scripts/Market/BuyButtonsController.cs" />
      <Compile Include="Assets/Scripts/MainManager.cs" />
      <Compile Include="Assets/Scripts/TitleController.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
