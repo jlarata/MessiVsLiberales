@@ -301,31 +301,74 @@ public class CursorController : MonoBehaviour
             }
         }
 
+        //cursor is on option 6 (elisir)
+        else if (OptionsCursor06.activeSelf)
+        {
+            //option 5 (dimaria) must be active
+            if (LvlUpOption5.activeSelf)
+            {
+                OptionsCursor06.SetActive(false);
+                OptionsCursor05.SetActive(true);
+            }
+            
+        }
+
     }
     
     public void CursorLeft()
-    {
+    {   
+        //cursor is on option 5 (dimaria)
         if (OptionsCursor05.activeSelf)
-        {
+        {   //first choice: option1 (shuriken)
             if (LvlUpOption1.activeSelf)
             {
             OptionsCursor01.SetActive(true);
             OptionsCursor05.SetActive(false);
-            } else
-            if (LvlUpOption2.activeSelf)
+            }
+            //second choice: option2 (maxhp)
+             else if (LvlUpOption2.activeSelf)
             {
             OptionsCursor02.SetActive(true);
             OptionsCursor05.SetActive(false);
-            } else
-            if (LvlUpOption3.activeSelf)
+            }
+            //third choice: option3 (aduke)
+             else if (LvlUpOption3.activeSelf)
             {
             OptionsCursor03.SetActive(true);
             OptionsCursor05.SetActive(false);
-            } else 
-            if (LvlUpOption4.activeSelf)
+            }
+            //fourth choice: option4 (xd)
+             else if (LvlUpOption4.activeSelf)
             {
             OptionsCursor04.SetActive(true);
             OptionsCursor05.SetActive(false);
+            }
+        }
+        //cursor is on option 6 (elisir)
+        if (OptionsCursor06.activeSelf)
+        {   //first choice: option2 (maxhp)
+            if (LvlUpOption2.activeSelf)
+            {
+            OptionsCursor02.SetActive(true);
+            OptionsCursor06.SetActive(false);
+            }
+            //second choice: option1 (shuriken)
+             else if (LvlUpOption1.activeSelf)
+            {
+            OptionsCursor01.SetActive(true);
+            OptionsCursor06.SetActive(false);
+            }
+            //third choice: option3 (aduke)
+             else if (LvlUpOption3.activeSelf)
+            {
+            OptionsCursor03.SetActive(true);
+            OptionsCursor06.SetActive(false);
+            }
+            //fourth choice: option4 (xd)
+             else if (LvlUpOption4.activeSelf)
+            {
+            OptionsCursor04.SetActive(true);
+            OptionsCursor06.SetActive(false);
             }
         }
     }
@@ -354,15 +397,14 @@ public class CursorController : MonoBehaviour
             OptionsCursor01.SetActive(false);
             OptionsCursor08.SetActive(true);
             }*/
-        } else
-        if (OptionsCursor02.activeSelf)
+        } else if (OptionsCursor02.activeSelf)
         {
-            /*if (LvlUpOption6.activeSelf)
+            if (LvlUpOption6.activeSelf)
             {
             OptionsCursor02.SetActive(false);
             OptionsCursor06.SetActive(true);
-            }*/
-            if (LvlUpOption5.activeSelf)
+            }
+            else if (LvlUpOption5.activeSelf)
             {
             OptionsCursor02.SetActive(false);
             OptionsCursor05.SetActive(true);
@@ -385,18 +427,18 @@ public class CursorController : MonoBehaviour
             {
             OptionsCursor03.SetActive(false);
             OptionsCursor07.SetActive(true);
-            } else            
+            } else */           
             if (LvlUpOption6.activeSelf)
             {
             OptionsCursor03.SetActive(false);
             OptionsCursor06.SetActive(true);
-            } else 
+            } /*else 
             if (LvlUpOption8.activeSelf)
             {
             OptionsCursor03.SetActive(false);
             OptionsCursor08.SetActive(true);
-            } else */
-            if (LvlUpOption5.activeSelf)
+            } */
+            else if (LvlUpOption5.activeSelf)
             {
             OptionsCursor03.SetActive(false);
             OptionsCursor05.SetActive(true);
@@ -414,14 +456,13 @@ public class CursorController : MonoBehaviour
             {
             OptionsCursor04.SetActive(false);
             OptionsCursor07.SetActive(true);
-            } else            
+            } else */
+
             if (LvlUpOption6.activeSelf)
             {
             OptionsCursor04.SetActive(false);
             OptionsCursor06.SetActive(true);
-            } else 
-             */
-            if (LvlUpOption5.activeSelf)
+            } else if (LvlUpOption5.activeSelf)
             {
             OptionsCursor04.SetActive(false);
             OptionsCursor05.SetActive(true);
