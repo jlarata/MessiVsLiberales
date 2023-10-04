@@ -115,11 +115,11 @@ public class EnemyController : MonoBehaviour
             dropRandomNumber = Random.Range(1, 100);
             if (dropRandomNumber >89)
             {
-                Instantiate(dropList[1], transform.position, transform.rotation);
+                Instantiate(dropList[1], transform.position, transform.rotation * Quaternion.Euler (0, 0, 90));
             }
             else if (dropRandomNumber >49)
             {
-                Instantiate(dropList[0], transform.position, transform.rotation);
+                Instantiate(dropList[0], transform.position, transform.rotation * Quaternion.Euler (0, 0, 90));
             }
             
         }

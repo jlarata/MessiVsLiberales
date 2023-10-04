@@ -40,10 +40,10 @@ public class DropsController : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
+        transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0, Space.World);
 
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0);
+        transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0, Space.World);
     }
 
     void OnTriggerEnter2D(Collider2D other)
