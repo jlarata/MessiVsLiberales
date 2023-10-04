@@ -86,6 +86,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     protected bool pausanias;
+
+    public GameObject[] buttonsList;
+    public bool exitButtonExists;
+    
     [SerializeField]
     protected bool isLvlUpMenu;
     public bool isTerminalOpen;
@@ -359,6 +363,7 @@ public class GameController : MonoBehaviour
             {
                 if (!pausanias)
                 {
+                InstantiateOrDestroyExitButton();
                 pausanias = true;
                 pauseMenu.SetActive(true);
                 pauseText.SetActive(true);
@@ -366,6 +371,7 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
+                InstantiateOrDestroyExitButton();
                 pausanias = false;
                 pauseMenu.SetActive(false);
                 pauseText.SetActive(false);
@@ -375,6 +381,42 @@ public class GameController : MonoBehaviour
             
         }   
     }
+
+    public void InstantiateOrDestroyExitButton()
+    {
+        //exitButton.SetActive(true);
+        
+        if (!exitButtonExists)
+        {
+        //set parent object
+        GameObject UIButtons = GameObject.Find("UI Buttons");
+        //instanciate the button and set UIButton as parent
+        GameObject ExitButtonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0), UIButtons.transform);
+        //move the button to the desired location (regarding the parent object)
+        ExitButtonInstance.transform.localPosition = new Vector3(0,0,0);
+        
+        //set the button component
+        UnityEngine.UI.Button ExitButtonInstanceBtn = ExitButtonInstance.GetComponent<Button>();
+        
+        //add a function to the button componetn
+        ExitButtonInstanceBtn.onClick.AddListener(BackToTitles);
+
+        exitButtonExists = true;
+        } else
+        {
+            GameObject ExitButtonInstance = GameObject.Find("ButtonStyle01(Clone)");
+            Destroy(ExitButtonInstance);
+            exitButtonExists = false;
+        }
+        
+    }
+
+    
+    public void BackToTitles()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     public void GameOver()
     {   
