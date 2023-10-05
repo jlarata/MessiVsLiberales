@@ -638,15 +638,15 @@ RectTransform:
   m_GameObject: {fileID: 246362618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922277197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -100}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -190, y: 75}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &269798930
 GameObject:
@@ -4889,6 +4889,9 @@ MonoBehaviour:
   pausanias: 0
   buttonsList:
   - {fileID: 5443282997218032432, guid: 7438d57ea8e11610a8bf41576833ac7d, type: 3}
+  - {fileID: 7174919816314890597, guid: 8990329f4ba51a5f2876e7f55ea31380, type: 3}
+  exitButtonInstance: {fileID: 0}
+  exitButtonExists: 0
   isLvlUpMenu: 0
   isTerminalOpen: 0
 --- !u!4 &1721700314

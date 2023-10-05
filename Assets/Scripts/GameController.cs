@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour
     protected bool pausanias;
 
     public GameObject[] buttonsList;
+    public GameObject exitButtonInstance;
     public bool exitButtonExists;
     
     [SerializeField]
@@ -391,30 +392,37 @@ public class GameController : MonoBehaviour
         //set parent object
         GameObject UIButtons = GameObject.Find("UI Buttons");
         //instanciate the button and set UIButton as parent
-        GameObject ExitButtonInstance = (GameObject)Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0), UIButtons.transform);
+        exitButtonInstance = (GameObject)Instantiate(buttonsList[1], new Vector3(0,0,0), new Quaternion(0,0,0,0), UIButtons.transform);
         //move the button to the desired location (regarding the parent object)
-        ExitButtonInstance.transform.localPosition = new Vector3(0,0,0);
+
+        //exitButtonInstance.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTranform.Axis.Horizontal, 30);
+
+        exitButtonInstance.transform.localPosition = new Vector3(0,0,0);
+        //exitButtonInstance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);    
         
         //set the button component
-        UnityEngine.UI.Button ExitButtonInstanceBtn = ExitButtonInstance.GetComponent<Button>();
+        UnityEngine.UI.Button exitButtonInstanceBtn = exitButtonInstance.GetComponent<Button>();
         
         //add a function to the button componetn
-        ExitButtonInstanceBtn.onClick.AddListener(BackToTitles);
+        exitButtonInstanceBtn.onClick.AddListener(Exit);
 
         exitButtonExists = true;
         } else
         {
-            GameObject ExitButtonInstance = GameObject.Find("ButtonStyle01(Clone)");
-            Destroy(ExitButtonInstance);
+            Destroy(exitButtonInstance);
             exitButtonExists = false;
         }
         
     }
 
     
-    public void BackToTitles()
+    public void Exit()
     {
-        SceneManager.LoadScene(0);
+        #if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+        #else
+            Application.Quit(); //original code to quit unity.
+        #endif
     }
 
 
