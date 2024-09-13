@@ -79,7 +79,7 @@ public class WeaponController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void WeaponBehaviour()
+    public virtual void WeaponBehaviour()
     {
         //todos estos métodos tendrían que estar en un script class específico de esta arma, 
         //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable

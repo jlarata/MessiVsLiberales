@@ -15,25 +15,8 @@ public class AdukeController : WeaponController
         weaponDamage = 2.0f;
         weaponDuration = 2.5f;
 
-        adukeLvl = messi.GetComponent<MessiController>().adukeLvl;
-
-
-    
-        // switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
-        // {
-        //     case 3:
-        //     left = false;
-        //     break;
-
-        //     case 9:
-        //     left = true;
-        //     break;
-        // }
-
- 
+        adukeLvl = messi.GetComponent<MessiController>().adukeLvl;    
         
-
-
         StartCoroutine(Duration(weaponDuration));
 
         scaleChange = transform.localScale;
@@ -105,27 +88,11 @@ public class AdukeController : WeaponController
             break;
         }
         transform.localScale = scaleChange;
-
-
-    
     }
-    
-
     void Update()
     {
-        WeaponBehaviour();
-        
-        
+        WeaponBehaviour();   
     }
-    void LateUpdate()
-    {
-        
-        
-
-    }
-
-
-
 
     new public void Autodestroy()
     {
@@ -136,13 +103,10 @@ public class AdukeController : WeaponController
     //To do so, i've added the "new" word. I've read some warnings against this so, lets be aware of possible
     //malcfunctions on these two.
 
-    new public void WeaponBehaviour()
-    {
-        
+    public override void WeaponBehaviour()
+    {   
         switch(totalMovementFacing)
-        {
-            
-            
+        {            
             case 900:
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
             break;            
