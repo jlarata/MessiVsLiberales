@@ -47,9 +47,6 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-
-        
-
         Time.timeScale = 1;
         if (Instance != null)
         {
@@ -76,7 +73,7 @@ public class MainManager : MonoBehaviour
 
         //why like this? read gbackgroundcontroller
         //new changes: now this setting of wealthdisplay is a function, and is called from
-        //titleanimationcontroller. this is because this script (mainmanager) doesnt not awake nor start
+        //titleanimationcontroller. this is because this script (mainmanager) does not awake nor start
         //when it came from another scene (that is: on a restart game for example).
         //until i made this late fix, in the new titlescene after a gameover, the script wouldn't
         //bind to the object (the tmp_text)
@@ -92,7 +89,6 @@ public class MainManager : MonoBehaviour
     {
         public int LvlAchieved;
         public int totalWealth;
-
         public bool adukeUnlocked;
         public bool diMariaUnlocked;
         public bool optionsUnlocked;
@@ -169,5 +165,8 @@ public class MainManager : MonoBehaviour
         else
         optionsUnlocked = false;
     }
-
+        public void ToggleOptionsLock()
+    {
+        optionsUnlocked = !optionsUnlocked;
+    }
 }

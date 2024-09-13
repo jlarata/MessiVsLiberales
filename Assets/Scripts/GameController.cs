@@ -1,30 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.IO;
+//using System.IO;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class GameController : MonoBehaviour
-{
-    
-
+{  
     //had to add "G"background to prevent errors with the "background" element of the UI sliders
     public GameObject gBackground;
     protected Vector3 bgStartPos;
-
     public GameObject messi;
 
-    
     private float repeatWidth;
     private float repeatHeight;
     
-    private float horizontalInput;
-    private float verticalInput;
+    //private float horizontalInput;
+    //private float verticalInput;
     
     [SerializeField]
     public float messiVelocity;
