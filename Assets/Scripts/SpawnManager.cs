@@ -6,39 +6,28 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    
-
     public GameObject gameController;
     public GameController GameController;
-
     public GameObject[] enemiesList;
-    
-    //public GameObject powerup;
+    //public GameObject powerup; <-- qué sería esto? un reminder?
     [SerializeField]
     private float spawnRangeY = 5f;
     [SerializeField]
     private float spawnRangeX = 7f;
-
     [SerializeField]
-    float spawnPosX;
+    private float spawnPosX;
     [SerializeField]
-    float spawnPosY;
-
+    private float spawnPosY;
     [SerializeField]
     private Vector3 verticalRandomPos;
-
     [SerializeField]
     private Vector3 horizontalRandomPos;
-
     [SerializeField]
     private int leftOrRight;
-
     [SerializeField]
     private int upOrDown;
-
     [SerializeField]
     public int totalEnemiesCount;
-
     [SerializeField]
     private bool isSpawning;
     
@@ -49,9 +38,7 @@ public class SpawnManager : MonoBehaviour
         //el objeto
         gameController = GameObject.Find("Game Controller");
         //el script
-        GameController = gameController.GetComponent<GameController>();
-        
-        
+        GameController = gameController.GetComponent<GameController>();    
     }
 
     void Update()
@@ -114,14 +101,10 @@ private Vector3 GenerateHorizontalSpawnPosition()
 
     IEnumerator SpawnEnemies()
     {
-        //old method for counting total enemies in screen before spawning more.
-        //initializer equals totalEnemiesCount, the for loop stops when totalEnemies reaches 20.
-        //for(int i = totalEnemiesCount; totalEnemiesCount < 20; i++)
-        //{
             isSpawning = true;
             yield return new WaitForSeconds(0.5f);
 
-            //this should be the ENCAPSULATION getter method.
+            //this should be the ENCAPSULATION getter method. <- qué demonios quise decir?
             switch(GameController.wave)
             {
                 //wave lower than 10, that's 4 minutes aprox.
@@ -166,23 +149,15 @@ private Vector3 GenerateHorizontalSpawnPosition()
                 break;
             }
             isSpawning = false;
-            
-            
-            
-            
-        //}
     }
-
-
-    //ABSTRACTION the SpawnEnemy01 Functions calls two functions, each one creating a coordinate
+    
+    // SpawnEnemy01() calls another two methods, each one creating a coordinate
     // those coordinates are random but limited: one on top or bottom (randomly) and the other left or right (also randomly)
-    // of the screen. then SpawnEnemy01 will spawn 2 enemies, (one horizontally and other vertically) out of
+    // of the screen. then SpawnEnemy01() will spawn 2 enemies, (one horizontally and other vertically) out of
     // the screen. 
 
      void SpawnEnemy01()
-
     {
-
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
@@ -190,13 +165,11 @@ private Vector3 GenerateHorizontalSpawnPosition()
             totalEnemiesCount++;
             Instantiate(enemiesList[0], horizontalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-
     }
 
     void SpawnEnemy0102()
 
     {
-
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
@@ -204,14 +177,11 @@ private Vector3 GenerateHorizontalSpawnPosition()
             totalEnemiesCount++;
             Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-
     }
 
 
     void SpawnEnemy02()
-
     {
-
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
             
@@ -219,13 +189,10 @@ private Vector3 GenerateHorizontalSpawnPosition()
             totalEnemiesCount++;
             Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
-
     }
 
     void SpawnEnemy0203()
-
     {
-
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
@@ -233,27 +200,20 @@ private Vector3 GenerateHorizontalSpawnPosition()
             totalEnemiesCount++;
             Instantiate(enemiesList[2], horizontalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-
     }
 
     void SpawnEnemy03()
-
     {
-
             GenerateVerticalSpawnPosition();
-            GenerateHorizontalSpawnPosition();
-            
+            GenerateHorizontalSpawnPosition();       
             Instantiate(enemiesList[2], verticalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
             Instantiate(enemiesList[2], horizontalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
-
     }
 
     void SpawnEnemy0304()
-
     {
-
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
@@ -261,22 +221,15 @@ private Vector3 GenerateHorizontalSpawnPosition()
             totalEnemiesCount++;
             Instantiate(enemiesList[3], horizontalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-
     }
 
     void SpawnEnemy04()
-
     {
-
             GenerateVerticalSpawnPosition();
-            GenerateHorizontalSpawnPosition();
-            
+            GenerateHorizontalSpawnPosition();       
             Instantiate(enemiesList[3], verticalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
             Instantiate(enemiesList[3], horizontalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
-
     }
-
-
 }
