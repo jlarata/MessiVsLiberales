@@ -10,6 +10,7 @@ public class Enemy03BasicBaldman : EnemyController
         spawnManager = GameObject.Find("SpawnManager");
         gameController = GameObject.Find("Game Controller");
         GameController = gameController.GetComponent<GameController>();
+        wave = GameController.wave;
         
         messi = GameObject.Find("Messi");
         MessiController = messi.GetComponent<MessiController>();
@@ -25,14 +26,9 @@ public class Enemy03BasicBaldman : EnemyController
 
         expNumber = 1.5f;
 
-
-
-        wave = GameController.wave;
-
         //enemyCC2D = GetComponent<CircleCollider2D>();
         
-        UpdateToWave();
-        
+        UpdateToWave();        
     }
 
     void Update()

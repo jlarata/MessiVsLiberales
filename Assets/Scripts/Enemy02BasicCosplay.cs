@@ -4,38 +4,28 @@ using UnityEngine;
 
 public class Enemy02BasicCosplay : EnemyController
 {
-    // INHERITANCE. this class inherits from script EnemyController.cs
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager");
         gameController = GameObject.Find("Game Controller");
         GameController = gameController.GetComponent<GameController>();
-        
+        wave = GameController.wave;
+
         messi = GameObject.Find("Messi");
         MessiController = messi.GetComponent<MessiController>();
-        
         messiVelocity = MessiController.speed; 
 
         enemyRb2D = GetComponent<Rigidbody2D>();
-
+        
         baseSpeed = 0.65f;
         baseEnemyDamage = 2f;
         baseEnemyExp = 2f;
         baseEnemyHp = 2f;
-
         expNumber = 1.5f;
+    
+        //enemyCC2D = GetComponent<CircleCollider2D>();    
 
-
-
-        wave = GameController.wave;
-
-        //enemyCC2D = GetComponent<CircleCollider2D>();
-        
-        
-          
-        
         UpdateToWave();
-        
     }
 
     void Update()

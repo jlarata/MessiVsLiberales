@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Enemy01BasicLiberal : EnemyController
 {
-    // INHERITANCE. this class inherits from script EnemyController.cs
     void Start()
     {
-        //remember: all this variables needs to be inicializated in the child classes.
+        //all this variables needs to be inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
         //el objeto:
         gameController = GameObject.Find("Game Controller");
@@ -31,7 +30,6 @@ public class Enemy01BasicLiberal : EnemyController
         expNumber = 1.5f;
 
         wave = GameController.wave;
-
         
         //enemyCC2D = GetComponent<CircleCollider2D>();
       

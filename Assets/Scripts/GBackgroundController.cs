@@ -5,8 +5,7 @@ using UnityEngine;
 public class GBackgroundController : MonoBehaviour
 {
     
-    public GameObject messi;
-    
+    public GameObject messi;    
     public float messiVelocity;
 
     protected float horizontalInput;
