@@ -11,13 +11,11 @@ public class DiMariaController : WeaponController
     public float xRange;
     public float yRange;
 
-    // Start is called before the first frame update
     void Start()
     {
         speed = 1.5f;
         messi = GameObject.Find("Messi");
         totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
-
 
         weaponDamage = 1.0f;
         
@@ -101,7 +99,7 @@ public class DiMariaController : WeaponController
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         WeaponBehaviour();
@@ -115,8 +113,6 @@ public class DiMariaController : WeaponController
         randomDirection.y = yRandomDirection;
         randomDirection.z = 0f;
     }
-
-    
 
     new public void Autodestroy()
     {
@@ -143,12 +139,4 @@ public class DiMariaController : WeaponController
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(0, -verticalInput * Time.deltaTime * messiVelocity, 0, Space.World);
     }
-
-    
-        
-        
-
-        
-    
-
 }

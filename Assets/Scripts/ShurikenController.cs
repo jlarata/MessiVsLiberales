@@ -8,7 +8,6 @@ public class ShurikenController : WeaponController
     {
         speed = 400.0f;
         rotateSpeed = 1800.0f;
-
         weaponDuration = 0.3f;
 
         messi = GameObject.Find("Messi");
@@ -113,8 +112,6 @@ public class ShurikenController : WeaponController
             transform.RotateAround(messi.transform.position, Vector3.back, speed * Time.deltaTime);
             transform.Rotate(new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime);
             break;
-        
-        
         }
     }
 }

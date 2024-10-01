@@ -6,31 +6,25 @@ using UnityEngine.UI;
 
 public class MessiController : MonoBehaviour
 {
-    
-
     public float hp;
     public Slider hpSlider;
-
     public bool isFiringShuriken;
     public bool isFiringAduke;
     public bool isFiringDiMaria;
     public bool isRegen;
 
-
-    //varios campos como este los hice públicos para llamarlos desde otros objetos
-    //ideales para protegerlos y meterles getters y setters.
     [SerializeField]
     public GameObject virtualRotation;
 
     [SerializeField]
     protected GameObject gameController;
 
-    
     public GameObject[] weapons;
     public GameObject slash;
-    //public GameObject aduke;
 
+    //public GameObject aduke;
     //lvlupvariables
+
     public float messiHpLvl;
     public float regenLvl;
     public float regenRatio;
@@ -39,24 +33,21 @@ public class MessiController : MonoBehaviour
     public float diMariaLvl;
     public float iDF;
     public float speed;
-     
-
     
-    // Start is called before the first frame update
     void Start()
     {
-        
         messiHpLvl = 1f;
         regenLvl = 0.1f;
         regenRatio = 1f;
 
-        /* So if I change this value all new instantiated elements will consider the new velocity 
+        /* if I would change this value all new instantiated elements will consider the new velocity 
         therefore messi would move "faster" between them. but the old instantiated (and the background)
         wont update the "messivelocity" var. this is a problem: while messi would move faster between 
         some of the enemies, he will crash against the old ones
         
         only solution i can think: some all-game-updater. maybe a function that searches every object
         with a tag and change it's messivelocity var (and bgbackground) */
+
         speed = 0.7f;
 
         if (MainManager.Instance != null)
@@ -82,8 +73,6 @@ public class MessiController : MonoBehaviour
         isFiringShuriken = false;
         isFiringDiMaria = false;
         isRegen = false;
-
-        
 
     }
 
@@ -116,9 +105,6 @@ public class MessiController : MonoBehaviour
         {
             StartCoroutine(FireDiMaria(4f));    
         }
-
-        
-        
     }
 
     public IEnumerator regenHP(float regenLvl, float regenRatio)
@@ -129,19 +115,14 @@ public class MessiController : MonoBehaviour
         //  invert the number for regenratio (otherwise it would be slowing the regen as it grows)
         yield return new WaitForSeconds(1/regenRatio);
         isRegen = false;
-        
     }
 
     public IEnumerator FireAduke(float delayFire)
     {
 
             isFiringAduke = true;
-            
-  
             switch(virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing)
             {
-
-
 
 
         //BUENO aparentemente el quaternion es un bardo de manejar, nunca se maneja una sola de las dimensiones
@@ -191,10 +172,7 @@ public class MessiController : MonoBehaviour
             }
 
             yield return new WaitForSeconds(delayFire);
-            isFiringAduke = false;
-
-            
-        
+            isFiringAduke = false;        
     }
 
     public IEnumerator FireShuriken(float delayFire)
@@ -207,7 +185,6 @@ public class MessiController : MonoBehaviour
         //because of this, i still need the "hfacing" variable in VirtualRotation script. but (i think) 
         //i wont be using anymore the "multiplefacing" variable anymore. 
             isFiringShuriken = true;
-
 
             //iDF is instantiateDistanceFactor: takes shuriken lvl to create a growing distance factor
             switch(shurikenLvl)
@@ -230,7 +207,6 @@ public class MessiController : MonoBehaviour
                 break;
             }
 
-
             switch(virtualRotation.GetComponent<VirtualRotation>().hFacing)
             {
             case 9:
@@ -242,10 +218,7 @@ public class MessiController : MonoBehaviour
             break;
             }
             yield return new WaitForSeconds(delayFire);
-            isFiringShuriken = false;
-
-            
-        
+            isFiringShuriken = false;        
     }
     
     public IEnumerator FireDiMaria(float delayFire)
@@ -257,13 +230,7 @@ public class MessiController : MonoBehaviour
            
             yield return new WaitForSeconds(delayFire);
             isFiringDiMaria = false;
-
-            
-        
     }
-
-    
-    
 
     //function to be called when messi loses life
     public void PerderHp(float hpLoss)
@@ -330,7 +297,5 @@ public class MessiController : MonoBehaviour
         shurikenLvl = 10;
         adukeLvl = 10;
         diMariaLvl = 10;
-
     }
-
 }

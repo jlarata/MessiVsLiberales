@@ -12,7 +12,8 @@ public class WeaponController : MonoBehaviour
     public float weaponDuration;
     public Vector3 scaleChange;
 
-    //these variables will be readed from MessiController script, by each weapon. 
+    //these variables will be readed from MessiController script, by each weapon.
+    // pero ¿es así? diera la impresión de que las lee del Main Manager. salvo que el Main manager las lea de acá 
     public float shurikenLvl;
     public float adukeLvl;
     public float diMariaLvl;
@@ -26,13 +27,10 @@ public class WeaponController : MonoBehaviour
     //varaible not needed anymore? see comment in messicontroller.
     //public int multipleFacing;
     public int totalMovementFacing;
-
     public float messiVelocity;
     protected float horizontalInput;
     protected float verticalInput;
-    
-    
-    // Start is called before the first frame update
+        
     void Start()
     {
         messi = GameObject.Find("Messi");
@@ -40,10 +38,6 @@ public class WeaponController : MonoBehaviour
         messiVelocity = MessiController.speed; 
         //multipleFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().multipleFacing;
         totalMovementFacing = messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().totalMovementFacing;
-
-       
-
-
         
         switch(messi.GetComponent<MessiController>().virtualRotation.GetComponent<VirtualRotation>().hFacing)
         {
@@ -60,20 +54,16 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        WeaponBehaviour();
-
-        
+        WeaponBehaviour();        
     }
 
     protected IEnumerator Duration(float time)
     {
-        
         yield return new WaitForSeconds(time);
         Autodestroy();
     }
 
     
-
     public void Autodestroy()
     {
         Destroy(gameObject);
@@ -81,25 +71,7 @@ public class WeaponController : MonoBehaviour
 
     public virtual void WeaponBehaviour()
     {
-        //todos estos métodos tendrían que estar en un script class específico de esta arma, 
-        //que herede del script padre WeaponController que solo tendría un método Fire vacío, o overrideable
-        // switch(left)
-        // {
-        //     case true:
-        //     transform.RotateAround(messi.transform.position, Vector3.forward, speed * Time.deltaTime);
-        //     transform.Rotate(new Vector3(0, 0, -1) * rotateSpeed * Time.deltaTime);
-        //     break;
-
-        //     case false:
-        //     transform.RotateAround(messi.transform.position, Vector3.back, speed * Time.deltaTime);
-        //     transform.Rotate(new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime);
-        //     break;
-        
-        // // método directo, lineal.
-        // // transform.Translate(Vector3.down * Time.deltaTime * speed);
-        
-        // }
     }
 
     
-     }
+}
