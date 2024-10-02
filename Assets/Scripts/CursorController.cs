@@ -154,9 +154,6 @@ public class CursorController : MonoBehaviour
      CON LO QUE SI BLOQUEO EL SALTO CON ESTA ÚLTIMA SOLUCIÓN DEBERÍA ARREGLARSE TODO
      NO ESTOY SEGURO DE LA EFICIENCIA DE TENER EL COSO SALTIMBANQUEANDO EN INVI*/
      
-     
-    
-
     public void CursorDown()
     {
         //cursor is on option 1 (shuriken)

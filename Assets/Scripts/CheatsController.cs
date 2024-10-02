@@ -11,11 +11,8 @@ public class CheatsController : MonoBehaviour
 
     void Start()
     {
-        //el objeto
         gameController = GameObject.Find("Game Controller");
-        //el script
-        GameController = gameController.GetComponent<GameController>();
-        
+        GameController = gameController.GetComponent<GameController>();   
     }
 
     // Update is called once per frame

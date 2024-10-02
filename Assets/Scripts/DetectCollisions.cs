@@ -27,7 +27,6 @@ public class DetectCollisions : MonoBehaviour
     {
       messi = GameObject.Find("Messi");
       messiController = messi.GetComponent<MessiController>();
-
       
       //gameObjectQueManejeElAudio = GameObject.Find("GameObjectQueManejeElAudio");
       //source = GetComponent<AudioSource>();
@@ -78,12 +77,9 @@ public class DetectCollisions : MonoBehaviour
             newDNO.gameObject.transform.GetChild(0).GetComponent<TMP_Text>().color = lowDamageNumberColor;
           }
 
-
-
           GetComponent<EnemyController>().loseHp(other.GetComponent<WeaponController>().weaponDamage);
           GetComponent<EnemyController>().HitAnimationF();
           
-
           //other.GetComponent<WeaponController>
             
             //Destroy(gameObject);
@@ -93,47 +89,4 @@ public class DetectCollisions : MonoBehaviour
         
     }
     
-    // void OnTriggerEnter(Collider other) {
-      
-    //   if (!(other.gameObject.name == "Animal_Moose_02(Clone)"))
-    //   {
-    //      if (!(this.gameObject.name == "Animal_Moose_02(Clone)")) 
-
-    //     {
-    //     if (!(other.gameObject.name == "Messi"))
-    //     {
-    //       mlemmanager.GetComponent<MlemManager>().Suena();
-
-    //       if (gameObject.GetComponent<AnimalHunger>().currentFedAmount == 0)
-    //       {
-    //         messi.GetComponent<MessiController>().SumarPerritosAlimentados();
-    //       }
-
-    //       if (gameObject.GetComponent<AnimalHunger>().currentFedAmount >=
-    //           gameObject.GetComponent<AnimalHunger>().amountToBeFed)
-    //           {
-    //             gameObject.GetComponent<BoxCollider>().enabled=false;
-    //           }
-          
-    //       //Destroy(gameObject);
-    //       Destroy(other.gameObject);
-    //       gameObject.GetComponent<AnimalHunger>().FeedAnimal(1);
-    //     } else {
-    //     messi.GetComponent<MessiController>().PerderUnaVida();
-    //     }
-    //   }
-      
-    //   //aca va codigo si sos alce 
-    //   if ((other.gameObject.name == "Messi"))
-    //   {
-    //     messi.GetComponent<MessiController>().ALaPuta();
-    //     messi.GetComponent<MessiController>().PerderUnaVida();
-    //   }
-    //   else
-    //   {
-    //   //  Debug.Log("Reno");
-    //   }
-    // }
-  
-    // }
-}
+ }

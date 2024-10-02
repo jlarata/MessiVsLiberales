@@ -15,12 +15,8 @@ public class DamageNumber : MonoBehaviour
     
     [SerializeField]
     protected Color damageNumberColor;
-
-
     void Start()
     {
-
-        
 
         messiVelocity = 1.0f;
         

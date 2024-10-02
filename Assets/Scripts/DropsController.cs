@@ -30,11 +30,9 @@ public class DropsController : MonoBehaviour
         gameController = GameObject.Find("Game Controller");
         //el script:
         GameController = gameController.GetComponent<GameController>(); 
-
         speed = 0.5f;
-
+        
         SetValue();
-
     }
 
     void Update()

@@ -80,14 +80,6 @@ public class BuyButtonsController : MonoBehaviour
             }
         }
         
-
-       
-
-
-
-
-
-
         //move the button to the desired location (regarding the parent object)
         diMariaProductInstance.transform.localPosition = new Vector3(34,80,0);
         adukeProductInstance.transform.localPosition = new Vector3(34,25,0);
@@ -95,8 +87,7 @@ public class BuyButtonsController : MonoBehaviour
         //set the button component
         UnityEngine.UI.Button diMariaProductInstanceBtn = diMariaProductInstance.GetComponent<Button>();
         UnityEngine.UI.Button adukeProductInstanceBtn = adukeProductInstance.GetComponent<Button>();
-
-
+        
         //add a function to the button componetn
         //BackButtonInstanceBtn.onClick.AddListener(BackToTitles);
         

@@ -16,16 +16,13 @@ public class VirtualRotation : MonoBehaviour
 
     void Start()
     {
-        
         //multipleFacing = 9;
         hFacing = 9;
         totalMovementFacing = 900;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         totalMovement = new Vector2(inputX, inputY);

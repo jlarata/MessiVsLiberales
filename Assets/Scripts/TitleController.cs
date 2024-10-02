@@ -26,9 +26,6 @@ public class TitleController : MonoBehaviour
         //buttonInstance();
     }
 
-
-
-
     /* Example function to instantiate a button
     public void buttonInstance()
     {
@@ -54,8 +51,6 @@ public class TitleController : MonoBehaviour
         Debug.Log("onclick event added");
     }*/
     
-
-
 
     public void StartWithShuriken()
     {

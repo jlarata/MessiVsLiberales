@@ -61,20 +61,13 @@ public class TitleAnimationController : MonoBehaviour
     public GameObject titleAInstance;
     public Color titleAInstanceColor;
 
-    // Start is called before the first frame update
     void Start()
     {
-
-        titleController = GameObject.Find("Title Controller");
-        
+        titleController = GameObject.Find("Title Controller");   
         ButtonsInstance();
-       
-        
-
         
         StartCoroutine(TranslateTitlesAndFadeIn());
     
-        
         titleAInstanceColor = titleAInstance.GetComponent<TMP_Text>().color;
         titleAInstanceColor.a = 0f;
         titleAInstance.GetComponent<TMP_Text>().color = titleAInstanceColor;        
@@ -106,7 +99,6 @@ public class TitleAnimationController : MonoBehaviour
 
     IEnumerator TranslateTitlesAndFadeIn()
     {
-        
         yield return new WaitForSeconds(3f);
         fadeIn = true;
         moveFirstTitle = true;
@@ -114,12 +106,9 @@ public class TitleAnimationController : MonoBehaviour
         moveRestOfTitles = true;
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        
-        if (moveFirstTitle)
-        
+    {        
+        if (moveFirstTitle)   
         {
             if (titleAInstanceColor.a < .9f)
             {
@@ -205,10 +194,8 @@ public class TitleAnimationController : MonoBehaviour
         //Set each title starting position and then set that Vector3 as a variable
         //to be used on the movement animation
         titleBInstance = Instantiate(buttonsList[1], new Vector3(-600,-518,0), new Quaternion(0,0,0,0));
-        
         titleAInstance = Instantiate(buttonsList[2], new Vector3(400,0,0), new Quaternion(0,0,0,0));
-        
-        
+
         StartButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
         ExitButtonInstance = Instantiate(buttonsList[0], new Vector3(0,0,0), new Quaternion(0,0,0,0));
 

@@ -29,12 +29,8 @@ public class TerminalController : MonoBehaviour
         //el objeto
         cheats = GameObject.Find("Cheats");
 
-        
-
         //el script
-        CheatsController = cheats.GetComponent<CheatsController>();
-
-        
+        CheatsController = cheats.GetComponent<CheatsController>();        
     }
 
     void Update()
