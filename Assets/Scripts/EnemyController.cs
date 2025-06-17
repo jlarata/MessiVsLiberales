@@ -4,12 +4,10 @@ using UnityEngine;
 
 
 
-// INHERITANCE this class is to be parent of all enemies child class.
+// this class is meant to be parent of all particular "enemies" child classes.
 public class EnemyController : MonoBehaviour
 {
     
-    //[SerializeField]
-    //private CircleCollider2D enemyCC2D;
     [SerializeField]
     protected Rigidbody2D enemyRb2D;
 
@@ -37,68 +35,51 @@ public class EnemyController : MonoBehaviour
     protected GameObject messi;
     [SerializeField]
     protected MessiController MessiController;
-
-
     [SerializeField]
     protected GameObject spawnManager;
-
     [SerializeField]
     protected GameObject gameController;
     [SerializeField]
     protected GameController GameController;
+    
     [SerializeField]
     protected int wave;
-
     [SerializeField]
     protected Color enemyColor;
-
-
     public float messiVelocity;
-
     protected float horizontalInput;
     protected float verticalInput;
 
 
     void Start()
     {
-        //remember: all this variables needs to be ALSO inicializated in the child classes.
+        //reminder: all this variables needs to be ALSO inicializated in the child classes.
         spawnManager = GameObject.Find("SpawnManager");
         //el objeto:
         gameController = GameObject.Find("GameController");
         //el script:
         GameController = gameController.GetComponent<GameController>();
         wave = GameController.wave;
-
-        enemyRb2D = GetComponent<Rigidbody2D>();
-
         messi = GameObject.Find("Messi");
         MessiController = messi.GetComponent<MessiController>();
         /*messiVelocity = MessiController.speed; */
-
-        
-    
+        enemyRb2D = GetComponent<Rigidbody2D>();
 
         enemyColor = GetComponent<SpriteRenderer>().color;
         enemyColor.a = 1.0f;
         GetComponent<SpriteRenderer>().color = enemyColor;
-
         speed = 0.5f;
         //enemyCC2D = GetComponent<CircleCollider2D>();
-        
-        
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         //old method, using AddForce (physics)
         //Vector3 lookDirection = (messi.transform.position - transform.position).normalized;
         //enemyRb2D.AddForce(lookDirection * speed);
 
-
         //new method, using transform position with a Vector3.MoveTowards (so enemies dont push too much eachother)
         transform.position = Vector3.MoveTowards(transform.position, messi.transform.position, Time.deltaTime * speed);
-
 
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(-horizontalInput * Time.deltaTime * messiVelocity, 0, 0);
@@ -109,7 +90,7 @@ public class EnemyController : MonoBehaviour
 
     public void normalDrop()
     {   
-        //this conditional prevents errors in case of having an enemy without elemnts in the array dropList.
+        //this conditional prevents errors in case of having an enemy without elements in the array dropList.
         if (!(dropList.Length == 0))
         {
             dropRandomNumber = Random.Range(1, 100);
@@ -120,11 +101,8 @@ public class EnemyController : MonoBehaviour
             else if (dropRandomNumber >49)
             {
                 Instantiate(dropList[0], transform.position, transform.rotation * Quaternion.Euler (0, 0, 90));
-            }
-            
+            }   
         }
-        
-        
     }
 
     //POLYMORPHISM i have no use for this at this point, so i've imagined one
