@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (totalEnemiesCount <= 140 && isSpawning == false)
+        if (totalEnemiesCount <= 190 && isSpawning == false)
         {
             //isSpawning = true;
             StartCoroutine(SpawnEnemies());
