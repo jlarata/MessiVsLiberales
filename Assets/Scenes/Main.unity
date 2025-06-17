@@ -536,7 +536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: lvlandexpdisplay
+  m_text: lvl | exp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfd429736504b3317b445b257125d597, type: 2}
   m_sharedMaterial: {fileID: 5890236409285076328, guid: dfd429736504b3317b445b257125d597, type: 2}
