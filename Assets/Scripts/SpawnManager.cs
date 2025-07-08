@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (totalEnemiesCount <= 140 && isSpawning == false)
+        if (totalEnemiesCount <= 200 && isSpawning == false)
         {
             //isSpawning = true;
             StartCoroutine(SpawnEnemies());
@@ -161,9 +161,9 @@ private Vector3 GenerateHorizontalSpawnPosition()
             GenerateVerticalSpawnPosition();
             GenerateHorizontalSpawnPosition();
 
-            Instantiate(enemiesList[0], verticalRandomPos, enemiesList[0].transform.rotation);
+            Instantiate(enemiesList[3], verticalRandomPos, enemiesList[3].transform.rotation);
             totalEnemiesCount++;
-            Instantiate(enemiesList[0], horizontalRandomPos, enemiesList[0].transform.rotation);
+            Instantiate(enemiesList[4], horizontalRandomPos, enemiesList[4].transform.rotation);
             totalEnemiesCount++;
     }
 
@@ -175,7 +175,7 @@ private Vector3 GenerateHorizontalSpawnPosition()
 
             Instantiate(enemiesList[0], verticalRandomPos, enemiesList[0].transform.rotation);
             totalEnemiesCount++;
-            Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[0].transform.rotation);
+            Instantiate(enemiesList[1], horizontalRandomPos, enemiesList[1].transform.rotation);
             totalEnemiesCount++;
     }
 

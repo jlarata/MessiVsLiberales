@@ -4703,6 +4703,7 @@ MonoBehaviour:
   - {fileID: 4678304031824846195, guid: 91dcb0c6d770f83879933007ece9efd6, type: 3}
   - {fileID: 4678304031824846195, guid: 39512a1b0529b2c458f2706ce1d03576, type: 3}
   - {fileID: 4678304031824846195, guid: 39c7ca5a40fa14ed9b6cba7f9648388f, type: 3}
+  - {fileID: 4678304031824846195, guid: 19c1f0f930599e1c5bbcf24d1c9d917a, type: 3}
   spawnRangeY: 0
   spawnRangeX: 0
   spawnPosX: 0
